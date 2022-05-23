@@ -1,4 +1,6 @@
-function Home() {
+import Item from "../../components/list-item/Item";
+
+const Home = () => {
     return (
       <div className="Home">
           <h1>Home</h1>
