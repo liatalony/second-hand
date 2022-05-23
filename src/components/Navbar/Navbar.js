@@ -1,10 +1,12 @@
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Logo from "../../assets/logo192.png";
+import Page from "../../pages/page/Page";
 
 import "./navbar.scss";
 
 const Navbar = (props) => {
+	// console.log(props);
 	const [open, setOpen] = useState(false);
 
 	function handleNavigation() {
@@ -20,6 +22,7 @@ const Navbar = (props) => {
 					<button className="menu--burger" onClick={handleNavigation}>
 						<img src={Logo} alt="Secont hand shop name" />
 					</button>
+
 					<ul>
 						{props.pages.map((page) => (
 							<li key={page.id}>
@@ -54,6 +57,12 @@ const Navbar = (props) => {
 							// </li>
 						))}
 					</ul>
+					<Routes>
+						<Route
+							path={"/:slug"}
+							element={<Page pages={props.pages} />}
+						></Route>
+					</Routes>
 				</nav>
 			)}
 		</div>

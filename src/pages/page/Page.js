@@ -12,9 +12,20 @@ import { useParams } from "react-router-dom";
 // 	);
 // }
 
-function Page(props) {
+function Page({ pages }) {
+	console.log(pages);
+	const { slug } = useParams();
+
+	const page = pages.find((page) => page.slug === slug);
+	console.log(page);
 	// console.log(props);
-	return <h1>test</h1>;
+	return (
+		<div>
+			<h1>tests</h1>
+			<h1>{page.name}</h1>
+			<h2>{page.meta.title}</h2>
+		</div>
+	);
 }
 
 export default Page;

@@ -7,20 +7,19 @@ import Dashboard from "../../pages/dashboard/Dashboard";
 import Page from "../../pages/page/Page";
 
 const Main = (props) => {
-	console.log(props);
+	// console.log(props.pages);
 
 	return (
 		<main>
-			{props.pages.map((page) => (
-				<li key={page.id}>
-					{/* <Route path={`/${page.slug}`} element={<Page />} /> */}
-				</li>
-			))}
 			<Routes>
-				{/* <Route exact path={"/"} element={<Home />} />
+				<Route exact path={"/"} element={<Home />} />
 				<Route path={"/favourites"} element={<Favourites />} />
 				<Route path={"/reservations"} element={<Reservations />} />
-				<Route path={"/dashboard"} element={<Dashboard />} /> */}
+				<Route path={"/dashboard"} element={<Dashboard />} />
+				{/* <Route path={"/about"} element={<Page pages={props.pages} />} /> */}
+				{/* {props.pages.map((page) => (
+					<Route path={`/${page.slug}`} element={<Page pages={props.page} />} />
+				))} */}
 			</Routes>
 		</main>
 	);
