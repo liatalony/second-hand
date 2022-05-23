@@ -34,24 +34,8 @@ function App() {
 
 	return (
 		<div className="App">
-			<Header />
-			<Main />
-			<div>
-				<h1>API for pages</h1>
-				{!pages ? (
-					"Loading"
-				) : (
-					<div>
-						<ul>
-							{pages.map(({ id, name, slug }) => (
-								<li key={id}>
-									<Link to={`/pages/${slug}`}>{name}</Link>
-								</li>
-							))}
-						</ul>
-					</div>
-				)}
-			</div>
+			<Header pages={pages} />
+			<Main pages={pages} />
 			<footer></footer>
 		</div>
 	);
