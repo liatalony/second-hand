@@ -14,7 +14,6 @@ const Main = (props) => {
 			{props.pages.map((page) => (
 				<li key={page.id}>
 					{/* <Route path={`/${page.slug}`} element={<Page />} /> */}
-					<h2>{page.name}</h2>
 				</li>
 			))}
 			<Routes>
