@@ -1,7 +1,6 @@
 import { React, useEffect, useState } from "react";
-import { BrowserRouter as Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { request } from "graphql-request";
-// import "./App.css";
 import "./app.scss";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Header from "./components/header/Header";
