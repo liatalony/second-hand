@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { request } from "graphql-request";
 import "./App.css";
+import Dashboard from "./pages/dashboard/Dashboard";
 import Header from "./components/header/Header";
+import Home from "./pages/home/Home";
+import Favourites from "./pages/favourites/Favourites";
+import Reservations from "./pages/reservations/Reservations";
 import Main from "./components/main/Main";
 import Page from "./pages/page/Page";
 
@@ -34,24 +38,15 @@ function App() {
 
 	return (
 		<div className="App">
-			<Header />
-			<Main />
-			<div>
-				<h1>API for pages</h1>
-				{!pages ? (
-					"Loading"
-				) : (
-					<div>
-						<ul>
-							{pages.map(({ id, name, slug }) => (
-								<li key={id}>
-									<Link to={`/pages/${slug}`}>{name}</Link>
-								</li>
-							))}
-						</ul>
-					</div>
-				)}
-			</div>
+			<Header pages={pages} />
+			{/* <Main pages={pages} /> */}
+			<Routes>
+				<Route exact path={"/"} element={<Home />} />
+				<Route path={"/:slug"} element={<Page pages={pages} />} />
+				<Route path={"/favourites"} element={<Favourites />} />
+				<Route path={"/reservations"} element={<Reservations />} />
+				<Route path={"/dashboard"} element={<Dashboard />} />
+			</Routes>
 			<footer></footer>
 		</div>
 	);
