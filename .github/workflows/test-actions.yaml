@@ -1,0 +1,9 @@
+name: Peanuts
+on: [push]
+jobs:
+  Test-Job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List files
+        run: |
+          ls ${{ github.workspace }}
