@@ -1,4 +1,5 @@
 :root {
+	--border: 1rem solid var(--color-1);
 	--color-black: #352c2a;
 	--color-white: #f6f6f6;
 	--color-1: #8cc43c;
@@ -6,5 +7,9 @@
 	--color-3: #0c6c2b;
 	--color-4: #5e9e72;
 	--color-5: #a3c8ae;
-	--font-primary: "Montserrat", sans-serif;
+	--font-primary: "Times", serif;
+	--font-secondary: "Montserrat", sans-serif;
+	--margin: 1rem;
+	--padding: 1rem;
+	--gap: 1rem;
 }
