@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { request } from "graphql-request";
-import "./App.css";
+// import "./App.css";
+import "./app.scss";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
