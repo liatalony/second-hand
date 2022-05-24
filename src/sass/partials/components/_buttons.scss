@@ -1,0 +1,24 @@
+.btn {
+	border: 0;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	letter-spacing: var(--letter-spacing);
+	padding: var(--padding-btn);
+	text-transform: uppercase;
+	width: 100%;
+	&--primary {
+		background-color: var(--color-1);
+		color: var(--color-white);
+		&:hover {
+			opacity: var(--opacity);
+		}
+	}
+	&--secondary {
+		background-color: transparent;
+		border: var(--border);
+		color: var(--color-black);
+		&:hover {
+			opacity: var(--opacity);
+		}
+	}
+}

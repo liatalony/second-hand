@@ -8,6 +8,8 @@ function Page({ pages }) {
 		<div>
 			<h1>{page.name}</h1>
 			<h2>{page.meta.title}</h2>
+			<button className="btn btn--primary">test</button>
+			<button className="btn btn--secondary">test</button>
 		</div>
 	);
 }

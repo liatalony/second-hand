@@ -1,6 +1,10 @@
 // abstracts - variables - mixins
+@import "sass/partials/abstracts/mixins";
 @import "sass/partials/abstracts/variables";
 
 // base styles
 @import "sass/partials/base/base";
 @import "sass/partials/base/typography";
+
+// components - buttons
+@import "sass/partials/components/buttons";
