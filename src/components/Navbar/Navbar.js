@@ -57,12 +57,6 @@ const Navbar = (props) => {
 							// </li>
 						))}
 					</ul>
-					<Routes>
-						<Route
-							path={"/:slug"}
-							element={<Page pages={props.pages} />}
-						></Route>
-					</Routes>
 				</nav>
 			)}
 		</div>

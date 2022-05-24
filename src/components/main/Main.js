@@ -13,13 +13,10 @@ const Main = (props) => {
 		<main>
 			<Routes>
 				<Route exact path={"/"} element={<Home />} />
+				<Route path={"/:slug"} element={<Page pages={props.pages} />} />
 				<Route path={"/favourites"} element={<Favourites />} />
 				<Route path={"/reservations"} element={<Reservations />} />
 				<Route path={"/dashboard"} element={<Dashboard />} />
-				{/* <Route path={"/about"} element={<Page pages={props.pages} />} /> */}
-				{/* {props.pages.map((page) => (
-					<Route path={`/${page.slug}`} element={<Page pages={props.page} />} />
-				))} */}
 			</Routes>
 		</main>
 	);

@@ -13,12 +13,10 @@ import { useParams } from "react-router-dom";
 // }
 
 function Page({ pages }) {
-	console.log(pages);
+	// console.log(pages);
 	const { slug } = useParams();
-
 	const page = pages.find((page) => page.slug === slug);
-	console.log(page);
-	// console.log(props);
+	// console.log(page);
 	return (
 		<div>
 			<h1>tests</h1>
