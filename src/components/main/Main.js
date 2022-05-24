@@ -7,19 +7,19 @@ import Dashboard from "../../pages/dashboard/Dashboard";
 import Page from "../../pages/page/Page";
 
 const Main = (props) => {
-	// console.log(props.pages);
+  // console.log(props.pages);
 
-	return (
-		<main>
-			<Routes>
-				<Route exact path={"/"} element={<Home />} />
-				<Route path={"/:slug"} element={<Page pages={props.pages} />} />
-				<Route path={"/favourites"} element={<Favourites />} />
-				<Route path={"/reservations"} element={<Reservations />} />
-				<Route path={"/dashboard"} element={<Dashboard />} />
-			</Routes>
-		</main>
-	);
+  return (
+    <main>
+      <Routes>
+        <Route exact path={"/"} element={<Home />} />
+        <Route path={"/:slug"} element={<Page pages={props.pages} />} />
+        <Route path={"/favourites"} element={<Favourites />} />
+        <Route path={"/reservations"} element={<Reservations />} />
+        <Route path={"/dashboard"} element={<Dashboard />} />
+      </Routes>
+    </main>
+  );
 };
 
 export default Main;
