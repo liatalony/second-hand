@@ -17,6 +17,8 @@ jobs:
         run: npm ci
       - name: this step will do the code linting
         run: npm run lint
+      - name: this step is doing the unit testing
+        run: npm run test
       # - name: this step will run the build
       #   run: npm run build --if-present
       # - name: this step will do the testing
