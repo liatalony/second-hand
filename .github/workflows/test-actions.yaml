@@ -27,3 +27,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: just testing a job
+        uses: actions/checkout@v2
