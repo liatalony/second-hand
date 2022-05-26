@@ -4,6 +4,7 @@ import Favourites from "../../pages/favourites/Favourites";
 import Home from "../../pages/home/Home";
 import Reservations from "../../pages/reservations/Reservations";
 import Dashboard from "../../pages/dashboard/Dashboard";
+import SingleItem from "../../pages/single-item/SingleItem";
 
 const Main = () => {
     return (
@@ -13,6 +14,7 @@ const Main = () => {
                 <Route path={"/favourites"} element={<Favourites />} />
                 <Route path={"/reservations"} element={<Reservations />} />
                 <Route path={"/dashboard"} element={<Dashboard />} />
+                <Route path={"/id"} element={<SingleItem/>}/>
           </Routes>
 
       </main>
