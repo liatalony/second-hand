@@ -10,6 +10,7 @@ import Favourites from "./pages/favourites/Favourites";
 import Reservations from "./pages/reservations/Reservations";
 import Main from "./components/main/Main";
 import Page from "./pages/page/Page";
+import SingleItem from "./pages/single-item/SingleItem";
 
 function App() {
 	const [pages, setPages] = useState(null);
