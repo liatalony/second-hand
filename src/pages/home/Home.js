@@ -1,4 +1,5 @@
 import Item from "../../components/list-item/Item";
+import SingleItem from "../single-item/SingleItem";
 
 const Home = () => {
     return (

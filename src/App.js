@@ -47,6 +47,7 @@ function App() {
 				<Route path={"/favourites"} element={<Favourites />} />
 				<Route path={"/reservations"} element={<Reservations />} />
 				<Route path={"/dashboard"} element={<Dashboard />} />
+				<Route path={"/id"} element={<SingleItem/>}/>
 			</Routes>
 			<footer></footer>
 		</div>
