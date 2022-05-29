@@ -1,13 +1,13 @@
-import {React, useState} from 'react';
-import Heart from '../../assets/heart.svg';
-import { ReactSVG } from 'react-svg';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Zoom, EffectCards } from 'swiper';
+import {React, useState} from "react";
+import Heart from "../../assets/heart.svg";
+import { ReactSVG } from "react-svg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Zoom, EffectCards } from "swiper";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
 import "swiper/css/zoom";
-import './slider.scss';
+import "./slider.scss";
 
 const Slider =() => {
     const [liked, setLiked] = useState(false);
@@ -34,7 +34,7 @@ const Slider =() => {
           <Swiper 
           grabCursor={true} 
           pagination={{
-              el:'.custom-swiper-pagination',
+              el:".custom-swiper-pagination",
               clickable:true, 
           }} 
           modules={[Zoom, Pagination]} 
@@ -43,7 +43,7 @@ const Slider =() => {
           zoom={true}>
               {slides}
           </Swiper>
-          <div className={'custom-swiper-pagination swiper-pagination'}></div>
+          <div className={"custom-swiper-pagination swiper-pagination"}></div>
           </>
       );
     }

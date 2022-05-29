@@ -1,9 +1,9 @@
-import {React, useState} from 'react';
-import Heart from '../../assets/heart.svg';
-import { ReactSVG } from 'react-svg';
-import Jacket from '../../assets/jacket.jpg';
-import './item.scss';
-import { Link } from 'react-router-dom';
+import {React, useState} from "react";
+import Heart from "../../assets/heart.svg";
+import { ReactSVG } from "react-svg";
+import Jacket from "../../assets/jacket.jpg";
+import "./item.scss";
+import { Link } from "react-router-dom";
 
 const Item =() => {
   const [liked, setLiked] = useState(false);

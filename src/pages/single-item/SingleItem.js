@@ -1,7 +1,7 @@
-import {React, useState} from 'react';
-import Slider from '../../components/swiper/Slider';
-import './singleItem.scss';
-import Item from '../../components/list-item/Item';
+import {React, useState} from "react";
+import Slider from "../../components/swiper/Slider";
+import "./singleItem.scss";
+import Item from "../../components/list-item/Item";
 
 
 
