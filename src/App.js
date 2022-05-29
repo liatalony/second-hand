@@ -8,6 +8,7 @@ import Home from "./pages/home/Home";
 import Favourites from "./pages/favourites/Favourites";
 import Reservations from "./pages/reservations/Reservations";
 import Page from "./pages/page/Page";
+import SingleItem from "./pages/single-item/SingleItem";
 
 function App() {
   const [pages, setPages] = useState(null);
@@ -35,20 +36,21 @@ function App() {
     fetchPages();
   }, []);
 
-  return (
-    <div className="App">
-      <Header pages={pages} />
-      {/* <Main pages={pages} /> */}
-      <Routes>
-        <Route exact path={"/"} element={<Home />} />
-        <Route path={"/:slug"} element={<Page pages={pages} />} />
-        <Route path={"/favourites"} element={<Favourites />} />
-        <Route path={"/reservations"} element={<Reservations />} />
-        <Route path={"/dashboard"} element={<Dashboard />} />
-      </Routes>
-      <footer></footer>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Header pages={pages} />
+			{/* <Main pages={pages} /> */}
+			<Routes>
+				<Route exact path={"/"} element={<Home />} />
+				<Route path={"/:slug"} element={<Page pages={pages} />} />
+				<Route path={"/favourites"} element={<Favourites />} />
+				<Route path={"/reservations"} element={<Reservations />} />
+				<Route path={"/dashboard"} element={<Dashboard />} />
+				<Route path={"/id"} element={<SingleItem/>}/>
+			</Routes>
+			<footer></footer>
+		</div>
+	);
 }
 
 export default App;
