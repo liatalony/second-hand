@@ -1,5 +1,10 @@
-name: Second Hand Clothing Pipeline
-on: [push]
+name: Dev Workflow - linting and testing
+
+on:
+  push:
+    branches:
+      - development
+
 jobs:
   lint:
     runs-on: ubuntu-latest
