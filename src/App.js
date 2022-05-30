@@ -8,16 +8,17 @@ import Home from "./pages/home/Home";
 import Favourites from "./pages/favourites/Favourites";
 import Reservations from "./pages/reservations/Reservations";
 import Page from "./pages/page/Page";
+import Shop from "./pages/shop/Shop";
 import SingleItem from "./pages/single-item/SingleItem";
 
 function App() {
-  const [pages, setPages] = useState(null);
+	const [pages, setPages] = useState(null);
 
-  useEffect(() => {
-    const fetchPages = async () => {
-      const { pages } = await request(
-        "https://api-eu-central-1.graphcms.com/v2/cl3a5qe60007q01xmfuo8ga8x/master",
-        `
+	useEffect(() => {
+		const fetchPages = async () => {
+			const { pages } = await request(
+				"https://api-eu-central-1.graphcms.com/v2/cl3a5qe60007q01xmfuo8ga8x/master",
+				`
         {
           pages {
             name
@@ -30,11 +31,11 @@ function App() {
           }
         }
         `
-      );
-      setPages(pages);
-    };
-    fetchPages();
-  }, []);
+			);
+			setPages(pages);
+		};
+		fetchPages();
+	}, []);
 
 	return (
 		<div className="App">
@@ -47,8 +48,8 @@ function App() {
 				<Route path={"/reservations"} element={<Reservations />} />
 				<Route path={"/dashboard"} element={<Dashboard />} />
 				<Route path={"/id"} element={<SingleItem/>}/>
-				{/* <Route path={`/shop/${gender}`} element={<Shop gender={gender}/>}/>
-				<Route path={`/shop/${gender}/${subCategory}`} element={<SingleItem/>}/> */}
+				<Route path={"/shop/:gender"} element={<Shop/>}/>
+				<Route path={"/shop/:gender/:subCategory"} element={<Shop />}/>
 
 			</Routes>
 			<footer></footer>
