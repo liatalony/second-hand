@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "../../components/list-item/Item";
-import './home.scss';
-import Banner from '../../assets/banner.jpg';
+import "./home.scss";
+import Banner from "../../assets/banner.jpg";
 
 const Home = () => {
     return (
