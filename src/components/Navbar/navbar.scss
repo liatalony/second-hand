@@ -6,6 +6,7 @@ nav{
     left: 0;
     background-color: green;
     transition: width 0.3s linear;
+    z-index: 10;
     ul{
         padding: 0 1em 1em 1em;
         li{

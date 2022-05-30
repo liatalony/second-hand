@@ -10,6 +10,7 @@ import Favourites from "./pages/favourites/Favourites";
 import Reservations from "./pages/reservations/Reservations";
 import Main from "./components/main/Main";
 import Page from "./pages/page/Page";
+import Shop from "./pages/shop/Shop";
 import SingleItem from "./pages/single-item/SingleItem";
 
 function App() {
@@ -49,8 +50,8 @@ function App() {
 				<Route path={"/reservations"} element={<Reservations />} />
 				<Route path={"/dashboard"} element={<Dashboard />} />
 				<Route path={"/id"} element={<SingleItem/>}/>
-				{/* <Route path={`/shop/${gender}`} element={<Shop gender={gender}/>}/>
-				<Route path={`/shop/${gender}/${subCategory}`} element={<SingleItem/>}/> */}
+				<Route path={`/shop/:gender`} element={<Shop/>}/>
+				<Route path={`/shop/:gender/:subCategory`} element={<Shop />}/>
 
 			</Routes>
 			<footer></footer>
