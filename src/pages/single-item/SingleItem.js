@@ -13,6 +13,10 @@ const SingleItem =() => {
             <Slider/>
         </section>
         <section>
+        <div className='name-price'>
+                    <h1 className='title'>Item name</h1>
+                    <h1 className='price'>kr. 100</h1>
+                </div>
             <div className='item-desc'>
                 This is where we will put the text that will describe the item.
             </div>
@@ -37,6 +41,9 @@ const SingleItem =() => {
                     </table>
                 </div>
             </div>
+            <div className='button'>
+                    <button>Add to bag</button>
+                </div>
         </section>
         <section>
             <div className='similar-items'>

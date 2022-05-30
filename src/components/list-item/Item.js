@@ -17,11 +17,11 @@ const Item =() => {
         <div className='image-container'>
           <Link to={"/id"}>
         <div className="item-image" style={{ backgroundImage: `url(${Jacket})`, backgroundPosition: "center", backgroundSize: "cover"}}>
+        </div>
+        </Link>
           <button onClick={handleLike} className={liked ? "item-heart-liked" : "item-heart"}>
             <ReactSVG src={Heart}/>
           </button>
-        </div>
-        </Link>
         </div>
         <div className='item-details'>
           <h3><Link to={"/id"}>Item name</Link></h3>

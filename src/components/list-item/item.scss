@@ -1,8 +1,18 @@
+.Item{
+    margin-bottom: 20px;
+}
+
+.image-container{
+    position: relative;
+    width: 100%;
+    min-width: 165px;
+}
 .item{
     &-image{
-    width: 165px;
-    height: 250px;
-    padding: 1em 1em 0;
+    width: 100%;
+    min-width: 165px;
+    height: 0;
+    padding: 1em 1em 150%;
     text-align: right;
     }
     &-heart{
@@ -10,8 +20,14 @@
         height: 30px;
         background-color: transparent;
         border: none;
+        position: absolute;
+        top: 15px;
+        right: 15px;
         
         &-liked{
+            position: absolute;
+            top: 15px;
+            right: 15px;
             border: none;
             width: 30px;
             height: 30px;
@@ -21,6 +37,4 @@
             }
         }
     }
-
-
 }

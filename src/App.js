@@ -49,6 +49,9 @@ function App() {
 				<Route path={"/reservations"} element={<Reservations />} />
 				<Route path={"/dashboard"} element={<Dashboard />} />
 				<Route path={"/id"} element={<SingleItem/>}/>
+				{/* <Route path={`/shop/${gender}`} element={<Shop gender={gender}/>}/>
+				<Route path={`/shop/${gender}/${subCategory}`} element={<SingleItem/>}/> */}
+
 			</Routes>
 			<footer></footer>
 		</div>
