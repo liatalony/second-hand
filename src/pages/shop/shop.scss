@@ -1,0 +1,14 @@
+.products{
+    margin-top: 1.5em;
+    padding: 0 15px;
+
+    .title{
+        margin-bottom: 10px;
+    }
+    
+    .item-list{
+        display: grid;
+        grid-template-columns:repeat(auto-fill, minmax(165px, 1fr));
+        grid-gap: 10px;
+    }
+}
