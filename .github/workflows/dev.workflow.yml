@@ -3,7 +3,7 @@ name: Dev Workflow - linting and testing
 on:
   push:
     branches:
-      - test-actions
+      - development
 
 jobs:
   lint:
