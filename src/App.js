@@ -28,6 +28,14 @@ function App() {
               title
               description
             }
+			pageContent {
+				... on Section {
+				  id
+				  heading
+				  subHeading
+				  bodyText
+				}
+			  }
           }
         }
         `
@@ -47,10 +55,9 @@ function App() {
 				<Route path={"/favourites"} element={<Favourites />} />
 				<Route path={"/reservations"} element={<Reservations />} />
 				<Route path={"/dashboard"} element={<Dashboard />} />
-				<Route path={"/id"} element={<SingleItem/>}/>
-				<Route path={"/shop/:gender"} element={<Shop/>}/>
-				<Route path={"/shop/:gender/:subCategory"} element={<Shop />}/>
-
+				<Route path={"/id"} element={<SingleItem />} />
+				<Route path={"/shop/:gender"} element={<Shop />} />
+				<Route path={"/shop/:gender/:subCategory"} element={<Shop />} />
 			</Routes>
 			<footer></footer>
 		</div>
