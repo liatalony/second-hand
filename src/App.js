@@ -13,6 +13,23 @@ import SingleItem from "./pages/single-item/SingleItem";
 
 function App() {
 	const [pages, setPages] = useState(null);
+	const [roles, setRoles] = useState(false);
+
+	useEffect(() => {
+		console.log("running");
+		getRoles();
+	}, []);
+
+	function getRoles() {
+	fetch("http://localhost:3001")
+		.then(response => {
+			return response.text();
+		})
+		.then(data => {
+			setRoles(data);
+		});
+	}
+
 
 	useEffect(() => {
 		const fetchPages = async () => {
@@ -40,6 +57,7 @@ function App() {
 	return (
 		<div className="App">
 			<Header pages={pages} />
+			{roles ? roles : "there are no roles"}
 			{/* <Main pages={pages} /> */}
 			<Routes>
 				<Route exact path={"/"} element={<Home />} />
