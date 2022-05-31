@@ -38,6 +38,13 @@ function App() {
 							url
 						  }
 						}
+						... on Button {
+							id
+							name
+						  }
+					  }
+					  pageFooter {
+						copyrightText
 					  }
 					}
 				  }

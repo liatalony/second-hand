@@ -23,9 +23,9 @@ function Page({ pages }) {
 					<h2>{content.heading}</h2>
 					<h3>{content.subHeading}</h3>
 					<p>{content.bodyText}</p>
+					<footer>{page.pageFooter.copyrightText}</footer>
 				</div>
 			))}
-			<button className="btn btn--primary">start selling</button>
 		</div>
 	);
 }
