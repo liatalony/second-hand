@@ -8,7 +8,6 @@ function Page({ pages }) {
 	return (
 		<div>
 			<h1>{page.name}</h1>
-			<h2>{page.meta.title}</h2>
 			{page.pageContent.map((content) => (
 				<div key={content.id}>
 					<div className="image-container">

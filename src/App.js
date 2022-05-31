@@ -38,6 +38,12 @@ function App() {
 							url
 						  }
 						}
+						... on Hero {
+							id
+							heroCta
+							heroText
+							heroTitle
+						  }
 						... on Button {
 							id
 							name
