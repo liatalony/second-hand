@@ -19,25 +19,28 @@ function App() {
 			const { pages } = await request(
 				"https://api-eu-central-1.graphcms.com/v2/cl3a5qe60007q01xmfuo8ga8x/master",
 				`
-        {
-          pages {
-            name
-            id
-            slug
-            meta {
-              title
-              description
-            }
-			pageContent {
-				... on Section {
-				  id
-				  heading
-				  subHeading
-				  bodyText
-				}
-			  }
-          }
-        }
+				{
+					pages {
+					  name
+					  id
+					  slug
+					  meta {
+						title
+						description
+					  }
+					  pageContent {
+						... on Section {
+						  id
+						  heading
+						  subHeading
+						  bodyText
+						  image {
+							url
+						  }
+						}
+					  }
+					}
+				  }
         `
 			);
 			setPages(pages);
