@@ -1,55 +1,99 @@
-.single-item-page{
-    padding-inline: 15px;
-}
-table{
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid black;
-    text-align: center;
-}
+@import "../../sass/partials/abstracts/mixins";
 
-.detail-name, .detail-value{
-    width: 50%;
-    padding: 1em;
-    border-width: 1px 0;
-    border-style: solid;
-    border-color: black;
+.single-item-page {
+	// display: flex;
+	// padding-inline: 15px;
+	// max-width: 800px;
+	@include respond(desktop) {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		margin: 0 auto;
+		max-width: var(--max-width);
+	}
 }
 
-.similar-items-list{
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    overflow-x: auto;
-
-    .Item{
-        margin: 5px;
-    }
+.container--wrapper {
+	@include respond(desktop) {
+		grid-column: 1 / -1;
+		display: grid;
+		gap: var(--gap);
+		grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+		margin: 0 auto;
+		max-width: var(--max-width);
+	}
 }
 
-section{
-    margin-bottom: 20px;
+.container--similar-items {
+	@include respond(desktop) {
+		grid-column: 1 / -1;
+		// background-color: yellow;
+	}
 }
 
-.buy{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    box-shadow: rgb(173, 173, 173) 0px -3px 10px 2px;
-    >.name-price{
-        display: flex;
-        justify-content: space-between;
-        padding: 15px;
-    }
-    >.button{
-        padding: 15px;
-        padding-top: 0;
-    }
-    button{
-        width: 100%;
-        padding: 10px;
-    }
+.similar-items-list {
+	display: flex;
+	flex-wrap: nowrap;
+	// width: 100%;
+	overflow-x: auto;
+	.Item {
+		margin: 15px;
+		width: 100%;
+	}
+	@include respond(desktop) {
+		// margin: 0 auto;
+		// justify-content: space-evenly;
+	}
+}
 
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 0.2rem solid var(--color-3);
+	text-align: center;
+}
+
+.detail-name,
+.detail-value {
+	width: 50%;
+	padding: 1em;
+	border-width: 1px 0;
+	border-style: solid;
+	border-color: black;
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+.container--buy {
+	@include respond(desktop) {
+		grid-column: 1 / -1;
+		margin: 0 auto;
+		display: none;
+	}
+}
+
+.buy {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: white;
+	box-shadow: rgb(173, 173, 173) 0px -3px 10px 2px;
+	> .name-price {
+		display: flex;
+		justify-content: space-between;
+		padding: 15px;
+	}
+	> .button {
+		padding: 15px;
+		padding-top: 0;
+	}
+	button {
+		width: 100%;
+		padding: 10px;
+	}
+	// @include respond(desktop) {
+	// 	position: unset;
+	// }
 }
