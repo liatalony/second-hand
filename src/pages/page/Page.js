@@ -6,11 +6,11 @@ function Page({ pages }) {
 	const { slug } = useParams();
 	const page = pages.find((page) => page.slug === slug);
 	return (
-		<div>
+		<div className="container">
 			<h1>{page.name}</h1>
 			{page.pageContent.map((content) => (
 				<div key={content.id}>
-					<div className="image-container">
+					<div className="container--image">
 						<div
 							className="image-section"
 							style={{
@@ -19,12 +19,16 @@ function Page({ pages }) {
 							}}
 						></div>
 					</div>
-					<h2>{content.heading}</h2>
-					<h3>{content.subHeading}</h3>
-					<p>{content.bodyText}</p>
-					<footer>{page.pageFooter.copyrightText}</footer>
+					<div className="container--text">
+						<div className="container--text--heading">
+							<h2>{content.heading}</h2>
+							<h3>{content.subHeading}</h3>
+						</div>
+						<p>{content.bodyText}</p>
+					</div>
 				</div>
 			))}
+			<footer>{page.pageFooter.copyrightText}</footer>
 		</div>
 	);
 }

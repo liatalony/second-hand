@@ -1,6 +1,21 @@
-.image-container {
-	position: relative;
-	width: 100%;
+@import "../../sass/partials/abstracts/mixins";
+
+.container {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	&--image {
+		position: relative;
+		width: 100%;
+		@include respond(tablet) {
+			border: var(--border);
+		}
+	}
+	&--text {
+		padding: var(--padding);
+		&--heading {
+			margin-bottom: 0.5rem;
+		}
+	}
 }
 
 .image-section {
