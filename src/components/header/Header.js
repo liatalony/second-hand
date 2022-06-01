@@ -1,5 +1,6 @@
 import { React } from "react";
 import { Link } from "react-router-dom";
+import { ReactSVG } from "react-svg";
 import Navbar from "../Navbar/Navbar";
 // import LogoFull from "../../assets/icons/wrinkle-logo-full.svg";
 import LogoW from "../../assets/icons/wrinkle-logo-w.svg";
@@ -22,7 +23,7 @@ const Header = (props) => {
 			<div className="Icons">
 				<Link to={"/favourites"}>
 					<div className={"favourites"}>
-						<img src={Heart} alt="View my favourites" />
+						<ReactSVG src={Heart} />
 					</div>
 				</Link>
 				<Link to={"/reservations"}>

@@ -1,29 +1,29 @@
-header{
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    padding: 5px 15px;
-    img{
-        width: 30px;
-        height: 30px;
-    }
-    .logo img{
-        width: 100%;
-        margin-right: 20px;
-    }
-
-    .Icons{
-        display: flex;
-        align-self: flex-end;
-        margin-left: auto;
-        img{
-            margin-left: 5px;
-            stroke: black;
-
-        }
-    }
-    button{
-        background-color: transparent;
-        border: none;
-    }
+header {
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+	padding: 0.2rem var(--padding);
+	img {
+		width: 30px;
+		height: 30px;
+	}
+	.logo img {
+		width: 100%;
+		margin-right: var(--margin);
+	}
+	.Icons {
+		display: flex;
+		align-self: flex-end;
+		margin-left: auto;
+		img,
+		svg {
+			margin-left: var(--margin);
+			stroke: var(--color-black);
+			stroke-width: 2px;
+		}
+	}
+	button {
+		background-color: transparent;
+		border: none;
+	}
 }

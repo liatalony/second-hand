@@ -10,7 +10,7 @@ const Home = () => {
 			<div
 				className="banner"
 				style={{
-					backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${Banner})`,
+					backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(${Banner})`,
 				}}
 			>
 				<h1 className="title">No planet b</h1>
