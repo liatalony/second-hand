@@ -29,6 +29,7 @@ function Page({ pages }) {
 				</div>
 			))}
 			<footer>{page.pageFooter.copyrightText}</footer>
+			<button className="btn btn--primary">test</button>
 		</div>
 	);
 }
