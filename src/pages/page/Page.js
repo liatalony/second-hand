@@ -12,7 +12,7 @@ function Page({ pages }) {
 				<div key={content.id}>
 					<div className="container--image">
 						<div
-							className="image-section"
+							className="image-bg"
 							style={{
 								backgroundImage: `url(${content.image.url})`,
 								backgroundPosition: "center",

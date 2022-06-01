@@ -9,6 +9,10 @@
 		@include respond(tablet) {
 			border: var(--border);
 		}
+		.image-bg {
+			width: 100%;
+			height: 200px;
+		}
 	}
 	&--text {
 		padding: var(--padding);
@@ -16,9 +20,4 @@
 			margin-bottom: 0.5rem;
 		}
 	}
-}
-
-.image-section {
-	width: 100%;
-	height: 200px;
 }
