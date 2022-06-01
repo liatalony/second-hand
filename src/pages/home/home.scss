@@ -35,7 +35,6 @@
 		// align-self: flex-end;
 	}
 }
-
 .new-products {
 	max-width: var(--max-width);
 	margin: 0 auto;
@@ -48,5 +47,8 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
 		grid-gap: var(--gap);
+		@include respond(desktop) {
+			grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		}
 	}
 }
