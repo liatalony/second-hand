@@ -1,6 +1,8 @@
 @import "../../sass/partials/abstracts/mixins";
 
 .products {
+	max-width: var(--max-width);
+	margin: 0 auto;
 	// margin-top: 1em;
 	padding: 0 var(--padding);
 	.item-list {
