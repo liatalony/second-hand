@@ -10,10 +10,14 @@ import Reservations from "./pages/reservations/Reservations";
 import Page from "./pages/page/Page";
 import Shop from "./pages/shop/Shop";
 import SingleItem from "./pages/single-item/SingleItem";
+import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
 
 function App() {
 	const [pages, setPages] = useState(null);
 	const [roles, setRoles] = useState(false);
+
+	console.log(pages);
 
 	useEffect(() => {
 		console.log("running");
@@ -54,23 +58,55 @@ function App() {
 		fetchPages();
 	}, []);
 
+	const ShopPage= () => {
+		return (
+			<>
+				<Header pages={pages} />
+				{roles ? roles : "there are no roles"}
+				{/* <Main pages={pages} /> */}
+				<Routes>
+					<Route exact path={"/"} element={<Home />} />
+					<Route path={"/:slug"} element={<Page pages={pages} />} />
+					<Route path={"/favourites"} element={<Favourites />} />
+					<Route path={"/reservations"} element={<Reservations />} />
+					<Route path={"/dashboard"} element={<Dashboard />} />
+					<Route path={"/id"} element={<SingleItem/>}/>
+					<Route path={"/shop/:gender"} element={<Shop/>}/>
+					<Route path={"/shop/:gender/:subCategory"} element={<Shop />}/>
+				</Routes>
+				<footer></footer>
+			</>
+		)
+	}
+
+	const DashboardPage= () => {
+		return (
+			<>
+				{/* <Header pages={pages} /> */}
+				{roles ? roles : "there are no roles"}
+				{/* <Main pages={pages} /> */}
+				<Routes>
+					<Route exact path={"/"} element={<Login />} />
+					<Route exact path={"/login"} element={<Login />} />
+					<Route exact path={"/signup"} element={<Signup />} />
+				</Routes>
+				<footer></footer>
+			</>
+		)
+	}
+
+	const loaded = pages;
+
+	if (!loaded) {
+		return "loading....";
+	}
 	return (
 		<div className="App">
-			<Header pages={pages} />
-			{roles ? roles : "there are no roles"}
-			{/* <Main pages={pages} /> */}
 			<Routes>
-				<Route exact path={"/"} element={<Home />} />
-				<Route path={"/:slug"} element={<Page pages={pages} />} />
-				<Route path={"/favourites"} element={<Favourites />} />
-				<Route path={"/reservations"} element={<Reservations />} />
-				<Route path={"/dashboard"} element={<Dashboard />} />
-				<Route path={"/id"} element={<SingleItem/>}/>
-				<Route path={"/shop/:gender"} element={<Shop/>}/>
-				<Route path={"/shop/:gender/:subCategory"} element={<Shop />}/>
-
-			</Routes>
-			<footer></footer>
+				<Route path={"/*"} element={<ShopPage />} />
+				<Route path={"/dashboard/*"} element={<DashboardPage />} />
+			</Routes>	
+			
 		</div>
 	);
 }

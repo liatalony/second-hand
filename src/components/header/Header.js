@@ -1,7 +1,12 @@
 import { React } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-import Logo from "../../assets/logo192.png";
+// import LogoFull from "../../assets/icons/wrinkle-logo-full.svg";
+import LogoW from "../../assets/icons/wrinkle-logo-w.svg";
+import Heart from "../../assets/heart.svg";
+import Bag from "../../assets/icons/shopping-bag.svg";
+import Avatar from "../../assets/icons/avatar.svg";
+
 import "./header.scss";
 
 const Header = (props) => {
@@ -11,23 +16,23 @@ const Header = (props) => {
 			<Navbar pages={props.pages} />
 			<Link to={"/"}>
 				<div className={"logo"}>
-					<img src={Logo} alt="Secont hand shop name" />
+					<img src={LogoW} alt="Secont hand shop name" />
 				</div>
 			</Link>
 			<div className="Icons">
 				<Link to={"/favourites"}>
 					<div className={"favourites"}>
-						<img src={Logo} alt="View my favourites" />
+						<img src={Heart} alt="View my favourites" />
 					</div>
 				</Link>
 				<Link to={"/reservations"}>
 					<div className={"reservations"}>
-						<img src={Logo} alt="My reservations" />
+						<img src={Bag} alt="My reservations" />
 					</div>
 				</Link>
 				<Link to={"/dashboard"}>
 					<div className={"profile"}>
-						<img src={Logo} alt="My account" />
+						<img src={Avatar} alt="My account" />
 					</div>
 				</Link>
 			</div>

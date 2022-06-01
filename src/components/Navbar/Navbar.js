@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/logo192.png";
+import Burger from "../../assets/icons/burger-menu.svg";
+
 
 import "./navbar.scss";
 
@@ -13,12 +14,12 @@ const Navbar = (props) => {
 	return (
 		<div>
 			<button className="menu--burger" onClick={handleNavigation}>
-				<img src={Logo} alt="Secont hand shop name" />
+				<img src={Burger} alt="Secont hand shop name" />
 			</button>
 			{open && (
 				<nav>
 					<button className="menu--burger" onClick={handleNavigation}>
-						<img src={Logo} alt="Secont hand shop name" />
+						<img src={Burger} alt="Secont hand shop name" />
 					</button>
 
 					<ul>
