@@ -28,4 +28,7 @@
 	--opacity: 0.5;
 	--padding: 1rem;
 	--padding-btn: 0.5rem 3rem;
+	--transition: all var(--transition-time) ease;
+	--transition-time: 150ms;
+	--transform: scale(1.2);
 }
