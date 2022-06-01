@@ -14,6 +14,7 @@
 		}
 	}
 }
+
 .sub-categories {
 	display: flex;
 	justify-content: center;
@@ -21,17 +22,19 @@
 		margin: 0 var(--margin);
 		text-transform: capitalize;
 		&.active {
-			font-weight: bold;
+			font-weight: var(--font-weight-bold);
 			text-decoration: underline;
 		}
 	}
 }
+
 .filters {
 	display: flex;
 	justify-content: space-between;
-	gap: 10px;
-	margin: 1em 0;
-	button {
-		width: 100%;
+	gap: var(--gap);
+	margin: var(--margin) 0;
+	@include respond(desktop) {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
 	}
 }
