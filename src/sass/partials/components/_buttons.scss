@@ -1,9 +1,9 @@
 .btn {
 	display: block;
 	border: 0;
-	border-radius: var(--border-radius);
+	// border-radius: var(--border-radius);
 	cursor: pointer;
-	font-family: var(--font-secondary);
+	// font-family: var(--font-secondary);
 	font-weight: var(--font-weight-bold);
 	letter-spacing: var(--letter-spacing);
 	padding: var(--padding-btn);
@@ -19,7 +19,7 @@
 	&--secondary {
 		background-color: transparent;
 		border: var(--border);
-		color: var(--color-black);
+		color: var(--color-1);
 		&:hover {
 			opacity: var(--opacity);
 		}
