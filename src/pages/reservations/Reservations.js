@@ -16,6 +16,24 @@ function Reservations() {
 					<Item />
 				</div>
 			</div>
+			<div>
+				<div>
+					<h2>Reservation summary</h2>
+					<hr />
+					<h3>5 items</h3>
+					<p>
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
+						incidunt maiores, officia nisi molestiae illo fugit totam quasi
+						dolore, rem a architecto dolorum numquam necessitatibus tempora
+						laudantium facilis eveniet! Animi.
+					</p>
+				</div>
+				<div className="container--buy--desktop">
+					<div className="button">
+						<button className="btn btn--primary">Reserve Bag</button>
+					</div>
+				</div>
+			</div>
 			<section className="container--buy">
 				<div className="buy">
 					<div className="name-price">
