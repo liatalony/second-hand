@@ -1,20 +1,35 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import Heart from "../../assets/heart.svg";
 import { ReactSVG } from "react-svg";
 import Jacket from "../../assets/jacket.jpg";
 import "./item.scss";
 import { Link } from "react-router-dom";
 
-const Item = () => {
+const Item = (props) => {
+	console.log(props);
 	const [liked, setLiked] = useState(false);
+	const [isActive, setIsActive] = useState(null);
 
 	function handleLike() {
 		setLiked((prev) => !prev);
 	}
 
+	useEffect(() => {
+		if (props.status) {
+			setIsActive(props.status);
+		}
+	}, []);
+
 	return (
 		<div className="Item">
-			<div className="image-container">
+			{/* <div className="image-container"> */}
+			<div
+				className={
+					!isActive
+						? "image-container"
+						: "image-container image-container--inactive"
+				}
+			>
 				<Link to={"/id"}>
 					<div
 						className="item-image"
@@ -36,7 +51,9 @@ const Item = () => {
 				<h4>
 					<Link to={"/id"}>Item Name</Link>
 				</h4>
-				<p>kr. 100</p>
+				<p className="price">
+					kr. 100<span className="status"> {props.status}</span>
+				</p>
 			</div>
 		</div>
 	);

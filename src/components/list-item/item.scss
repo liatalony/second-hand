@@ -6,6 +6,9 @@
 	position: relative;
 	width: 100%;
 	min-width: 165px;
+	&--inactive {
+		opacity: 0.3;
+	}
 }
 
 .item {

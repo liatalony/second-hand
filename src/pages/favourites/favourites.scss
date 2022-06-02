@@ -1,0 +1,25 @@
+@import "../../sass/partials/abstracts/mixins";
+
+.products {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 0 var(--padding);
+	.item-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+		grid-gap: var(--gap);
+		@include respond(desktop) {
+			grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		}
+	}
+}
+
+.favourites h1 {
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.item-details .price .status {
+	color: var(--color-warning);
+	font-weight: var(--font-weight-semibold);
+}
