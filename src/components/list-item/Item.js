@@ -14,21 +14,32 @@ const Item = () => {
 
 	return (
 		<div className="Item">
-			<div className='image-container'>
+			<div className="image-container">
 				<Link to={"/id"}>
-					<div className="item-image" style={{ backgroundImage: `url(${Jacket})`, backgroundPosition: "center", backgroundSize: "cover"}}>
-					</div>
+					<div
+						className="item-image"
+						style={{
+							backgroundImage: `url(${Jacket})`,
+							backgroundPosition: "center",
+							backgroundSize: "cover",
+						}}
+					></div>
 				</Link>
-				<button onClick={handleLike} className={liked ? "item-heart-liked" : "item-heart"}>
-					<ReactSVG src={Heart}/>
+				<button
+					onClick={handleLike}
+					className={liked ? "item-heart-liked" : "item-heart"}
+				>
+					<ReactSVG src={Heart} />
 				</button>
 			</div>
-			<div className='item-details'>
-				<h3><Link to={"/id"}>Item name</Link></h3>
+			<div className="item-details">
+				<h4>
+					<Link to={"/id"}>Item namesss</Link>
+				</h4>
 				<p>kr. 100</p>
 			</div>
 		</div>
 	);
-}
-  
+};
+
 export default Item;

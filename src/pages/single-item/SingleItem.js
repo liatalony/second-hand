@@ -12,6 +12,10 @@ const SingleItem = () => {
 				</section>
 				<div className="container--description">
 					<section>
+						<div className="title">
+							<h1>Item Name</h1>
+							<h2>$$ Price</h2>
+						</div>
 						<div className="item-desc">
 							This is where we will put the text that will describe the item.
 							Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -25,11 +29,11 @@ const SingleItem = () => {
 						</div>
 					</section>
 					<section>
-						<div className={"item-details"}>
-							<div className={"title"}>
+						<div className="item-details">
+							<div className="title">
 								<h3>Product Specifications</h3>
 							</div>
-							<div className={"table-container"}>
+							<div className="table-container">
 								<table>
 									<tbody>
 										<tr>
@@ -46,6 +50,11 @@ const SingleItem = () => {
 										</tr>
 									</tbody>
 								</table>
+							</div>
+						</div>
+						<div className="container--buy--desktop">
+							<div className="button">
+								<button className="btn btn--primary">Add to bag</button>
 							</div>
 						</div>
 					</section>
@@ -66,7 +75,7 @@ const SingleItem = () => {
 				</div>
 			</section>
 			<section className="container--buy">
-				<div className={"buy"}>
+				<div className="buy">
 					<div className="name-price">
 						<h1 className="title">Item name</h1>
 						<h1 className="price">kr. 100</h1>

@@ -1,12 +1,12 @@
-.swiper-pagination{
-    position: static;
+.swiper-pagination {
+	position: static;
 
-    &-bullet{
-        width: 15px;
-        height: 15px;
-    }
-
+	&-bullet {
+		width: 15px;
+		height: 15px;
+		background-color: var(--color-1);
+	}
 }
-.custom-swiper-pagination{
-margin-top: 10px;
+.custom-swiper-pagination {
+	margin-top: 10px;
 }

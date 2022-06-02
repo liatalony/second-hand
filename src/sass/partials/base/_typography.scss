@@ -9,9 +9,16 @@ h2 {
 	text-transform: uppercase;
 }
 
-h3,
+h3 {
+	font-family: var(--font-secondary);
+	font-weight: var(--font-weight-bold);
+	color: var(--color-1);
+}
+
 h4 {
-	font-weight: var(--font-weight-regular);
+	font-family: var(--font-primary);
+	color: var(--color-black);
+	// font-weight: var(--font-weight-bold);
 }
 
 body,

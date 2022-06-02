@@ -66,9 +66,15 @@ section {
 }
 
 .container--buy {
-	@include respond(desktop) {
+	@include respond(tablet) {
 		grid-column: 1 / -1;
 		margin: 0 auto;
+		display: none;
+	}
+}
+
+.container--buy--desktop {
+	@include respond(mobile) {
 		display: none;
 	}
 }
