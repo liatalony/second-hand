@@ -14,9 +14,9 @@ const Home = () => {
 				}}
 			>
 				<h1 className="title">No planet b</h1>
-				<h4 className="sub-title">
+				<p className="sub-title">
 					Browse and reserve our second hand items before you come to our shop
-				</h4>
+				</p>
 				<div className="buttons">
 					<Link to={"/shop/women"} className={"btn btn--primary"}>
 						Shop Women
