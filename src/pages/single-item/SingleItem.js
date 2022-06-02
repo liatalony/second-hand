@@ -81,7 +81,7 @@ const SingleItem = () => {
 						<h1 className="price">kr. 100</h1>
 					</div>
 					<div className="button">
-						<button>Add to bag</button>
+						<button className="btn btn--primary">Add to bag</button>
 					</div>
 				</div>
 			</section>
