@@ -34,7 +34,7 @@ const Item = () => {
 			</div>
 			<div className="item-details">
 				<h4>
-					<Link to={"/id"}>Item namesss</Link>
+					<Link to={"/id"}>Item Name</Link>
 				</h4>
 				<p>kr. 100</p>
 			</div>

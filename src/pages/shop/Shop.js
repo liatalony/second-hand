@@ -7,7 +7,7 @@ const Shop = () => {
 	let { gender, subCategory } = useParams();
 	console.log(subCategory);
 	return (
-		<div className="Shop">
+		<div className="shop">
 			<h1 className="title">{gender}</h1>
 			<div className="products">
 				<div className="sub-categories">
