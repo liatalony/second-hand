@@ -20,9 +20,10 @@ const Item = (props) => {
 		}
 	}, []);
 
+	// useEffect(() => )
+
 	return (
 		<div className="Item">
-			{/* <div className="image-container"> */}
 			<div
 				className={
 					!isActive
