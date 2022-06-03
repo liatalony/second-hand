@@ -1,5 +1,5 @@
 import { useState, React } from "react";
-import Categories from "../categories/Categories";
+import Categories from "../../components/categories/Categories";
 import Item from "../../components/list-item/Item";
 import "./shop.scss";
 import { Link, useParams } from "react-router-dom";
