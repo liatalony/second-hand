@@ -9,8 +9,18 @@ a {
 	color: var(--link-color);
 }
 
+fieldset {
+	border: 0;
+}
+
 hr {
 	margin: 2rem 0;
+}
+
+legend {
+	padding: 1rem 0;
+	font-family: var(--font-primary);
+	color: var(--color-1);
 }
 
 ul {

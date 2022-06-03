@@ -7,7 +7,7 @@ const Categories = () => {
 			<form action="">
 				<fieldset>
 					<legend>Choose your categories</legend>
-					<label className="container-input" htmlFor="category-shirts">
+					<label className="checkbox-container" htmlFor="category-shirts">
 						Shirts
 						<input
 							type="checkbox"
@@ -17,7 +17,7 @@ const Categories = () => {
 						/>
 						<span className="checkmark"></span>
 					</label>
-					<label className="container-input" htmlFor="category-jackets">
+					<label className="checkbox-container" htmlFor="category-jackets">
 						Jackets
 						<input
 							type="checkbox"
@@ -27,7 +27,7 @@ const Categories = () => {
 						/>
 						<span className="checkmark"></span>
 					</label>
-					<label className="container-input" htmlFor="category-shoes">
+					<label className="checkbox-container" htmlFor="category-shoes">
 						Shoes
 						<input
 							type="checkbox"
@@ -37,7 +37,7 @@ const Categories = () => {
 						/>
 						<span className="checkmark"></span>
 					</label>
-					<label className="container-input" htmlFor="category-dresses">
+					<label className="checkbox-container" htmlFor="category-dresses">
 						Dresses
 						<input
 							type="checkbox"
@@ -47,7 +47,7 @@ const Categories = () => {
 						/>
 						<span className="checkmark"></span>
 					</label>
-					<label className="container-input" htmlFor="category-pants">
+					<label className="checkbox-container" htmlFor="category-pants">
 						Pants
 						<input
 							type="checkbox"
