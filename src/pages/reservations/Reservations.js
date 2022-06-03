@@ -37,6 +37,8 @@ function Reservations() {
 					<h2>Reservation summary</h2>
 					<hr />
 					<h3>5 items</h3>
+					<h3>Total</h3>
+					<hr />
 					<p>
 						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
 						incidunt maiores, officia nisi molestiae illo fugit totam quasi
