@@ -16,26 +16,27 @@ import { Navigate } from "react-router-dom";
 
 function App() {
 	const [pages, setPages] = useState(null);
-	const [roles, setRoles] = useState(false);
-	const [userID, setUserId] = useState(false);
+	// const [roles, setRoles] = useState(false);
+	// const [userID, setUserId] = useState(false);
+	const userID=false;
 
 
 	console.log(pages);
 
-	useEffect(() => {
-		console.log("running");
-		getRoles();
-	}, []);
+	// useEffect(() => {
+	// 	console.log("running");
+	// 	getRoles();
+	// }, []);
 
-	function getRoles() {
-	fetch("http://localhost:3001")
-		.then(response => {
-			return response.text();
-		})
-		.then(data => {
-			setRoles(data);
-		});
-	}
+	// function getRoles() {
+	// fetch("http://localhost:3001")
+	// 	.then(response => {
+	// 		return response.text();
+	// 	})
+	// 	.then(data => {
+	// 		setRoles(data);
+	// 	});
+	// }
 
 
 	useEffect(() => {
@@ -89,7 +90,7 @@ function App() {
 		return (
 			<>
 				<Header pages={pages} />
-				{roles ? roles : "there are no roles"}
+				{/* {roles ? roles : "there are no roles"} */}
 				{/* <Main pages={pages} /> */}
 				<Routes>
 					<Route exact path={"/"} element={<Home />} />
@@ -108,29 +109,29 @@ function App() {
 
 
 
-	useEffect(() => {
-		console.log("running");
-		getUserSession();
-	}, []);
+	// useEffect(() => {
+	// 	console.log("running");
+	// 	getUserSession();
+	// }, []);
 
-	function getUserSession() {
-		fetch("http://localhost:3001/session")
-	.then(response => {
-		return response.text();
-	})
-	.then(data => {
-		setUserId(data);
-		if (data=="") {
-			setUserId(false);
-		}
-	});
-	}
+	// function getUserSession() {
+	// 	fetch("http://localhost:3001/session")
+	// .then(response => {
+	// 	return response.text();
+	// })
+	// .then(data => {
+	// 	setUserId(data);
+	// 	if (data=="") {
+	// 		setUserId(false);
+	// 	}
+	// });
+	// }
 
 	const DashboardPage= () => {
 		return (
 			<>
 				{/* <Header pages={pages} /> */}
-				{roles ? roles : "there are no roles"}
+				{/* {roles ? roles : "there are no roles"} */}
 				{/* <Main pages={pages} /> */}
 				<Routes>
 					<Route exact path={"/"} element={userID ? <Dashboard /> : <Navigate replace to={"/dashboard/login"}/>} />
