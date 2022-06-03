@@ -12,10 +12,13 @@ import Shop from "./pages/shop/Shop";
 import SingleItem from "./pages/single-item/SingleItem";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
+import { Navigate } from "react-router-dom";
 
 function App() {
 	const [pages, setPages] = useState(null);
 	const [roles, setRoles] = useState(false);
+	const [userID, setUserId] = useState(false);
+
 
 	console.log(pages);
 
@@ -103,6 +106,26 @@ function App() {
 		)
 	}
 
+
+
+	useEffect(() => {
+		console.log("running");
+		getUserSession();
+	}, []);
+
+	function getUserSession() {
+		fetch("http://localhost:3001/session")
+	.then(response => {
+		return response.text();
+	})
+	.then(data => {
+		setUserId(data);
+		if (data=="") {
+			setUserId(false);
+		}
+	});
+	}
+
 	const DashboardPage= () => {
 		return (
 			<>
@@ -110,9 +133,9 @@ function App() {
 				{roles ? roles : "there are no roles"}
 				{/* <Main pages={pages} /> */}
 				<Routes>
-					<Route exact path={"/"} element={<Login />} />
-					<Route exact path={"/login"} element={<Login />} />
-					<Route exact path={"/signup"} element={<Signup />} />
+					<Route exact path={"/"} element={userID ? <Dashboard /> : <Navigate replace to={"/dashboard/login"}/>} />
+					<Route path={"/login"} element={<Login />} />
+					<Route path={"/signup"} element={<Signup />} />
 				</Routes>
 				<footer></footer>
 			</>

@@ -1,0 +1,17 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin: 100px auto;
+    input{
+        width: 100%;
+        padding: 0.5rem 1rem;
+    }
+
+    .field{
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+}
