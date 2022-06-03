@@ -1,15 +1,21 @@
 import { useState, React } from "react";
 import Categories from "../../components/categories/Categories";
+import Filter from "../../components/filter/Filter";
 import Item from "../../components/list-item/Item";
 import "./shop.scss";
 import { Link, useParams } from "react-router-dom";
 
 const Shop = () => {
 	let { gender, subCategory } = useParams();
-	const [open, setOpen] = useState(false);
+	const [openCategories, setOpenCategories] = useState(false);
+	const [openFilter, setOpenFilter] = useState(false);
 
 	function handleCategories() {
-		setOpen((prev) => !prev);
+		setOpenCategories((prev) => !prev);
+	}
+
+	function handleFilter() {
+		setOpenFilter((prev) => !prev);
 	}
 
 	return (
@@ -40,11 +46,18 @@ const Shop = () => {
 					<button className="btn btn--secondary" onClick={handleCategories}>
 						Categories
 					</button>
-					<button className="btn btn--secondary">Filter &#38; sort</button>
+					<button className="btn btn--secondary" onClick={handleFilter}>
+						Filter &#38; sort
+					</button>
 				</div>
-				{open && (
+				{openCategories && (
 					<div>
 						<Categories />
+					</div>
+				)}
+				{openFilter && (
+					<div>
+						<Filter />
 					</div>
 				)}
 				<div className="item-list">
