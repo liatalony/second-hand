@@ -1,14 +1,30 @@
-import React from "react";
+import { useState, React } from "react";
 import Item from "../../components/list-item/Item";
 import "./reservations.scss";
 
 function Reservations() {
+	const [deleted, setDeleted] = useState(false);
+
+	function cartRemove() {
+		console.log("removing from cart");
+		setDeleted(true);
+	}
+
 	return (
 		<div className="reservations">
 			<h1>Reservations</h1>
 			<div className="item-list-container">
 				<div className="item-list">
-					<Item />
+					{deleted ? (
+						<></>
+					) : (
+						<div className="single-item-container">
+							<Item />
+							<button className="btn btn--secondary" onClick={cartRemove}>
+								remove
+							</button>
+						</div>
+					)}
 					<Item />
 					<Item />
 					<Item />

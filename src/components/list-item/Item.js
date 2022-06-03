@@ -20,8 +20,6 @@ const Item = (props) => {
 		}
 	}, []);
 
-	// useEffect(() => )
-
 	return (
 		<div className="Item">
 			<div

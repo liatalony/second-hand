@@ -24,14 +24,25 @@
 	// margin: 0 auto;
 	padding: 0 var(--padding);
 	.item-list {
+		display: grid;
+		gap: 1rem;
+		.single-item-container {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			// background-color: green;
+			> button {
+				padding: 2rem;
+				width: 130px;
+			}
+		}
 		.Item {
-			height: 100px;
 			display: flex;
 			flex-direction: row;
 			overflow: hidden;
 			.image-container {
-				width: 100px;
 				height: 100px;
+				width: 100px;
 			}
 			.item-details {
 				display: flex;

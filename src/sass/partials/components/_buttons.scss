@@ -25,4 +25,12 @@
 			opacity: var(--opacity);
 		}
 	}
+	&--warning {
+		background-color: var(--color-warning);
+		color: var(--color-white);
+		font-weight: var(--font-weight-regular);
+		&:hover {
+			opacity: var(--opacity);
+		}
+	}
 }
