@@ -1,11 +1,17 @@
-import React from "react";
+import { useState, React } from "react";
+import Categories from "../categories/Categories";
 import Item from "../../components/list-item/Item";
 import "./shop.scss";
 import { Link, useParams } from "react-router-dom";
 
 const Shop = () => {
 	let { gender, subCategory } = useParams();
-	console.log(subCategory);
+	const [open, setOpen] = useState(false);
+
+	function handleCategories() {
+		setOpen((prev) => !prev);
+	}
+
 	return (
 		<div className="shop">
 			<h1 className="title">{gender}</h1>
@@ -31,9 +37,16 @@ const Shop = () => {
 					</Link>
 				</div>
 				<div className="filters">
-					<button className="btn btn--secondary">Categories</button>
+					<button className="btn btn--secondary" onClick={handleCategories}>
+						Categories
+					</button>
 					<button className="btn btn--secondary">Filter &#38; sort</button>
 				</div>
+				{open && (
+					<div>
+						<Categories />
+					</div>
+				)}
 				<div className="item-list">
 					<Item />
 					<Item />
