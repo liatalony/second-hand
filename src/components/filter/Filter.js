@@ -3,6 +3,8 @@ import "./filter.scss";
 
 const Filter = () => {
 	const [isActive, setIsActive] = useState(false);
+	const [isActiveSize, setIsActiveSize] = useState(false);
+	const [isActiveCondition, setIsActiveCondition] = useState(false);
 
 	return (
 		<div className="container-filter">
@@ -24,7 +26,7 @@ const Filter = () => {
 							{isActive && (
 								<div className="accordion-content">
 									<label className="checkbox-container" htmlFor="filter-price">
-										Price
+										price
 										<input
 											type="checkbox"
 											id="filter-price"
@@ -37,12 +39,71 @@ const Filter = () => {
 										className="checkbox-container"
 										htmlFor="filter-recommended"
 									>
-										Recommended
+										recommended
 										<input
 											type="checkbox"
 											id="filter-recommended"
 											name="filter-recommended"
 											value="recommended"
+										/>
+										<span className="checkmark"></span>
+									</label>
+								</div>
+							)}
+						</div>
+					</div>
+					<div className="accordion">
+						<div className="accordion-item">
+							<div
+								className="accordion-title"
+								onClick={() => setIsActiveSize(!isActiveSize)}
+								onKeyDown={() => setIsActiveSize(!isActiveSize)}
+								role="button"
+								tabIndex="0"
+							>
+								<div>Size</div>
+								<div>{isActiveSize ? "-" : "+"}</div>
+							</div>
+							{isActiveSize && (
+								<div className="accordion-content">
+									<label className="checkbox-container" htmlFor="filter-size">
+										size
+										<input
+											type="checkbox"
+											id="filter-size"
+											name="filter-size"
+											value="size"
+										/>
+										<span className="checkmark"></span>
+									</label>
+								</div>
+							)}
+						</div>
+					</div>
+					<div className="accordion">
+						<div className="accordion-item">
+							<div
+								className="accordion-title"
+								onClick={() => setIsActiveCondition(!isActiveCondition)}
+								onKeyDown={() => setIsActiveCondition(!isActiveCondition)}
+								role="button"
+								tabIndex="0"
+							>
+								<div>Condition</div>
+								<div>{isActiveCondition ? "-" : "+"}</div>
+							</div>
+							{isActiveCondition && (
+								<div className="accordion-content">
+									<label
+										className="checkbox-container"
+										htmlFor="filter-condition"
+									>
+										condition
+										<input
+											type="checkbox"
+											id="filter-condition"
+											name="filter-condition"
+											value="condition"
 										/>
 										<span className="checkmark"></span>
 									</label>

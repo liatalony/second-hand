@@ -9,7 +9,7 @@
 }
 
 .accordion {
-	margin: 1rem auto;
+	margin: var(--margin) auto;
 }
 
 .accordion-title {
@@ -26,11 +26,15 @@
 
 .accordion-title,
 .accordion-content {
-	padding: 1rem;
+	padding: var(--padding);
 }
 
 .accordion-content {
 	background-color: var(--color-white);
+	display: flex;
+	label {
+		margin-right: var(--margin);
+	}
 }
 
 .btn-container {
