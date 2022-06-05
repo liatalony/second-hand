@@ -6,6 +6,11 @@
 	left: 0;
 	transition: var(--transition);
 	z-index: 10;
+	.btn-container {
+		margin: 1rem 0;
+		display: flex;
+		gap: 1rem;
+	}
 }
 
 .accordion {

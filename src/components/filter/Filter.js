@@ -112,6 +112,14 @@ const Filter = () => {
 						</div>
 					</div>
 				</fieldset>
+				<div className="btn-container">
+					<button className="btn btn--secondary" type="submit">
+						Clear filter
+					</button>
+					<button className="btn btn--primary" type="submit">
+						Submit filter
+					</button>
+				</div>
 			</form>
 		</div>
 	);
