@@ -5,7 +5,7 @@ import { LoginForm } from "../../components/forms/Forms";
 const Login = () => {
 	return (
 		<div className="Favourites">
-            <LoginForm />
+			<LoginForm />
 		</div>
 	);
 }

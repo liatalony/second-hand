@@ -1,5 +1,7 @@
 import { React, useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, 
+	// Navigate 
+} from "react-router-dom";
 import { request } from "graphql-request";
 import "./app.scss";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -12,32 +14,13 @@ import Shop from "./pages/shop/Shop";
 import SingleItem from "./pages/single-item/SingleItem";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
-import { Navigate } from "react-router-dom";
+
 
 function App() {
 	const [pages, setPages] = useState(null);
-	// const [roles, setRoles] = useState(false);
-	// const [userID, setUserId] = useState(false);
-	const userID=false;
 
 
 	console.log(pages);
-
-	// useEffect(() => {
-	// 	console.log("running");
-	// 	getRoles();
-	// }, []);
-
-	// function getRoles() {
-	// fetch("http://localhost:3001")
-	// 	.then(response => {
-	// 		return response.text();
-	// 	})
-	// 	.then(data => {
-	// 		setRoles(data);
-	// 	});
-	// }
-
 
 	useEffect(() => {
 		const fetchPages = async () => {
@@ -107,26 +90,6 @@ function App() {
 		)
 	}
 
-
-
-	// useEffect(() => {
-	// 	console.log("running");
-	// 	getUserSession();
-	// }, []);
-
-	// function getUserSession() {
-	// 	fetch("http://localhost:3001/session")
-	// .then(response => {
-	// 	return response.text();
-	// })
-	// .then(data => {
-	// 	setUserId(data);
-	// 	if (data=="") {
-	// 		setUserId(false);
-	// 	}
-	// });
-	// }
-
 	const DashboardPage= () => {
 		return (
 			<>
@@ -134,9 +97,9 @@ function App() {
 				{/* {roles ? roles : "there are no roles"} */}
 				{/* <Main pages={pages} /> */}
 				<Routes>
-					<Route exact path={"/"} element={userID ? <Dashboard /> : <Navigate replace to={"/dashboard/login"}/>} />
 					<Route path={"/login"} element={<Login />} />
 					<Route path={"/signup"} element={<Signup />} />
+					<Route exact path={"/*"} element={<Dashboard />} />		
 				</Routes>
 				<footer></footer>
 			</>
