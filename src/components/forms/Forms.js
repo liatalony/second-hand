@@ -143,28 +143,6 @@ const SignupForm = () => {
 				setErrMsg("Registration Failed")
 			}
 		}
-		// fetch("http://localhost:3001/users/register", {
-		//   method: "POST",
-		//   headers: {
-		//     "Content-Type": "application/json",
-		//   },
-		//   body: JSON.stringify({user_first_name: firstName, user_last_name:lastName, user_email:email, user_con_pass:conPass, user_pass: pass, user_phone:phone}),
-		// })
-		//   .then(response => {
-		//     console.log(response);
-		//     return response.text();
-		//   })
-		//   .then(data => {
-		//     // alert(data);
-		//     console.log(data);
-		//     setFirstName("")
-		//     setLastName("")
-		//     setEmail("")
-		//     setPass("")
-		//     setConPass("")
-		//     setPhone("")
-		//     setSuccess(true)
-		//   });
 	}
 
 	return(

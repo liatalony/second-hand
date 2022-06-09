@@ -6,11 +6,13 @@ import AllItems from "./admin/AllItems";
 import ItemForm from "./ItemForm";
 import MyItems from "./MyItems";
 import "./dashboard.scss";
+import DashboardHeader from "../../components/header/dashboardHeader";
 
 function Dashboard() {
 
 	return (
 		<div className="Dashboard">
+			<DashboardHeader/>
 			<h1>Dashboard</h1>
 			<Link to={"/dashboard/my-items"}>My Items</Link>
 			<Link to={"/dashboard/my-items/add"}>Add item</Link>
@@ -21,6 +23,7 @@ function Dashboard() {
 			<Link to={"/dashboard/reservations/:id"}>Reservation Details</Link>
 
 			<Routes>
+				<Route path={"/"} element={<MyItems />} />
 				<Route path={"/my-items"} element={<MyItems />} />
 				<Route path={"/my-items/add"} element={<ItemForm />} />
 				<Route path={"/my-items/edit/:id"} element={<ItemForm />} />
