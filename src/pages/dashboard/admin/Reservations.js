@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import "./reservations.scss";
 
 function ReservationsList() {
 	const orderNumber = 2;
@@ -10,34 +12,40 @@ function ReservationsList() {
 			<div className="item-list-container">
 				<ul className="item-list">
 					<li>
-						<h2>Order number</h2>
-						<h3>{orderNumber}</h3>
-						<p>{orderStatus}</p>
+						<Link to="" className="order">
+							<div>
+								<h2>Order number</h2>
+								<h3>{orderNumber}</h3>
+								<p>{orderStatus}</p>
+							</div>
+						</Link>
 					</li>
 					<li>
-						<h2>Order number</h2>
-						<h3>{orderNumber}</h3>
-						<p>{orderStatus}</p>
+						<Link to="" className="order">
+							<div>
+								<h2>Order number</h2>
+								<h3>{orderNumber}</h3>
+								<p>{orderStatus}</p>
+							</div>
+						</Link>
 					</li>
 					<li>
-						<h2>Order number</h2>
-						<h3>{orderNumber}</h3>
-						<p>{orderStatus}</p>
+						<Link to="" className="order">
+							<div>
+								<h2>Order number</h2>
+								<h3>{orderNumber}</h3>
+								<p>{orderStatus}</p>
+							</div>
+						</Link>
 					</li>
 					<li>
-						<h2>Order number</h2>
-						<h3>{orderNumber}</h3>
-						<p>{orderStatus}</p>
-					</li>
-					<li>
-						<h2>Order number</h2>
-						<h3>{orderNumber}</h3>
-						<p>{orderStatus}</p>
-					</li>
-					<li>
-						<h2>Order number</h2>
-						<h3>{orderNumber}</h3>
-						<p>{orderStatus}</p>
+						<Link to="" className="order">
+							<div>
+								<h2>Order number</h2>
+								<h3>{orderNumber}</h3>
+								<p>{orderStatus}</p>
+							</div>
+						</Link>
 					</li>
 				</ul>
 			</div>

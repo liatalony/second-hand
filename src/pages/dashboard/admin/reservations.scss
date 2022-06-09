@@ -1,18 +1,24 @@
-.all-items {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin: auto 0;
-}
+// .all-items {
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: center;
+// 	align-items: center;
+// 	margin: auto 0;
+// }
 
-.item-list-container {
-	width: 100%;
-}
+// .item-list-container {
+// 	width: 100%;
+// }
 
-.item-list {
-	li {
-		padding-bottom: 0.5rem;
-		border-bottom: 0.2rem solid var(--color-1);
+// .item-list {
+// 	li {
+// 		padding-bottom: 0.5rem;
+// 		border-bottom: 0.2rem solid var(--color-1);
+// 	}
+// }
+
+.order {
+	:hover {
+		opacity: 0.2;
 	}
 }
