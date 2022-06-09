@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "../../components/list-item/Item";
+import "./myItems.scss";
 
 function MyItems() {
 	return (
@@ -26,6 +27,11 @@ function MyItems() {
 						<Item />
 					</li>
 				</ul>
+			</div>
+			<div className="button">
+				<button className="btn btn--primary btn--primary--round">
+					add item
+				</button>
 			</div>
 		</div>
 	);
