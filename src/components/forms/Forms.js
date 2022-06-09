@@ -490,6 +490,7 @@ const AccountForm = () => {
 					<div className="field">
 						<label htmlFor={"first_name"}>First Name</label>
 						<input
+							disabled="true"
 							id="first_name"
 							name="first_name"
 							type={"text"}
@@ -518,6 +519,7 @@ const AccountForm = () => {
 					<div className="field">
 						<label htmlFor={"last_name"}>Last Name</label>
 						<input
+							disabled="true"
 							id="last_name"
 							name="last_name"
 							type={"text"}
@@ -543,6 +545,7 @@ const AccountForm = () => {
 					<div className="field">
 						<label htmlFor={"email"}>Email</label>
 						<input
+							disabled="true"
 							id="email"
 							name="pass"
 							type={"email"}
@@ -569,6 +572,7 @@ const AccountForm = () => {
 					<div className="field">
 						<label htmlFor={"pass"}>Password</label>
 						<input
+							disabled="true"
 							id="pass"
 							name="pass"
 							type={"password"}
@@ -603,6 +607,7 @@ const AccountForm = () => {
 					<div className="field">
 						<label htmlFor={"con_pass"}>Confirm Password</label>
 						<input
+							disabled="true"
 							id="con_pass"
 							name="pass"
 							type={"password"}
@@ -629,6 +634,7 @@ const AccountForm = () => {
 					<div className="field">
 						<label htmlFor={"tel"}>Mobile Number</label>
 						<input
+							disabled="true"
 							id="tel"
 							name="tel"
 							type={"tel"}
