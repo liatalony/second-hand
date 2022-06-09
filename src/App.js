@@ -1,10 +1,13 @@
 import { React, useEffect, useState } from "react";
-import { Routes, Route, 
-	// Navigate 
+import {
+	Routes,
+	Route,
+	// Navigate
 } from "react-router-dom";
 import { request } from "graphql-request";
 import "./app.scss";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
 import Favourites from "./pages/favourites/Favourites";
@@ -15,10 +18,8 @@ import SingleItem from "./pages/single-item/SingleItem";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 
-
 function App() {
 	const [pages, setPages] = useState(null);
-
 
 	console.log(pages);
 
@@ -69,7 +70,7 @@ function App() {
 		fetchPages();
 	}, []);
 
-	const ShopPage= () => {
+	const ShopPage = () => {
 		return (
 			<>
 				<Header pages={pages} />
@@ -81,16 +82,17 @@ function App() {
 					<Route path={"/favourites"} element={<Favourites />} />
 					<Route path={"/reservations"} element={<Reservations />} />
 					<Route path={"/dashboard"} element={<Dashboard />} />
-					<Route path={"/id"} element={<SingleItem/>}/>
-					<Route path={"/shop/:gender"} element={<Shop/>}/>
-					<Route path={"/shop/:gender/:subCategory"} element={<Shop />}/>
+					<Route path={"/id"} element={<SingleItem />} />
+					<Route path={"/shop/:gender"} element={<Shop />} />
+					<Route path={"/shop/:gender/:subCategory"} element={<Shop />} />
 				</Routes>
-				<footer></footer>
+				<Footer pages={pages} />
+				{/* <footer></footer> */}
 			</>
-		)
-	}
+		);
+	};
 
-	const DashboardPage= () => {
+	const DashboardPage = () => {
 		return (
 			<>
 				{/* <Header pages={pages} /> */}
@@ -99,12 +101,13 @@ function App() {
 				<Routes>
 					<Route path={"/login"} element={<Login />} />
 					<Route path={"/signup"} element={<Signup />} />
-					<Route exact path={"/*"} element={<Dashboard />} />		
+					<Route exact path={"/*"} element={<Dashboard />} />
 				</Routes>
-				<footer></footer>
+				<Footer pages={pages} />
+				{/* <footer></footer> */}
 			</>
-		)
-	}
+		);
+	};
 
 	const loaded = pages;
 
@@ -116,8 +119,7 @@ function App() {
 			<Routes>
 				<Route path={"/*"} element={<ShopPage />} />
 				<Route path={"/dashboard/*"} element={<DashboardPage />} />
-			</Routes>	
-			
+			</Routes>
 		</div>
 	);
 }
