@@ -9,7 +9,7 @@ function Page({ pages }) {
 		<div className="container">
 			<h1>{page.name}</h1>
 			{page.pageContent.map((content) => (
-				<div key={content.id}>
+				<div key={content.id} className="cms-page-content">
 					<div className="container--image">
 						<div
 							className="image-bg"
@@ -29,7 +29,7 @@ function Page({ pages }) {
 				</div>
 			))}
 			<footer>{page.pageFooter.copyrightText}</footer>
-			<button className="btn btn--primary">test</button>
+			{/* <button className="btn btn--primary">test</button> */}
 		</div>
 	);
 }
