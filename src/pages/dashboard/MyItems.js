@@ -1,20 +1,31 @@
 import React from "react";
 import Item from "../../components/list-item/Item";
 
-
 function MyItems() {
-
 	return (
-		<div className="Dashboard">
+		<div className="Dashboard all-items">
 			<h1>My Items for sale</h1>
 			<div className="item-list-container">
-				<div className="item-list">
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-				</div>
+				<ul className="item-list">
+					<li>
+						<Item />
+					</li>
+					<li>
+						<Item />
+					</li>
+					<li>
+						<Item />
+					</li>
+					<li>
+						<Item />
+					</li>
+					<li>
+						<Item />
+					</li>
+					<li>
+						<Item />
+					</li>
+				</ul>
 			</div>
 		</div>
 	);
