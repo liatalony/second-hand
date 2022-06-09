@@ -12,34 +12,7 @@ function ReservationsList() {
 			<div className="item-list-container">
 				<ul className="item-list">
 					<li>
-						<Link to="" className="order">
-							<div>
-								<h2>Order number</h2>
-								<h3>{orderNumber}</h3>
-								<p>{orderStatus}</p>
-							</div>
-						</Link>
-					</li>
-					<li>
-						<Link to="" className="order">
-							<div>
-								<h2>Order number</h2>
-								<h3>{orderNumber}</h3>
-								<p>{orderStatus}</p>
-							</div>
-						</Link>
-					</li>
-					<li>
-						<Link to="" className="order">
-							<div>
-								<h2>Order number</h2>
-								<h3>{orderNumber}</h3>
-								<p>{orderStatus}</p>
-							</div>
-						</Link>
-					</li>
-					<li>
-						<Link to="" className="order">
+						<Link to={"/dashboard/reservations/:id"} className="order">
 							<div>
 								<h2>Order number</h2>
 								<h3>{orderNumber}</h3>
