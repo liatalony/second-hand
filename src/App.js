@@ -78,6 +78,7 @@ function App() {
 				{/* <Main pages={pages} /> */}
 				<Routes>
 					<Route exact path={"/"} element={<Home />} />
+					<Route exact path={"/home"} element={<Home />} />
 					<Route path={"/:slug"} element={<Page pages={pages} />} />
 					<Route path={"/favourites"} element={<Favourites />} />
 					<Route path={"/reservations"} element={<Reservations />} />
