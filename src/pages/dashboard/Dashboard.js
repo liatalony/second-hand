@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import AccountDetails from "./AccountDetails";
 import ReservationDetails from "./admin/ReservationDetail";
 import ReservationsList from "./admin/Reservations";
@@ -8,21 +8,17 @@ import ItemForm from "./ItemForm";
 import MyItems from "./MyItems";
 import "./dashboard.scss";
 import DashboardHeader from "../../components/header/dashboardHeader";
+// import axios from "axios";
 
-function Dashboard() {
+const Dashboard = () => {
+	// const src = "https://storage.cloud.google.com/wrinkle/";
+	// const imgName = "photo-1591047139829-d91aecb6caea.jpg";
+	// const images = await axios.get()
+
 	return (
 		<div className="Dashboard">
-			<DashboardHeader />
-			<h1>Dashboard</h1>
-			<Link to={"/dashboard/account-details"}>Account</Link>
-			<Link to={"/dashboard/my-items"}>My Items</Link>
-			<Link to={"/dashboard/my-items/add"}>Add item</Link>
-			<Link to={"/dashboard/my-items/edit/:id"}>One item</Link>
-			<Link to={"/dashboard/items"}>All Items</Link>
-			<Link to={"/dashboard/items/:id"}>One Item</Link>
-			<Link to={"/dashboard/reservations"}>Reservations</Link>
-			<Link to={"/dashboard/reservations/:id"}>Reservation Details</Link>
-
+			<DashboardHeader/>
+			{/* <img src={src + imgName} alt="test jacket" style={{maxWidth: "100%"}}/> */}
 			<Routes>
 				<Route path={"/"} element={<MyItems />} />
 				<Route path={"/account-details"} element={<AccountDetails />} />
