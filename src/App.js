@@ -19,9 +19,6 @@ import Signup from "./pages/signup/Signup";
 function App() {
 	const [pages, setPages] = useState(null);
 
-
-	console.log(pages);
-
 	useEffect(() => {
 		const fetchPages = async () => {
 			const { pages } = await request(
