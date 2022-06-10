@@ -30,7 +30,7 @@ function Dashboard() {
 				<Route path={"/my-items/add"} element={<ItemForm />} />
 				<Route path={"/my-items/edit/:id"} element={<ItemForm />} />
 				<Route path={"/items"} element={<AllItems />} />
-				<Route path={"/items/:status"} element={<AllItems />} />
+				{/* <Route path={"/items/:status"} element={<AllItems />} /> */}
 				<Route path={"/items/:id"} element={<ItemForm />} />
 				<Route path={"/reservations"} element={<ReservationsList />} />
 				<Route path={"/reservations/:id"} element={<ReservationDetails />} />
