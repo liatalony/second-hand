@@ -6,7 +6,6 @@ import "./item.scss";
 import { Link } from "react-router-dom";
 
 const Item = (props) => {
-	console.log(props);
 	const [liked, setLiked] = useState(false);
 	const [isActive, setIsActive] = useState(null);
 

@@ -1,8 +1,13 @@
 import { React, useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import {
+	Routes,
+	Route,
+	// Navigate
+} from "react-router-dom";
 import { request } from "graphql-request";
 import "./app.scss";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
 import Favourites from "./pages/favourites/Favourites";
@@ -15,25 +20,8 @@ import Signup from "./pages/signup/Signup";
 
 function App() {
 	const [pages, setPages] = useState(null);
-	const [roles, setRoles] = useState(false);
 
 	console.log(pages);
-
-	useEffect(() => {
-		console.log("running");
-		getRoles();
-	}, []);
-
-	function getRoles() {
-	fetch("http://localhost:3001")
-		.then(response => {
-			return response.text();
-		})
-		.then(data => {
-			setRoles(data);
-		});
-	}
-
 
 	useEffect(() => {
 		const fetchPages = async () => {
@@ -82,42 +70,45 @@ function App() {
 		fetchPages();
 	}, []);
 
-	const ShopPage= () => {
+	const ShopPage = () => {
 		return (
 			<>
 				<Header pages={pages} />
-				{roles ? roles : "there are no roles"}
+				{/* {roles ? roles : "there are no roles"} */}
 				{/* <Main pages={pages} /> */}
 				<Routes>
 					<Route exact path={"/"} element={<Home />} />
+					<Route exact path={"/home"} element={<Home />} />
 					<Route path={"/:slug"} element={<Page pages={pages} />} />
 					<Route path={"/favourites"} element={<Favourites />} />
 					<Route path={"/reservations"} element={<Reservations />} />
 					<Route path={"/dashboard"} element={<Dashboard />} />
-					<Route path={"/id"} element={<SingleItem/>}/>
-					<Route path={"/shop/:gender"} element={<Shop/>}/>
-					<Route path={"/shop/:gender/:subCategory"} element={<Shop />}/>
+					<Route path={"/id"} element={<SingleItem />} />
+					<Route path={"/shop/:gender"} element={<Shop />} />
+					<Route path={"/shop/:gender/:subCategory"} element={<Shop />} />
 				</Routes>
-				<footer></footer>
+				<Footer pages={pages} />
+				{/* <footer></footer> */}
 			</>
-		)
-	}
+		);
+	};
 
-	const DashboardPage= () => {
+	const DashboardPage = () => {
 		return (
 			<>
 				{/* <Header pages={pages} /> */}
-				{roles ? roles : "there are no roles"}
+				{/* {roles ? roles : "there are no roles"} */}
 				{/* <Main pages={pages} /> */}
 				<Routes>
-					<Route exact path={"/"} element={<Login />} />
-					<Route exact path={"/login"} element={<Login />} />
-					<Route exact path={"/signup"} element={<Signup />} />
+					<Route path={"/login"} element={<Login />} />
+					<Route path={"/signup"} element={<Signup />} />
+					<Route exact path={"/*"} element={<Dashboard />} />
 				</Routes>
-				<footer></footer>
+				<Footer pages={pages} />
+				{/* <footer></footer> */}
 			</>
-		)
-	}
+		);
+	};
 
 	const loaded = pages;
 
@@ -129,8 +120,7 @@ function App() {
 			<Routes>
 				<Route path={"/*"} element={<ShopPage />} />
 				<Route path={"/dashboard/*"} element={<DashboardPage />} />
-			</Routes>	
-			
+			</Routes>
 		</div>
 	);
 }

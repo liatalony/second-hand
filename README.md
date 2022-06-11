@@ -1,6 +1,32 @@
-# Getting Started with Create React App
+## Wrinkle
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## WELCOME NEW DEVELOPER
+
+We are so happy to see that you are reading this README file! It shows you care.
+
+In this guide we will explain to you how it is we do things on this projects.
+
+This project was created using 'create-react-app'
+
+This React application was created for Wrinkle - a second-hand store that lets
+its customers to upload and sell their own items.
+
+In this project we are connecting to a Postgres database to get our data by using axios.
+We are also connecting to a CMS system called GrapghCMS in order to get more data that is editable by the client - Wrinkle.
+The data in the CMS is the static content of the site such as the navigation and the 'about' and 'how it works' pages.
+In the database we store all the data regarding the shop and its users such as user details, the items that are for sale on the shop, reservations that are being made and so on.
+
+## When working
+
+Its important that as you start everytime you pull the code from the repository that you run `npm install` to make sure you have all the neccessary packages used in the project.\
+While working on the code, make sure to create a seperate branch with a relevant name to the work you are doing. NEVER work on the 'development' or 'master' branch. Once you are done with your work you can commit and push your changes to the github repository.
+
+In order to view your work all you have to do is write in the terminal, in the root directory of the project `npm start`. This will launch the project on your browser on 'localhost:3000'.
+
+We do want to keep to a certain standard when writing code, so when you can try to run `npm run lint`. This will scan the code and will give you error messages where the code is not presented properly.
+To fix those error simply run `npm run lint:fix`. This will run through the code again, but this time it will fix all the bad indentations.
+
+Other than that we also have a YAML file where we have set up the stages for testing and linting for the development and a YAML file that handles the deployment of the site.
 
 ## Available Scripts
 
@@ -28,43 +54,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
