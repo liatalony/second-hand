@@ -13,7 +13,7 @@ const Home = () => {
 					backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(${Banner})`,
 				}}
 			>
-				<h1 className="title">No planet C</h1>
+				<h1 className="title">No planet B</h1>
 				<p className="sub-title">
 					Browse and reserve our second hand items before you come to our shop
 				</p>
