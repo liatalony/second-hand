@@ -19,13 +19,10 @@ jobs:
           user: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
-          # local: "./build/*"
           local: "."
-          # remote: "/var/www/html"
-          remote: "./test-wrinkle"
-          # pre_upload: rm -r /var/www/html/*
-          pre_upload: echo "working?"
-          # pre_upload: rm -rf ./test && mkdir test
+          remote: "/var/www/html/wrinkle.dk"
+          # pre_upload: rm -rf /var/www/wrinkle.dk && mkdir /var/www/wrinkle.dk
+          pre_upload: echo "test"
           post_upload: echo "This will be executed after the upload!"
           # post_upload: cd test && ls && npm install && npm run build && pm2 stop bingo && pm2 start server.js --name "bingo"
           ssh_options: -o StrictHostKeyChecking=no # A set of ssh_option separated by -o - REQUIRED false - DEFAULT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
