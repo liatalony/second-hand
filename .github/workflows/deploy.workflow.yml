@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           local: "."
           remote: "./wrinkle.dk"
-          pre_upload: rm -rf ./wrinkle.dk && mkdir wrinkle.dk
+          pre_upload: rm -rf ./wrinkle.dk && mkdir wrinkle.dk && rm-rf /var/www/wrinkle.dk
           post_upload: cd wrinkle.dk && ls && npm install && npm run build && scp -r build/* /var/www/wrinkle.dk && echo "copied I guess ..."
           # post_upload: cd test && ls && npm install && npm run build && pm2 stop bingo && pm2 start server.js --name "bingo"
           ssh_options: -o StrictHostKeyChecking=no # A set of ssh_option separated by -o - REQUIRED false - DEFAULT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null
