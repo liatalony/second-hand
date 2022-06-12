@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useState, useEffect } from "react";
 // import Heart from "../../assets/heart.svg";
 // import { ReactSVG } from "react-svg";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,16 +9,20 @@ import "swiper/css";
 import "swiper/css/zoom";
 import "./slider.scss";
 
-const Slider = () => {
+const Slider = (props) => {
+	const [images, setImges] = useState(false);
 	// const [liked, setLiked] = useState(false);
 
 	// function handleLike() {
 	// 	setLiked((prev) => !prev);
 	// }
+	useEffect(()=>{
+		setImges(props.images)
+	},[])
 
 	let slides = [];
 
-	for (let i = 0; i < 5; i++) {
+	for (let i = 0; i < images.length; i++) {
 		slides.push(
 			<SwiperSlide
 				key={`slide-${i + 1}`}
@@ -28,8 +32,9 @@ const Slider = () => {
 				<div
 					className="swiper-zoom-target"
 					style={{
-						backgroundImage: `url(http://picsum.photos/id/${i + 1}/1000/600)`,
-						backgroundSize: "cover",
+						backgroundImage: `url(${images[i].image_name})`,
+						backgroundSize: "contain",
+						backgroundRepeat: "no-repeat",
 						backgroundPosition: "center",
 						width: "100%",
 						height: "500px",
@@ -41,6 +46,7 @@ const Slider = () => {
 		);
 	}
 
+	console.log(props);
 	return (
 		<>
 			<Swiper
