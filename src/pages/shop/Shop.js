@@ -3,7 +3,7 @@ import Categories from "../../components/categories/Categories";
 import Filter from "../../components/filter/Filter";
 import Item from "../../components/list-item/Item";
 import "./shop.scss";
-import { Link, useParams } from "react-router-dom";
+import { BrowserRouter as Link, useParams } from "react-router-dom";
 
 const Shop = () => {
 	let { gender, subCategory } = useParams();
