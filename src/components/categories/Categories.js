@@ -14,6 +14,7 @@ const Categories = () => {
 							id="category-shirts"
 							name="category-shirts"
 							value="shirts"
+							data-testid="hello"
 						/>
 						<span className="checkmark"></span>
 					</label>
