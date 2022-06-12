@@ -3,7 +3,7 @@ import Heart from "../../assets/heart.svg";
 import { ReactSVG } from "react-svg";
 import Jacket from "../../assets/jacket.jpg";
 import "./item.scss";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 const Item = (props) => {
 	const [liked, setLiked] = useState(false);
@@ -20,7 +20,7 @@ const Item = (props) => {
 	}, []);
 
 	return (
-		<div className="Item">
+		<div className="Item" data-testid="item">
 			<div
 				className={
 					!isActive
@@ -41,6 +41,7 @@ const Item = (props) => {
 				<button
 					onClick={handleLike}
 					className={liked ? "item-heart-liked" : "item-heart"}
+					data-testid="btn"
 				>
 					<ReactSVG src={Heart} />
 				</button>
