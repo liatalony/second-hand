@@ -28,7 +28,7 @@ const Item = (props) => {
 						: "image-container image-container--inactive"
 				}
 			>
-				<Link to={"/id"}>
+				<Link to={"/shop/:id"}>
 					<div
 						className="item-image"
 						style={{
@@ -47,7 +47,7 @@ const Item = (props) => {
 			</div>
 			<div className="item-details">
 				<h4>
-					<Link to={"/id"}>Item Name</Link>
+					<Link to={"/shop/:id"}>Item Name</Link>
 				</h4>
 				<p className="price">
 					kr. 100<span className="status"> {props.status}</span>

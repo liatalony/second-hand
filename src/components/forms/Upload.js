@@ -21,7 +21,6 @@ const AddItemForm = () => {
 	const [itemSubCategory, setItemSubCategory] = useState("")
 	const [itemSubSubCategory, setItemSubSubCategory] = useState("")
 	const [itemSize, setItemSize] = useState("")
-	const [itemSizeId, setItemSizeId] = useState("")
 	const [itemColour, setItemColour] = useState("")
 	const [itemPrice, setItemPrice] = useState("")
 	const [itemImage1, setItemImage1] = useState(false)
@@ -81,27 +80,27 @@ const AddItemForm = () => {
 		const data = new FormData();
 		data.append("item_name", itemName)
 		data.append("item_desc", itemDesc)
-		data.append("item_categoty", itemCategory)
-		data.append("item_sub_category", itemSubCategory)
-		data.append("item_sub_sub_category", itemSubSubCategory)
+		data.append("item_gender", itemCategory)
+		data.append("item_category", itemSubCategory)
+		data.append("item_sub_category", itemSubSubCategory)
 		data.append("item_size", itemSize)
-		data.append("item_size_id", itemSizeId)
 		data.append("item_colour", itemColour)
 		data.append("item_condition", itemCondition)
+		data.append("item_price", itemPrice)
 		data.append("item_image", itemImage1)
 		data.append("item_image", itemImage2)
 		data.append("item_image", itemImage3)
 
 		console.log(data);
-		// try {
-		// 	const response = await axios.post(
-		// 		"http://localhost:3001/products/add",
-		// 		data, {}
-		// 	)
-		// 	console.log(response.response.data);
-		// } catch (error) {
-		// 	console.log(error.response.data);
-		// }
+		try {
+			const response = await axios.post(
+				"http://localhost:3001/products/add",
+				data, {}
+			)
+			console.log(response.data);
+		} catch (error) {
+			console.log(error.response);
+		}
 	}
 
 	const onSelectFile = (e) => {
@@ -144,7 +143,7 @@ const AddItemForm = () => {
 						<select id="item_gender" name="item_gender" required autoComplete="off" value={itemCategory} onChange={(e)=> setItemCategory(e.target.value)}>
 							<option value={""}>----</option>
 							{formFields.genders.map(gender => {
-								return <option key={gender.gender_id} value={gender.gender_name}>{gender.gender_name}</option>
+								return <option key={gender.gender_id} value={gender.gender_id}>{gender.gender_name}</option>
 							})}
 						</select>
 					</div>
@@ -168,19 +167,19 @@ const AddItemForm = () => {
 					</div>
 					<div className="field">
 						<label htmlFor={"item_size"}>Sub Category</label>
-						<select id="item_size" name="item_size" required autoComplete="off" value={itemSize} onChange={(e)=> {setItemSize(e.target.value); setItemSizeId(e.target.key)}}>
+						<select id="item_size" name="item_size" required autoComplete="off" value={itemSize} onChange={(e)=> {setItemSize(e.target.value)}}>
 							<option value={""}>----</option>
 							{formFields.sizes.map(sizeInt => {
-								return <option key={"Int" + sizeInt.size_id} value={sizeInt.size_international}>{sizeInt.size_international} (EU {sizeInt.size_eu})</option>
+								return <option key={"Int" + sizeInt.size_id} value={sizeInt.size_id+" "+sizeInt.size_international}>{sizeInt.size_international} (EU {sizeInt.size_eu})</option>
 							})}
 							{formFields.sizes.map(sizeEU => {
-								return <option key={"EU" + sizeEU.size_id} value={sizeEU.size_eu}>EU {sizeEU.size_eu}</option>
+								return <option key={"EU" + sizeEU.size_id} value={sizeEU.size_id+" "+sizeEU.size_eu}>EU {sizeEU.size_eu}</option>
 							})}
 							{formFields.sizes.map(sizeUS => {
-								return <option key={"US" + sizeUS.size_id} value={sizeUS.size_us}>US {sizeUS.size_us}</option>
+								return <option key={"US" + sizeUS.size_id} value={sizeUS.size_id+" "+sizeUS.size_us}>US {sizeUS.size_us}</option>
 							})}
 							{formFields.sizes.map(sizeUK => {
-								return <option key={"UK" + sizeUK.size_id} value={sizeUK.size_uk}>UK {sizeUK.size_uk}</option>
+								return <option key={"UK" + sizeUK.size_id} value={sizeUK.size_id+" "+sizeUK.size_uk}>UK {sizeUK.size_uk}</option>
 							})}
 						</select>
 					</div>
