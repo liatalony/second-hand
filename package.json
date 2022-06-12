@@ -1,7 +1,7 @@
 {
 	"name": "second-hand",
 	"version": "0.1.0",
-	"homepage": ".",
+	"homepage": "http://172.104.238.112/",
 	"private": true,
 	"dependencies": {
 		"axios": "^0.27.2",
