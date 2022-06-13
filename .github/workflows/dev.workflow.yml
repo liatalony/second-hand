@@ -23,13 +23,13 @@ jobs:
       - name: run the code linting
         run: npm run lint
 
-  # test:
-  #   runs-on: ubuntu-latest
-  #   needs: [lint]
-  #   steps:
-  #     - name: checkout the code
-  #       uses: actions/checkout@v3
-  #     - name: install dependencies with a clean slate
-  #       run: npm ci
-  #     - name: run the unit tests
-  #       run: npm run test
+  test:
+    runs-on: ubuntu-latest
+    needs: [lint]
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v3
+      - name: install dependencies with a clean slate
+        run: npm ci
+      - name: run the unit tests
+        run: npm run test
