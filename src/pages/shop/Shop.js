@@ -6,16 +6,37 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Shop = () => {
-	let { gender, subCategory } = useParams();
+	const { gender, subCategory } = useParams();
 	const [open, setOpen] = useState(false);
 	const [itemsList, setItemsList] = useState(false);
 	useEffect(()=>{
 		try {
-			axios.get("http://localhost:3001/products/all").then(res => {setItemsList(res.data)})
+			setItemsList(false);
+			if(gender && !subCategory){
+				axios.get(`http://localhost:3001/products/all/${gender}`).then(res => { setItemsList(res.data)})
+			}else if(gender && subCategory){
+				axios.get(`http://localhost:3001/products/all/${gender}/${subCategory}`).then(res => { console.log(subCategory); if(res.data){setItemsList(res.data)}else{setItemsList(false)}})
+			}
 		} catch (error) {
 			console.log(error.message);
 		}
-	})
+	},[])
+	useEffect(()=>{
+		try {
+			setItemsList(false);
+			if(gender && !subCategory){
+				axios.get(`http://localhost:3001/products/all/${gender}`).then(res => { setItemsList(res.data)})
+			}else if(gender && subCategory){
+				axios.get(`http://localhost:3001/products/all/${gender}/${subCategory}`).then(res => { console.log(subCategory); if(res.data){setItemsList(res.data)}else{setItemsList(false)}})
+			}
+		} catch (error) {
+			console.log(error.message);
+		}
+	},[gender, subCategory])
+
+	// function handleSubCategory(){
+	// 	console.log(gender, subCategory);
+	// }
 
 	function handleCategories() {
 		setOpen((prev) => !prev);
@@ -29,18 +50,21 @@ const Shop = () => {
 					<Link
 						to={`/shop/${gender}/clothes`}
 						className={subCategory == "clothes" ? "active" : ""}
+						// onClick={handleSubCategory}
 					>
 						Clothes
 					</Link>
 					<Link
 						to={`/shop/${gender}/shoes`}
 						className={subCategory == "shoes" ? "active" : ""}
+						// onClick={handleSubCategory}
 					>
 						Shoes
 					</Link>
 					<Link
 						to={`/shop/${gender}/accessories`}
 						className={subCategory == "accessories" ? "active" : ""}
+						// onClick={handleSubCategory}
 					>
 						Accessories
 					</Link>
