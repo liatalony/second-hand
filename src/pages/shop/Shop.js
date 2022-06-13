@@ -1,12 +1,21 @@
-import { useState, React } from "react";
+import { useState, React, useEffect } from "react";
 import Categories from "../../components/categories/Categories";
 import Item from "../../components/list-item/Item";
 import "./shop.scss";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const Shop = () => {
 	let { gender, subCategory } = useParams();
 	const [open, setOpen] = useState(false);
+	const [itemsList, setItemsList] = useState(false);
+	useEffect(()=>{
+		try {
+			axios.get("http://localhost:3001/products/all").then(res => {setItemsList(res.data)})
+		} catch (error) {
+			console.log(error.message);
+		}
+	})
 
 	function handleCategories() {
 		setOpen((prev) => !prev);
@@ -47,14 +56,13 @@ const Shop = () => {
 						<Categories />
 					</div>
 				)}
-				<div className="item-list">
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-				</div>
+				{!itemsList ? <p>There are no products at the moment</p> : (
+					<div className="item-list">
+						{itemsList.map(item => {
+							return <Item key={"item"+item.product_id} details={item} />
+						})}
+					</div>
+				)}  
 			</div>
 		</div>
 	);

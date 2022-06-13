@@ -30,7 +30,7 @@ const Slider = (props) => {
 				style={{ height: "500px", listStyle: "none" }}
 			>
 				<div
-					className="swiper-zoom-target"
+					className="swiper-zoom-container"
 					style={{
 						backgroundImage: `url(${images[i].image_name})`,
 						backgroundSize: "contain",
@@ -40,7 +40,7 @@ const Slider = (props) => {
 						height: "500px",
 					}}
 				>
-					{/* <img src={`http://picsum.photos/id/${i+1}/500/300`}/> */}
+					{/* <img src={`${images[i].image_name}`} alt={"shop item for sale"} style={{maxWidth: "100%"}} /> */}
 				</div>
 			</SwiperSlide>
 		);
