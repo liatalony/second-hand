@@ -11,7 +11,8 @@
 		"import/no-unresolved": "off",
 		"indent": ["error", "tab"],
 		"linebreak-style": 1,
-		"quotes": ["error", "double"]
+		"quotes": ["error", "double"],
+		"import/prefer-default-export": "off"
 	},
 	"parserOptions": {
 		"ecmaVersion": 2021,
