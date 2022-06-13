@@ -1,0 +1,32 @@
+.all-items {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto 0;
+}
+
+.item-list-container {
+	width: 100%;
+}
+
+.item-list {
+	li {
+		padding-bottom: 0.5rem;
+		border-bottom: 0.2rem solid var(--color-1);
+	}
+}
+
+.status-links {
+	display: flex;
+	justify-content: center;
+	margin: var(--margin) 0;
+	a {
+		margin: 0 var(--margin);
+		text-transform: capitalize;
+		&.active {
+			font-weight: var(--font-weight-bold);
+			text-decoration: underline;
+		}
+	}
+}

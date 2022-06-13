@@ -1,14 +1,45 @@
-import { useState, React } from "react";
+import { useState, React, useEffect } from "react";
 import Categories from "../../components/categories/Categories";
 import Filter from "../../components/filter/Filter";
 import Item from "../../components/list-item/Item";
 import "./shop.scss";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const Shop = () => {
-	let { gender, subCategory } = useParams();
+	const { gender, subCategory } = useParams();
+	// const [open, setOpen] = useState(false);
+	const [itemsList, setItemsList] = useState(false);
 	const [openCategories, setOpenCategories] = useState(false);
 	const [openFilter, setOpenFilter] = useState(false);
+	useEffect(() => {
+		try {
+			setItemsList(false);
+			if(gender && !subCategory){
+				axios.get(`http://localhost:3001/products/all/${gender}`).then(res => { setItemsList(res.data)})
+			}else if(gender && subCategory){
+				axios.get(`http://localhost:3001/products/all/${gender}/${subCategory}`).then(res => { console.log(subCategory); if(res.data){setItemsList(res.data)}else{setItemsList(false)}})
+			}
+		} catch (error) {
+			console.log(error.message);
+		}
+	},[])
+	useEffect(()=>{
+		try {
+			setItemsList(false);
+			if(gender && !subCategory){
+				axios.get(`http://localhost:3001/products/all/${gender}`).then(res => { setItemsList(res.data)})
+			}else if(gender && subCategory){
+				axios.get(`http://localhost:3001/products/all/${gender}/${subCategory}`).then(res => { console.log(subCategory); if(res.data){setItemsList(res.data)}else{setItemsList(false)}})
+			}
+		} catch (error) {
+			console.log(error.message);
+		}
+	},[gender, subCategory])
+
+	// function handleSubCategory(){
+	// 	console.log(gender, subCategory);
+	// }
 
 	function handleCategories() {
 		setOpenCategories((prev) => !prev);
@@ -26,18 +57,21 @@ const Shop = () => {
 					<Link
 						to={`/shop/${gender}/clothes`}
 						className={subCategory == "clothes" ? "active" : ""}
+						// onClick={handleSubCategory}
 					>
 						Clothes
 					</Link>
 					<Link
 						to={`/shop/${gender}/shoes`}
 						className={subCategory == "shoes" ? "active" : ""}
+						// onClick={handleSubCategory}
 					>
 						Shoes
 					</Link>
 					<Link
 						to={`/shop/${gender}/accessories`}
 						className={subCategory == "accessories" ? "active" : ""}
+						// onClick={handleSubCategory}
 					>
 						Accessories
 					</Link>
@@ -55,19 +89,20 @@ const Shop = () => {
 						<Categories />
 					</div>
 				)}
+				{!itemsList ? (
+					<p>There are no products at the moment</p>
+				) : (
+					<div className="item-list">
+						{itemsList.map((item) => {
+							return <Item key={"item" + item.product_id} details={item} />;
+						})}
+					</div>
+				)}
 				{openFilter && (
 					<div>
 						<Filter />
 					</div>
 				)}
-				<div className="item-list">
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-				</div>
 			</div>
 		</div>
 	);
