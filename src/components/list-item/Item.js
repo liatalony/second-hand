@@ -18,7 +18,7 @@ const Item = (props) => {
 		}
 	}, []);
 
-	if (!props.details) return <h2>Loading</h2>
+	if (!props.details) return <h2>Loading</h2>;
 
 	return (
 		<div className="Item" data-testid="item">
@@ -53,7 +53,8 @@ const Item = (props) => {
 					<Link to={"/shop/product/:id"}>{props.details.product_headline}</Link>
 				</h4>
 				<p className="price">
-					kr. {props.details.product_price}<span className="status"> {props.status}</span>
+					kr. {props.details.product_price}
+					<span className="status"> {props.status}</span>
 				</p>
 			</div>
 		</div>
