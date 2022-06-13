@@ -39,7 +39,7 @@ const Navbar = () => {
 							</Link>
 						</li>
 						<li>
-							<Link to={"#"} onClick={handleNavigation}>
+							<Link to={"/dashboard/account-details"} onClick={handleNavigation}>
                                     Account Details
 							</Link>
 						</li>
