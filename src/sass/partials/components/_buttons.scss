@@ -7,12 +7,14 @@
 	letter-spacing: var(--letter-spacing);
 	padding: var(--padding-btn);
 	text-transform: uppercase;
+	transition: var(--transition);
 	width: 100%;
 	// max-width: 500px;
 	&--primary {
 		background-color: var(--color-1);
 		color: var(--color-white);
 		font-weight: var(--font-weight-bold);
+
 		&--round {
 			display: flex;
 			justify-content: center;
@@ -22,7 +24,8 @@
 			align-items: center;
 		}
 		&:hover {
-			opacity: var(--opacity);
+			background-color: var(--color-2);
+			transition: var(--transition);
 		}
 	}
 	&--secondary {

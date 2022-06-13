@@ -3,6 +3,7 @@
 	--border: 0.1rem solid var(--color-1);
 	--border-radius: 0.5rem;
 	--box-shadow: rgb(173, 173, 173) 0px -3px 10px 2px;
+	--box-shadow-image: 14px 14px 0px 0px var(--color-2);
 	--color-black: #352c2a;
 	--color-white: #f6f6f6;
 	--color-1: #0c6c2b;
@@ -30,8 +31,8 @@
 	--min-height: 400px;
 	--opacity: 0.5;
 	--padding: 1rem;
-	--padding-btn: 0.5rem 3rem;
+	--padding-btn: 0.8rem 3rem;
 	--transition: all var(--transition-time) ease;
-	--transition-time: 150ms;
+	--transition-time: 400ms;
 	--transform: scale(1.2);
 }
