@@ -8,7 +8,9 @@ import axios from "axios";
 
 const Shop = () => {
 	const { gender, subCategory } = useParams();
-	const title = `Wrinkle | ${gender}`;
+	// document title to sentence-case
+	const uppercase = gender[0].toUpperCase() + gender.substring(1);
+	const title = `Wrinkle | ${uppercase}`;
 	document.title = title;
 	// const [open, setOpen] = useState(false);
 	const [itemsList, setItemsList] = useState(false);
