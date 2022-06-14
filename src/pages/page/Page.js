@@ -5,6 +5,9 @@ import "./page.scss";
 function Page({ pages }) {
 	const { slug } = useParams();
 	const page = pages.find((page) => page.slug === slug);
+	const title = page.meta.title;
+	document.title = title;
+
 	return (
 		<div className="container">
 			<h1>{page.name}</h1>

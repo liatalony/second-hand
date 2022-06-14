@@ -8,6 +8,8 @@ import axios from "axios";
 
 const Shop = () => {
 	const { gender, subCategory } = useParams();
+	const title = `Wrinkle | ${gender}`;
+	document.title = title;
 	// const [open, setOpen] = useState(false);
 	const [itemsList, setItemsList] = useState(false);
 	const [openCategories, setOpenCategories] = useState(false);
@@ -15,27 +17,53 @@ const Shop = () => {
 	useEffect(() => {
 		try {
 			setItemsList(false);
-			if(gender && !subCategory){
-				axios.get(`http://localhost:3001/products/all/${gender}`).then(res => { setItemsList(res.data)})
-			}else if(gender && subCategory){
-				axios.get(`http://localhost:3001/products/all/${gender}/${subCategory}`).then(res => { console.log(subCategory); if(res.data){setItemsList(res.data)}else{setItemsList(false)}})
+			if (gender && !subCategory) {
+				axios
+					.get(`http://localhost:3001/products/all/${gender}`)
+					.then((res) => {
+						setItemsList(res.data);
+					});
+			} else if (gender && subCategory) {
+				axios
+					.get(`http://localhost:3001/products/all/${gender}/${subCategory}`)
+					.then((res) => {
+						console.log(subCategory);
+						if (res.data) {
+							setItemsList(res.data);
+						} else {
+							setItemsList(false);
+						}
+					});
 			}
 		} catch (error) {
 			console.log(error.message);
 		}
-	},[])
-	useEffect(()=>{
+	}, []);
+	useEffect(() => {
 		try {
 			setItemsList(false);
-			if(gender && !subCategory){
-				axios.get(`http://localhost:3001/products/all/${gender}`).then(res => { setItemsList(res.data)})
-			}else if(gender && subCategory){
-				axios.get(`http://localhost:3001/products/all/${gender}/${subCategory}`).then(res => { console.log(subCategory); if(res.data){setItemsList(res.data)}else{setItemsList(false)}})
+			if (gender && !subCategory) {
+				axios
+					.get(`http://localhost:3001/products/all/${gender}`)
+					.then((res) => {
+						setItemsList(res.data);
+					});
+			} else if (gender && subCategory) {
+				axios
+					.get(`http://localhost:3001/products/all/${gender}/${subCategory}`)
+					.then((res) => {
+						console.log(subCategory);
+						if (res.data) {
+							setItemsList(res.data);
+						} else {
+							setItemsList(false);
+						}
+					});
 			}
 		} catch (error) {
 			console.log(error.message);
 		}
-	},[gender, subCategory])
+	}, [gender, subCategory]);
 
 	// function handleSubCategory(){
 	// 	console.log(gender, subCategory);

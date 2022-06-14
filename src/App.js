@@ -19,6 +19,8 @@ import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 
 function App() {
+	const title = "Home | Wrinkle";
+	document.title = title;
 	const [pages, setPages] = useState(null);
 	useEffect(() => {
 		const fetchPages = async () => {
