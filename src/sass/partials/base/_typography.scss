@@ -1,5 +1,5 @@
 // google font import
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap");
 
 h1 {
 	color: var(--color-1);
@@ -9,16 +9,17 @@ h1 {
 }
 
 h2 {
-	color: var(--color-black);
+	color: var(--color-1);
 	font-family: var(--font-secondary);
+	font-size: 1.2rem;
 	// font-weight: var(--font-weight-semibold);
 }
 
 h3 {
 	font-family: var(--font-secondary);
-	text-transform: uppercase;
+	// text-transform: uppercase;
 	// font-weight: var(--font-weight-bold);
-	color: var(--color-1);
+	color: var(--color-black);
 }
 
 h4 {

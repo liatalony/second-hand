@@ -38,6 +38,16 @@
 	}
 }
 
+.item-desc {
+	margin-top: 0.5rem;
+}
+.item-price {
+	// color: var(--color-bla);
+	font-size: 1.5rem;
+	font-family: var(--font-secondary);
+	font-weight: var(--font-weight-semibold);
+}
+
 .similar-items-list {
 	display: flex;
 	flex-wrap: nowrap;
@@ -54,7 +64,7 @@
 }
 
 .table-container {
-	padding: var(--padding) 0;
+	padding: 0.5rem 0 1rem 0;
 }
 
 table {
