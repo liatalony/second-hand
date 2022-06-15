@@ -1,17 +1,23 @@
 // google font import
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap");
 
-h1,
-h2 {
+h1 {
 	color: var(--color-1);
 	font-family: var(--font-secondary);
 	line-height: var(--line-height-header);
 	text-transform: uppercase;
 }
 
+h2 {
+	color: var(--color-black);
+	font-family: var(--font-secondary);
+	// font-weight: var(--font-weight-semibold);
+}
+
 h3 {
 	font-family: var(--font-secondary);
-	font-weight: var(--font-weight-bold);
+	text-transform: uppercase;
+	// font-weight: var(--font-weight-bold);
 	color: var(--color-1);
 }
 

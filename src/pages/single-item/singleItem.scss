@@ -24,6 +24,12 @@
 	}
 }
 
+.container--description {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
 .container--similar-items {
 	margin-bottom: 7rem;
 	@include respond(desktop) {
