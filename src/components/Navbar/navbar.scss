@@ -1,29 +1,61 @@
-nav{
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: green;
-    transition: width 0.3s linear;
-    z-index: 10;
-    ul{
-        padding: 0 1em 1em 1em;
-        li{
-            list-style: none;
-            text-align: left;
-            padding: 1em 0;
-            border-bottom: 1px solid white;
-            a{
-                color: white;
-                font-weight: bold;
-                font-size: 24px;
-            }
-        }
-    }
-    button{
-        background-color: transparent;
-        border: none;
-        padding: 1em;
-    }
+@keyframes animation-width {
+	from {
+		width: 0vw;
+	}
+	to {
+		width: 100vw;
+	}
+}
+
+@keyframes animation-opacity {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+nav {
+	animation-name: animation-width;
+	animation-duration: 500ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: var(--color-1);
+	z-index: 10;
+	ul {
+		opacity: 0;
+		animation-name: animation-opacity;
+		animation-duration: 500ms;
+		animation-delay: 500ms;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease;
+		padding: 0 1em 1em 1em;
+		li {
+			list-style: none;
+			text-align: left;
+			padding: 1em 0;
+			border-bottom: 1px solid white;
+			a {
+				color: white;
+				font-weight: var(--font-weight-bold);
+				font-size: 24px;
+			}
+		}
+	}
+	button {
+		background-color: transparent;
+		border: none;
+		padding: 1em;
+		svg {
+			stroke: white;
+			stroke-width: 2px;
+			// transition: var(--transition);
+		}
+	}
 }

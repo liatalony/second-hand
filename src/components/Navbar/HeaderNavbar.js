@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import Burger from "../../assets/icons/burger-menu.svg";
 
-
 import "./navbar.scss";
 
 const Navbar = () => {
@@ -12,7 +11,7 @@ const Navbar = () => {
 		setOpen((prev) => !prev);
 	}
 	return (
-		<div>
+		<div className="test">
 			<button className="menu--burger" onClick={handleNavigation}>
 				<img src={Burger} alt="Secont hand shop name" />
 			</button>
@@ -25,32 +24,35 @@ const Navbar = () => {
 					<ul>
 						<li>
 							<Link to={"/dashboard/my-items"} onClick={handleNavigation}>
-                                    My Items For Sale
+								My Items For Sale
 							</Link>
 						</li>
 						<li>
 							<Link to={"/dashboard/reservations"} onClick={handleNavigation}>
-                                    Reservations
+								Reservations
 							</Link>
 						</li>
 						<li>
 							<Link to={"/dashboard/items"} onClick={handleNavigation}>
-                                    All Items
+								All Items
 							</Link>
 						</li>
 						<li>
-							<Link to={"/dashboard/account-details"} onClick={handleNavigation}>
-                                    Account Details
+							<Link
+								to={"/dashboard/account-details"}
+								onClick={handleNavigation}
+							>
+								Account Details
 							</Link>
 						</li>
 						<li>
 							<Link to={"/"} onClick={handleNavigation}>
-                                    Back to shop
+								Back to shop
 							</Link>
 						</li>
 						<li>
 							<Link to={"/"} onClick={handleNavigation}>
-                                    Logout
+								Logout
 							</Link>
 						</li>
 					</ul>

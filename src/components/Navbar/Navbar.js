@@ -1,7 +1,7 @@
 import { React, useState } from "react";
+import { ReactSVG } from "react-svg";
 import { Link } from "react-router-dom";
 import Burger from "../../assets/icons/burger-menu.svg";
-
 
 import "./navbar.scss";
 
@@ -19,7 +19,8 @@ const Navbar = (props) => {
 			{open && (
 				<nav>
 					<button className="menu--burger" onClick={handleNavigation}>
-						<img src={Burger} alt="Secont hand shop name" />
+						{/* <img src={Burger} alt="Secont hand shop name" /> */}
+						<ReactSVG src={Burger} />
 					</button>
 
 					<ul>
