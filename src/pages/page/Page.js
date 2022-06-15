@@ -31,10 +31,11 @@ function Page({ pages }) {
 					</div>
 				</div>
 			))}
-			{/* <footer>{page.pageFooter.copyrightText}</footer> */}
-			<Link to={"/dashboard/signup"} className="btn btn--primary">
-				Start selling
-			</Link>
+			<div className="btn-container">
+				<Link to={"/dashboard/signup"} className="btn btn--primary">
+					Start selling
+				</Link>
+			</div>
 		</div>
 	);
 }
