@@ -32,6 +32,11 @@
 		height: 0;
 		padding: 1em 1em 150%;
 		text-align: right;
+		transition: var(--transition);
+		&:hover {
+			filter: var(--filter);
+			transition: var(--transition);
+		}
 	}
 	&-heart {
 		width: 30px;
