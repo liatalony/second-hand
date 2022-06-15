@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./page.scss";
 
 function Page({ pages }) {
@@ -32,7 +32,9 @@ function Page({ pages }) {
 				</div>
 			))}
 			{/* <footer>{page.pageFooter.copyrightText}</footer> */}
-			<button className="btn btn--primary">Start selling</button>
+			<Link to={"/dashboard/signup"} className="btn btn--primary">
+				Start selling
+			</Link>
 		</div>
 	);
 }
