@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "../../components/list-item/Item";
 import "./home.scss";
-import Banner from "../../assets/jacket-too.jpg";
+import Banner from "../../assets/banner-eight.jpeg";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -10,7 +10,8 @@ const Home = () => {
 			<div
 				className="banner"
 				style={{
-					backgroundImage: `linear-gradient(rgba(0,0,200,0.3), rgba(0,0,0,0.1)), url(${Banner})`,
+					backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,200,0.2)), url(${Banner})`,
+					backgroundSize: "cover",
 				}}
 			>
 				<h1 className="title">No planet B</h1>
