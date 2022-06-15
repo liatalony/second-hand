@@ -74,6 +74,11 @@ table {
 	text-align: center;
 }
 
+.detail-name {
+	// font-weight: var(--font-weight-semibold);
+	color: var(--color-1);
+}
+
 .detail-name,
 .detail-value {
 	width: 50%;
