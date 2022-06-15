@@ -49,9 +49,9 @@ const Item = (props) => {
 				</button>
 			</div>
 			<div className="item-details">
-				<h4>
+				<p className="list-item-price">
 					<Link to={"/shop/product/:id"}>{props.details.product_headline}</Link>
-				</h4>
+				</p>
 				<p className="price">
 					kr. {props.details.product_price}
 					<span className="status"> {props.status}</span>
