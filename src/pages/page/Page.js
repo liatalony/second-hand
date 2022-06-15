@@ -19,6 +19,7 @@ function Page({ pages }) {
 							style={{
 								backgroundImage: `url(${content.image.url})`,
 								backgroundPosition: "center",
+								backgroundSize: "cover",
 							}}
 						></div>
 					</div>
