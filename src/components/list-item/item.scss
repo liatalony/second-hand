@@ -17,9 +17,11 @@
 }
 
 .image-container {
+	border: 2px solid var(--color-1);
 	position: relative;
 	width: 100%;
 	min-width: 165px;
+	padding: 0.5rem;
 	&--inactive {
 		opacity: 0.3;
 	}
@@ -44,8 +46,8 @@
 		background-color: transparent;
 		border: none;
 		position: absolute;
-		top: 15px;
-		right: 15px;
+		top: 20px;
+		right: 20px;
 		svg {
 			stroke: var(--color-1);
 			stroke-width: 2px;
@@ -54,8 +56,8 @@
 		}
 		&-liked {
 			position: absolute;
-			top: 15px;
-			right: 15px;
+			top: 20px;
+			right: 20px;
 			border: none;
 			width: 30px;
 			height: 30px;
@@ -70,6 +72,7 @@
 		}
 	}
 	&-details {
+		margin-top: 0.3rem;
 		h4 {
 			font-weight: var(--font-weight-semibold);
 		}
