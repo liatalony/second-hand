@@ -9,6 +9,7 @@ const SingleItem = () => {
 	const [productDetails, setProductDetails] = useState(false);
 	// const [productImages, setProductImages] = useState(false);
 	const productId = useParams();
+	const [isActive, setIsActive] = useState(false);
 
 	useEffect(() => {
 		try {
@@ -23,6 +24,10 @@ const SingleItem = () => {
 			console.log(error.message);
 		}
 	}, []);
+
+	function addToCart() {
+		setIsActive(!isActive);
+	}
 
 	return (
 		<div className="single-item-page">
@@ -79,7 +84,14 @@ const SingleItem = () => {
 								</div>
 								<div className="container--buy--desktop">
 									<div className="button">
-										<button className="btn btn--primary">Add to bag</button>
+										<button
+											className={
+												isActive ? "btn btn--checkout" : "btn btn--primary"
+											}
+											onClick={addToCart}
+										>
+											{isActive ? "Added" : "Add to bag"}
+										</button>
 									</div>
 								</div>
 							</section>
@@ -109,8 +121,16 @@ const SingleItem = () => {
 									kr. {productDetails.product[0].product_price}
 								</p>
 							</div>
+							{/* button container for mobile */}
 							<div className="button">
-								<button className="btn btn--primary">Add to bag</button>
+								<button
+									className={
+										isActive ? "btn btn--checkout" : "btn btn--primary"
+									}
+									onClick={addToCart}
+								>
+									{isActive ? "Added" : "Add to bag"}
+								</button>
 							</div>
 						</div>
 					</section>

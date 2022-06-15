@@ -45,4 +45,9 @@
 			opacity: var(--opacity);
 		}
 	}
+	&--checkout {
+		font-weight: var(--font-weight-bold);
+		background-color: var(--color-warning);
+		color: var(--color-white);
+	}
 }
