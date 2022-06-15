@@ -128,6 +128,7 @@ const Shop = () => {
 						})}
 					</div>
 				)}
+
 				{openFilter && (
 					<div>
 						<Filter />

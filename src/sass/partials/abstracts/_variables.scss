@@ -1,5 +1,6 @@
 :root {
 	font-size: 16px;
+	--animation-cards: 0.6s cubic-bezier(0.25, 0.25, 0.25, 1.15) both fade-in;
 	--border: 0.1rem solid var(--color-1);
 	--border-radius: 0.5rem;
 	--box-shadow: rgb(173, 173, 173) 0px -3px 10px 2px;

@@ -1,3 +1,21 @@
+@import "../../sass/partials/abstracts/mixins";
+
+@include fade-in;
+
+.Item {
+	animation: var(--animation-cards);
+}
+
+// animation loop for cards
+@for $i from 1 through 10 {
+	.Item {
+		&:nth-child(#{$i}) {
+			// Delay increases as items loop.
+			animation-delay: $i * (0.2s);
+		}
+	}
+}
+
 .image-container {
 	position: relative;
 	width: 100%;

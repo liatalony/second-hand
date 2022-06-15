@@ -39,7 +39,6 @@ const Item = (props) => {
 						}}
 					></div>
 				</Link>
-
 				<button
 					onClick={handleLike}
 					className={liked ? "item-heart-liked" : "item-heart"}
