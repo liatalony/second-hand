@@ -1,21 +1,65 @@
-import { useState, React } from "react";
+import { useState, useEffect, React } from "react";
 import Item from "../../components/list-item/Item";
+import axios from "../../api/axios";
 import "./reservations.scss";
 
 function Reservations() {
-	const [deleted, setDeleted] = useState(false);
+	// const [deleted, setDeleted] = useState(false);
+	const [itemList, setItemsList] = useState();
+	let reservations = JSON.parse(localStorage.getItem("wrinkle-favourites"));
+	let items = [];
 
-	function cartRemove() {
-		console.log("removing from cart");
-		setDeleted(true);
-	}
+	useEffect(() => {
+		if (!localStorage.getItem("wrinkle-cart")) {
+			localStorage.setItem("wrinkle-cart", "[]");
+		}
+		reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
+
+		if (reservations.length > 0)  {
+			try {
+				axios.get("/products/saved/cart").then((res)=>{
+					console.log(res.data);
+					console.log(res.data[0].product_id);
+					if (res.data[0].product_id){
+						console.log("insode");
+						items = res.data.filter(product => {
+							console.log(product);
+							return reservations.find(item => {
+								console.log(item);
+								console.log(product.product_id, " == ", item.id);
+								return product.product_id === item.id;
+							})
+						})
+						console.log(items);
+					}
+					setItemsList(items)
+				})
+				setItemsList(items)
+			} catch (error) {
+				setItemsList(false)
+				console.log(error.message);
+			}
+		}
+		console.log(itemList);
+	}, []);
+	// function cartRemove() {
+	// 	console.log("removing from cart");
+	// 	setDeleted(true);
+
+	// }
 
 	return (
 		<div className="reservations">
 			<h1>Reservations</h1>
 			<div className="item-list-container">
 				<div className="item-list">
-					{deleted ? (
+					{!itemList ? <p>No items in the bag</p> : (
+						itemList.map(item => {
+							console.log(item);
+							return <Item key={"item" + item.product_id} details={item} />
+						})
+					)}
+					{/* {deleted ? (
 						<></>
 					) : (
 						<div className="single-item-container">
@@ -24,12 +68,7 @@ function Reservations() {
 								remove
 							</button>
 						</div>
-					)}
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-					<Item />
+					)} */}
 				</div>
 			</div>
 			<div>

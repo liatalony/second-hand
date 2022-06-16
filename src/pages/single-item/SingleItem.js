@@ -1,25 +1,56 @@
 import React, { useEffect, useState } from "react";
 import Slider from "../../components/swiper/Slider";
 import "./singleItem.scss";
-import Item from "../../components/list-item/Item";
-import axios from "axios";
+// import Item from "../../components/list-item/Item";
+import axios from "../../api/axios";
 import { useParams } from "react-router-dom";
 
 const SingleItem = () => {
 	const [productDetails, setProductDetails] = useState(false);
 	// const [productImages, setProductImages] = useState(false);
 	const productId = useParams();
+	const [reserved, setReserved] = useState(false);
+	let reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
 	const [isActive, setIsActive] = useState(false);
+
+	function handleReserve(e) {
+		e.preventDefault();
+		reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
+		const product = {
+			id: productDetails.product[0].product_id,
+			name: productDetails.product[0].product_headline,
+			price: productDetails.product[0].product_price,
+		}
+		console.log(product);
+		if (!reserved) {
+			reservations.push(product);
+		}else if(reserved){
+			reservations = reservations.filter(item => item.id !==product.id);
+		}
+		localStorage.setItem("wrinkle-cart", JSON.stringify(reservations));
+		setReserved((prev) => !prev);
+	}
+
+	useEffect(() => {
+		if (!localStorage.getItem("wrinkle-cart")) {
+			localStorage.setItem("wrinkle-cart", "[]");
+		}
+		reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
+
+		if (reservations.filter(item => item.id === productDetails.product_id).length > 0) {
+			setReserved(true);
+		}
+	}, []);
 
 	useEffect(() => {
 		try {
-			axios
-				.get(`http://localhost:3001/products/${productId.id}`)
-				.then((res) => {
-					console.log(res.data);
-					setProductDetails(res.data);
-					// setProductImages(res.data[0]);
-				});
+			axios.get(
+				`/products/single-product/${productId.id}`,
+			).then((res)=>{
+				console.log(res.data);
+				setProductDetails(res.data);
+				// setProductImages(res.data[0]);
+			})
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -88,7 +119,8 @@ const SingleItem = () => {
 											className={
 												isActive ? "btn btn--checkout" : "btn btn--primary"
 											}
-											onClick={addToCart}
+											// onClick={addToCart}
+											onClick={handleReserve}
 										>
 											{isActive ? "Added" : "Add to bag"}
 										</button>
@@ -103,11 +135,11 @@ const SingleItem = () => {
 								<h2>Similar Items</h2>
 							</div>
 							<div className={"similar-items-list"}>
+								{/* <Item />
 								<Item />
 								<Item />
 								<Item />
-								<Item />
-								<Item />
+								<Item /> */}
 							</div>
 						</div>
 					</section>
@@ -127,7 +159,8 @@ const SingleItem = () => {
 									className={
 										isActive ? "btn btn--checkout" : "btn btn--primary"
 									}
-									onClick={addToCart}
+									// onClick={addToCart}
+									onClick={handleReserve}
 								>
 									{isActive ? "Added" : "Add to bag"}
 								</button>
