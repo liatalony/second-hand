@@ -4,7 +4,7 @@ import Filter from "../../components/filter/Filter";
 import Item from "../../components/list-item/Item";
 import "./shop.scss";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../../api/axios";
 
 const Shop = () => {
 	const { gender, subCategory } = useParams();
@@ -19,24 +19,12 @@ const Shop = () => {
 	useEffect(() => {
 		try {
 			setItemsList(false);
-			if (gender && !subCategory) {
-				axios
-					.get(`http://localhost:3001/products/all/${gender}`)
-					.then((res) => {
-						setItemsList(res.data);
-					});
-			} else if (gender && subCategory) {
-				axios
-					.get(`http://localhost:3001/products/all/${gender}/${subCategory}`)
-					.then((res) => {
-						console.log(subCategory);
-						if (res.data) {
-							setItemsList(res.data);
-						} else {
-							setItemsList(false);
-						}
-					});
+			if(gender && !subCategory){
+				axios.get(`/products/shop/${gender}`).then(res => { setItemsList(res.data)})
+			}else if(gender && subCategory){
+				axios.get(`/products/shop/${gender}/${subCategory}`).then(res => { console.log(subCategory); if(res.data){setItemsList(res.data)}else{setItemsList(false)}})
 			}
+			setItemsList(false);
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -44,24 +32,12 @@ const Shop = () => {
 	useEffect(() => {
 		try {
 			setItemsList(false);
-			if (gender && !subCategory) {
-				axios
-					.get(`http://localhost:3001/products/all/${gender}`)
-					.then((res) => {
-						setItemsList(res.data);
-					});
-			} else if (gender && subCategory) {
-				axios
-					.get(`http://localhost:3001/products/all/${gender}/${subCategory}`)
-					.then((res) => {
-						console.log(subCategory);
-						if (res.data) {
-							setItemsList(res.data);
-						} else {
-							setItemsList(false);
-						}
-					});
+			if(gender && !subCategory){
+				axios.get(`/products/shop/${gender}`).then(res => { setItemsList(res.data)})
+			}else if(gender && subCategory){
+				axios.get(`/products/shop/${gender}/${subCategory}`).then(res => { console.log(subCategory); if(res.data){setItemsList(res.data)}else{setItemsList(false)}})
 			}
+			setItemsList(false);
 		} catch (error) {
 			console.log(error.message);
 		}

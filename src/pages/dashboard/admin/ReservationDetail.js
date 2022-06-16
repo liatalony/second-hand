@@ -1,5 +1,5 @@
 import React from "react";
-import Item from "../../../components/list-item/Item";
+// import Item from "../../../components/list-item/Item";
 
 function ReservationDetails() {
 	return (
@@ -7,7 +7,7 @@ function ReservationDetails() {
 			<h1>Admin - Reservation Details</h1>
 			<div className="item-list-container">
 				<ul className="item-list">
-					<li>
+					{/* <li>
 						<Item />
 					</li>
 					<li>
@@ -24,7 +24,7 @@ function ReservationDetails() {
 					</li>
 					<li>
 						<Item />
-					</li>
+					</li> */}
 				</ul>
 			</div>
 			<section className="container--buy">

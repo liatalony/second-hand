@@ -1,11 +1,21 @@
-import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import { React, useState, useContext} from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Burger from "../../assets/icons/burger-menu.svg";
+import AuthContext from "../../context/AuthProvider";
 
 import "./navbar.scss";
 
 const Navbar = () => {
 	const [open, setOpen] = useState(false);
+	const { setAuth } = useContext(AuthContext);
+	const navigate = useNavigate();
+
+	const logout = async () => {
+		// if used in more components, this should be in context 
+		// axios to /logout endpoint 
+		setAuth({});
+		navigate("/dashboard/login");
+	}
 
 	function handleNavigation() {
 		setOpen((prev) => !prev);
@@ -54,6 +64,11 @@ const Navbar = () => {
 							<Link to={"/"} onClick={handleNavigation}>
 								Logout
 							</Link>
+						</li>
+						<li>
+							<div className="flexGrow">
+								<button onClick={logout}>Sign Out</button>
+							</div>
 						</li>
 					</ul>
 				</nav>
