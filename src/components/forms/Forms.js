@@ -8,7 +8,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{6,24}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
 
 const LoginForm = () => {
-	const {setAuth} = useAuth();
+	const { setAuth } = useAuth();
 	const [email, setEmail] = useState("");
 	const [pass, setPass] = useState("");
 	const navigate = useNavigate();
@@ -31,8 +31,8 @@ const LoginForm = () => {
 			const accessToken = response.data.accessToken;
 			const role = response.data.role;
 			console.log(response.data);
-			setAuth({email, pass, role, accessToken})
-			navigate(from, {replace:true});
+			setAuth({ email, pass, role, accessToken });
+			navigate(from, { replace: true });
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -76,11 +76,11 @@ const LoginForm = () => {
 						className={"btn btn--primary"}
 						onClick={handleSubmit}
 					>
-					Login
+						Login
 					</button>
 				</div>
 				<sub>
-				Don&apos;t have an account?{" "}
+					Don&apos;t have an account?{" "}
 					<Link to={"/dashboard/signup"}>Signup here</Link>
 				</sub>
 			</form>
