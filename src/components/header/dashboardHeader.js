@@ -5,7 +5,6 @@ import HeaderNavbar from "../Navbar/DashboardNavbar";
 import LogoW from "../../assets/icons/wrinkle-logo-w.svg";
 import ShopIcon from "../../assets/icons/bi_shop.svg";
 
-
 import "./header.scss";
 
 const DashboardHeader = () => {
@@ -23,7 +22,6 @@ const DashboardHeader = () => {
 						<img src={ShopIcon} alt="Back to shop" />
 					</div>
 				</Link>
-
 			</div>
 		</header>
 	);
