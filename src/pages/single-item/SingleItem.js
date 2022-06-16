@@ -11,7 +11,7 @@ const SingleItem = () => {
 	const productId = useParams();
 	const [reserved, setReserved] = useState(false);
 	let reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
-	const [isActive, setIsActive] = useState(false);
+	// const [isActive, setIsActive] = useState(false);
 
 	function handleReserve(e) {
 		e.preventDefault();
@@ -56,9 +56,9 @@ const SingleItem = () => {
 		}
 	}, []);
 
-	function addToCart() {
-		setIsActive(!isActive);
-	}
+	// function addToCart() {
+	// 	setIsActive(!isActive);
+	// }
 
 	return (
 		<div className="single-item-page">
@@ -117,12 +117,15 @@ const SingleItem = () => {
 									<div className="button">
 										<button
 											className={
-												isActive ? "btn btn--checkout" : "btn btn--primary"
+												// isActive ? "btn btn--checkout" :
+												"btn btn--primary"
 											}
 											// onClick={addToCart}
 											onClick={handleReserve}
 										>
-											{isActive ? "Added" : "Add to bag"}
+											{/* {isActive ? "Added" : */}
+											Add to bag
+											{/* } */}
 										</button>
 									</div>
 								</div>
@@ -157,12 +160,15 @@ const SingleItem = () => {
 							<div className="button">
 								<button
 									className={
-										isActive ? "btn btn--checkout" : "btn btn--primary"
+										// isActive ? "btn btn--checkout" : 
+										"btn btn--primary"
 									}
 									// onClick={addToCart}
 									onClick={handleReserve}
 								>
-									{isActive ? "Added" : "Add to bag"}
+									{/* {isActive ? "Added" :  */}
+									Add to bag
+									{/* } */}
 								</button>
 							</div>
 						</div>

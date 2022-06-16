@@ -1,8 +1,7 @@
-// import axios from "../../api/axios";
+import axios from "../../api/axios";
 import React, {useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Item from "../../components/list-item/Item";
-// import Item from "../../components/list-item/Item";
 import "./favourites.scss";
 
 function Favourites() {
@@ -19,15 +18,15 @@ function Favourites() {
 		if (favourites.length > 0) {
 			console.log("favourites");
 			try {
-				// axios.get("/products/saved/favourites").then((res)=>{
-				// 	items = res.data.filter(product => {
-				// 		return favourites.find(item => {
-				// 			return product.product_id === item.id;
-				// 		})
-				// 	})
-				// 	console.log(items);
-				// 	setItemsList(items)
-				// })
+				axios.get("/products/saved/favourites").then((res)=>{
+					items = res.data.filter(product => {
+						return favourites.find(item => {
+							return product.product_id === item.id;
+						})
+					})
+					console.log(items);
+					setItemsList(items)
+				})
 				setItemsList(items)
 			} catch (error) {
 				console.log(error.message);
