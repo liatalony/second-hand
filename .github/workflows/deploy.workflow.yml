@@ -20,7 +20,7 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           local: "."
           remote: "./wrinkle.dk"
-          pre_upload: rm -rf ./wrinkle.dk && mkdir wrinkle.dk && rm -rf /var/www/wrinkle.dk && mkdir /var/www/wrinkle.dk && mkdir /var/www/wrinkle.dk/frontend
-          post_upload: cd wrinkle.dk && ls && npm install && npm run build && scp -r build/* /var/www/wrinkle.dk/frontend && echo "copy to server complete"
+          pre_upload: rm -rf ./wrinkle.dk && mkdir wrinkle.dk && rm -rf /var/www/wrinkle.dk && mkdir /var/www/wrinkle.dk && mkdir /var/www/wrinkle.dk/build
+          post_upload: cd wrinkle.dk && ls && npm install && npm run build && scp -r build/* /var/www/wrinkle.dk/build && echo "copy to server complete"
           ssh_options: -o StrictHostKeyChecking=no
           scp_options: -v
