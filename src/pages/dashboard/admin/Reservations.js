@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ReactSVG } from "react-svg";
-import Check from "../../../assets/icons/check.svg";
+import Check from "../../../assets/icons/check-outline.svg";
+import Dots from "../../../assets/icons/dots-pending-filled.svg";
+import Cross from "../../../assets/icons/cross-cancel.svg";
 import "./reservationsAdmin.scss";
 
 function ReservationsList() {
@@ -29,28 +31,29 @@ function ReservationsList() {
 					</li>
 					<li>
 						<Link to={"/dashboard/reservations/:id"} className="order">
-							<div>
-								<h2>Order number</h2>
-								<h3>{orderNumber}</h3>
-								<p>{orderStatus}</p>
+							<div className="order-contents">
+								<div className="order-icon">
+									<ReactSVG src={Dots} />
+								</div>
+								<div className="order-text">
+									<h2>Order number</h2>
+									<h3>{orderNumber}</h3>
+									<p>{orderStatus}</p>
+								</div>
 							</div>
 						</Link>
 					</li>
 					<li>
 						<Link to={"/dashboard/reservations/:id"} className="order">
-							<div>
-								<h2>Order number</h2>
-								<h3>{orderNumber}</h3>
-								<p>{orderStatus}</p>
-							</div>
-						</Link>
-					</li>
-					<li>
-						<Link to={"/dashboard/reservations/:id"} className="order">
-							<div>
-								<h2>Order number</h2>
-								<h3>{orderNumber}</h3>
-								<p>{orderStatus}</p>
+							<div className="order-contents">
+								<div className="order-icon">
+									<ReactSVG src={Cross} />
+								</div>
+								<div className="order-text">
+									<h2>Order number</h2>
+									<h3>{orderNumber}</h3>
+									<p>{orderStatus}</p>
+								</div>
 							</div>
 						</Link>
 					</li>

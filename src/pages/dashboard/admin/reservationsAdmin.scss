@@ -1,6 +1,6 @@
 .Dashboard.all-items {
 	margin: 0 auto;
-	max-width: var(--max-width);
+	max-width: 600px;
 	.item-list-container {
 		padding: 1rem;
 	}
@@ -11,6 +11,10 @@
 	a:hover {
 		opacity: 0.3;
 		transition: var(--transition);
+	}
+	.order-icon {
+		width: 100px;
+		height: auto;
 	}
 	.order-contents {
 		display: flex;
