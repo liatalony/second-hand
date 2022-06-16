@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ReactSVG } from "react-svg";
+import Check from "../../../assets/icons/check.svg";
 import "./reservationsAdmin.scss";
 
 function ReservationsList() {
-	const orderNumber = 2;
-	const orderStatus = "pending";
+	const orderNumber = 2123123;
+	const orderStatus = "accepted";
 
 	return (
 		<div className="Dashboard all-items">
@@ -13,10 +15,15 @@ function ReservationsList() {
 				<ul className="item-list">
 					<li>
 						<Link to={"/dashboard/reservations/:id"} className="order">
-							<div>
-								<h2>Order number</h2>
-								<h3>{orderNumber}</h3>
-								<p>{orderStatus}</p>
+							<div className="order-contents">
+								<div className="order-icon">
+									<ReactSVG src={Check} />
+								</div>
+								<div className="order-text">
+									<h2>Order number</h2>
+									<h3>{orderNumber}</h3>
+									<p>{orderStatus}</p>
+								</div>
 							</div>
 						</Link>
 					</li>

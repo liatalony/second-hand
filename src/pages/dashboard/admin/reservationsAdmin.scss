@@ -1,24 +1,24 @@
-// .all-items {
-// 	display: flex;
-// 	flex-direction: column;
-// 	justify-content: center;
-// 	align-items: center;
-// 	margin: auto 0;
-// }
-
-// .item-list-container {
-// 	width: 100%;
-// }
-
-// .item-list {
-// 	li {
-// 		padding-bottom: 0.5rem;
-// 		border-bottom: 0.2rem solid var(--color-1);
-// 	}
-// }
-
-.order {
-	:hover {
-		opacity: 0.2;
+.Dashboard.all-items {
+	margin: 0 auto;
+	max-width: var(--max-width);
+	.item-list-container {
+		padding: 1rem;
+	}
+	.item-list {
+		display: flex;
+		flex-direction: column;
+	}
+	a:hover {
+		opacity: 0.3;
+		transition: var(--transition);
+	}
+	.order-contents {
+		display: flex;
+	}
+	.order-text {
+		margin-left: 1rem;
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
 	}
 }
