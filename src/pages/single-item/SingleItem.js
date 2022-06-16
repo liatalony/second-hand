@@ -1,8 +1,8 @@
 import React, {useEffect, useState } from "react";
 import Slider from "../../components/swiper/Slider";
 import "./singleItem.scss";
-import Item from "../../components/list-item/Item";
-import axios from "axios";
+// import Item from "../../components/list-item/Item";
+import axios from "../../api/axios";
 import { useParams } from "react-router-dom";
 
 const SingleItem = () => {
@@ -10,11 +10,42 @@ const SingleItem = () => {
 	const [productDetails, setProductDetails] = useState(false);
 	// const [productImages, setProductImages] = useState(false);
 	const productId = useParams();
+	const [reserved, setReserved] = useState(false);
+	let reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
+
+	function handleReserve(e) {
+		e.preventDefault();
+		reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
+		const product = {
+			id: productDetails.product[0].product_id,
+			name: productDetails.product[0].product_headline,
+			price: productDetails.product[0].product_price,
+		}
+		console.log(product);
+		if (!reserved) {
+			reservations.push(product);
+		}else if(reserved){
+			reservations = reservations.filter(item => item.id !==product.id);
+		}
+		localStorage.setItem("wrinkle-cart", JSON.stringify(reservations));
+		setReserved((prev) => !prev);
+	}
+
+	useEffect(() => {
+		if (!localStorage.getItem("wrinkle-cart")) {
+			localStorage.setItem("wrinkle-cart", "[]");
+		}
+		reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
+
+		if (reservations.filter(item => item.id === productDetails.product_id).length > 0) {
+			setReserved(true);
+		}
+	}, []);
 
 	useEffect(()=>{
 		try {
 			axios.get(
-				`http://localhost:3001/products/${productId.id}`,
+				`/products/single-product/${productId.id}`,
 			).then((res)=>{
 				console.log(res.data);
 				setProductDetails(res.data);
@@ -68,7 +99,7 @@ const SingleItem = () => {
 								</div>
 								<div className="container--buy--desktop">
 									<div className="button">
-										<button className="btn btn--primary">Add to bag</button>
+										<button className="btn btn--primary" onClick={handleReserve}>Add to bag</button>
 									</div>
 								</div>
 							</section>
@@ -80,11 +111,11 @@ const SingleItem = () => {
 								<h3>Similar Items</h3>
 							</div>
 							<div className={"similar-items-list"}>
+								{/* <Item />
 								<Item />
 								<Item />
 								<Item />
-								<Item />
-								<Item />
+								<Item /> */}
 							</div>
 						</div>
 					</section>
@@ -95,7 +126,7 @@ const SingleItem = () => {
 								<h1 className="price">kr. {productDetails.product[0].product_price}</h1>
 							</div>
 							<div className="button">
-								<button className="btn btn--primary">Add to bag</button>
+								<button className="btn btn--primary"  onClick={handleReserve}>Add to bag</button>
 							</div>
 						</div>
 					</section>

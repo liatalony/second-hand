@@ -1,5 +1,5 @@
 // import axios from "axios";
-import axios from "axios";
+import axios from "../../api/axios";
 import React, { useState, useEffect } from "react";
 import UploadImage from "../../assets/icons/image-upload.svg";
 // import FormData from "form-data";
@@ -30,7 +30,7 @@ const AddItemForm = () => {
 	useEffect(()=>{
 		try {
 			axios.get(
-				"http://localhost:3001/products/add",
+				"/products/add",
 			).then((res)=>{
 				setFormFields(res.data);
 			}
@@ -94,7 +94,7 @@ const AddItemForm = () => {
 		console.log(data);
 		try {
 			const response = await axios.post(
-				"http://localhost:3001/products/add",
+				"/products/add",
 				data, {}
 			)
 			console.log(response.data);

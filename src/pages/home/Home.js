@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Item from "../../components/list-item/Item";
 import "./home.scss";
 import Banner from "../../assets/banner.jpg";
 import { Link } from "react-router-dom";
+// import axios from "../../api/axios";
 
 const Home = () => {
+	const [itemList, setItemList] = useState(false);
+
+	useEffect(()=>{
+		try {
+			// axios.get("/products/shop").then(res =>{
+			// 	console.log(res.data);
+			// 	setItemList(res.data);
+			// })
+			setItemList(false);
+		} catch (error) {
+			console.log(error.message);
+		}
+	},[])
+
 	return (
 		<div className="Home">
 			<div
@@ -30,14 +45,13 @@ const Home = () => {
 				<div className="title">
 					<h3>New products</h3>
 				</div>
-				<div className="item-list">
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-					<Item />
-				</div>
+				{!itemList ? <p>No items to show...</p> : (
+					<div className="item-list">
+						{itemList.map(item=>{
+							return <Item key={"item" + item.product_id} details={item} />;
+						})}
+					</div>
+				)}
 			</div>
 		</div>
 	);

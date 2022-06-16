@@ -11,17 +11,26 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Home from "./pages/home/Home";
 import Favourites from "./pages/favourites/Favourites";
-import Reservations from "./pages/reservations/Reservations";
 import Page from "./pages/page/Page";
 import Shop from "./pages/shop/Shop";
 import SingleItem from "./pages/single-item/SingleItem";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
+import Reservations from "./pages/reservations/Reservations";
 
 function App() {
 	const [pages, setPages] = useState(null);
 
-	console.log(pages);
+	// console.log(pages);
+
+	useEffect(()=>{
+		if (!localStorage.getItem("wrinkle-favourites")) {
+			localStorage.setItem("wrinkle-favourites", "[]");
+		}
+		if (!localStorage.getItem("wrinkle-cart")) {
+			localStorage.setItem("wrinkle-cart", "[]");
+		}
+	},[])
 
 	useEffect(() => {
 		const fetchPages = async () => {
@@ -81,9 +90,8 @@ function App() {
 					<Route exact path={"/home"} element={<Home />} />
 					<Route path={"/:slug"} element={<Page pages={pages} />} />
 					<Route path={"/favourites"} element={<Favourites />} />
-					<Route path={"/reservations"} element={<Reservations />} />
-					<Route path={"/dashboard"} element={<Dashboard />} />
-					<Route path={"/shop/product/:id"} element={<SingleItem />} />
+					<Route path={"/reservations"} element={<Reservations/>} />
+					<Route path={"/shop/product/single-product/:id"} element={<SingleItem />} />
 					<Route path={"/shop/:gender"} element={<Shop />} />
 					<Route path={"/shop/:gender/:subCategory"} element={<Shop />} />
 				</Routes>

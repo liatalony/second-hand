@@ -1,78 +1,90 @@
-import axios from "axios";
+import axios from "../../api/axios";
 import React, { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 import "./forms.scss";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{6,24}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
 
 const LoginForm = () => {
+	const {setAuth} = useAuth();
 	const [email, setEmail] = useState("");
 	const [pass, setPass] = useState("");
+	const navigate = useNavigate();
+	const location = useLocation();
+	const from = location.state?.from?.pathname || "/";
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		try {
 			const response = await axios.post(
-				"http://localhost:3001/users/login",
+				"/users/login",
 				JSON.stringify({ user_email: email, user_pass: pass }),
 				{
 					headers: { "Content-Type": "application/json" },
 					withCredentials: true,
 				}
 			);
+
+			const accessToken = response.data.accessToken;
+			const role = response.data.role;
 			console.log(response.data);
+			setAuth({email, pass, role, accessToken})
+			navigate(from, {replace:true});
 		} catch (error) {
 			console.log(error.message);
 		}
 	};
 
 	return (
-		<form>
-			<h1>Login</h1>
-			<div className="field">
-				<label htmlFor={"email"}>Email</label>
-				<input
-					id="email"
-					name="pass"
-					type={"email"}
-					required
-					placeholder="example@example.com"
-					value={email}
-					onChange={(e) => {
-						setEmail(e.target.value);
-					}}
-				></input>
-			</div>
-			<div className="field">
-				<label htmlFor={"pass"}>Password</label>
-				<input
-					id="pass"
-					name="pass"
-					type={"password"}
-					required
-					placeholder="Your password"
-					value={pass}
-					onChange={(e) => {
-						setPass(e.target.value);
-					}}
-				></input>
-			</div>
-			<div className="field">
-				<button
-					type={"submit"}
-					className={"btn btn--primary"}
-					onClick={handleSubmit}
-				>
+		<>
+			<form>
+				<h1>Login</h1>
+				<div className="field">
+					<label htmlFor={"email"}>Email</label>
+					<input
+						id="email"
+						name="pass"
+						type={"email"}
+						required
+						placeholder="example@example.com"
+						value={email}
+						onChange={(e) => {
+							setEmail(e.target.value);
+						}}
+					></input>
+				</div>
+				<div className="field">
+					<label htmlFor={"pass"}>Password</label>
+					<input
+						id="pass"
+						name="pass"
+						type={"password"}
+						required
+						placeholder="Your password"
+						value={pass}
+						onChange={(e) => {
+							setPass(e.target.value);
+						}}
+					></input>
+				</div>
+				<div className="field">
+					<button
+						type={"submit"}
+						className={"btn btn--primary"}
+						onClick={handleSubmit}
+					>
 					Login
-				</button>
-			</div>
-			<sub>
+					</button>
+				</div>
+				<sub>
 				Don&apos;t have an account?{" "}
-				<Link to={"/dashboard/signup"}>Signup here</Link>
-			</sub>
-		</form>
+					<Link to={"/dashboard/signup"}>Signup here</Link>
+				</sub>
+			</form>
+		</>
 	);
 };
 
@@ -122,7 +134,6 @@ const SignupForm = () => {
 	}, [email]);
 	useEffect(() => {
 		setValidPhone(phone.length == 8);
-		console.log(validPhone);
 	}, [phone]);
 	useEffect(() => {
 		setValidPass(PWD_REGEX.test(pass));
@@ -145,7 +156,7 @@ const SignupForm = () => {
 
 		try {
 			const response = await axios.post(
-				"http://localhost:3001/users/register",
+				"/users/register",
 				JSON.stringify({
 					user_first_name: firstName,
 					user_last_name: lastName,
@@ -440,7 +451,7 @@ const AccountForm = () => {
 
 		try {
 			const response = await axios.post(
-				"http://localhost:3001/users/register",
+				"/users/register",
 				JSON.stringify({
 					user_first_name: firstName,
 					user_last_name: lastName,
