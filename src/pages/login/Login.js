@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { LoginForm } from "../../components/forms/Forms";
 import LogoW from "../../assets/icons/wrinkle-logo-w.svg";
 import ShopIcon from "../../assets/icons/bi_shop.svg";
-
+import "./login.scss";
 
 const Login = () => {
 	return (
-		<div className="Favourites">
+		<div className="Login">
 			<header>
 				<Link to={"/"}>
 					<div className={"logo"}>
@@ -20,12 +20,13 @@ const Login = () => {
 							<img src={ShopIcon} alt="Back to shop" />
 						</div>
 					</Link>
-
 				</div>
 			</header>
-			<LoginForm />
+			<div className="login-container">
+				<LoginForm />
+			</div>
 		</div>
 	);
-}
+};
 
 export default Login;

@@ -25,14 +25,14 @@ function App() {
 
 	// console.log(pages);
 
-	useEffect(()=>{
+	useEffect(() => {
 		if (!localStorage.getItem("wrinkle-favourites")) {
 			localStorage.setItem("wrinkle-favourites", "[]");
 		}
 		if (!localStorage.getItem("wrinkle-cart")) {
 			localStorage.setItem("wrinkle-cart", "[]");
 		}
-	},[])
+	}, []);
 
 	useEffect(() => {
 		const fetchPages = async () => {
@@ -92,8 +92,11 @@ function App() {
 					<Route exact path={"/home"} element={<Home />} />
 					<Route path={"/:slug"} element={<Page pages={pages} />} />
 					<Route path={"/favourites"} element={<Favourites />} />
-					<Route path={"/reservations"} element={<Reservations/>} />
-					<Route path={"/shop/product/single-product/:id"} element={<SingleItem />} />
+					<Route path={"/reservations"} element={<Reservations />} />
+					<Route
+						path={"/shop/product/single-product/:id"}
+						element={<SingleItem />}
+					/>
 					<Route path={"/shop/:gender"} element={<Shop />} />
 					<Route path={"/shop/:gender/:subCategory"} element={<Shop />} />
 				</Routes>
