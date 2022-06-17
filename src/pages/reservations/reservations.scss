@@ -1,10 +1,11 @@
 @import "../../sass/partials/abstracts/mixins";
 
 .reservations {
-	max-width: var(--max-width);
+	max-width: 600px;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+	padding: 0 var(--padding);
 	// align-items: flex-start;
 	@include respond(desktop) {
 		// display: grid;
@@ -44,8 +45,8 @@
 			flex-direction: row;
 			overflow: hidden;
 			.image-container {
-				height: 100px;
-				width: 100px;
+				height: 150px;
+				width: 150px;
 			}
 			.item-details {
 				display: flex;
@@ -53,7 +54,8 @@
 				justify-content: center;
 				padding-left: var(--padding);
 			}
-			.item-heart, .item-heart-liked {
+			.item-heart,
+			.item-heart-liked {
 				display: none;
 			}
 		}

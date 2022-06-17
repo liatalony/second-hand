@@ -15,28 +15,28 @@ function Reservations() {
 		}
 		reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
 
-		if (reservations.length > 0)  {
+		if (reservations.length > 0) {
 			try {
-				axios.get("/products/saved/cart").then((res)=>{
+				axios.get("/products/saved/cart").then((res) => {
 					console.log(res.data);
 					console.log(res.data[0].product_id);
-					if (res.data[0].product_id){
+					if (res.data[0].product_id) {
 						console.log("insode");
-						items = res.data.filter(product => {
+						items = res.data.filter((product) => {
 							console.log(product);
-							return reservations.find(item => {
+							return reservations.find((item) => {
 								console.log(item);
 								console.log(product.product_id, " == ", item.id);
 								return product.product_id === item.id;
-							})
-						})
+							});
+						});
 						console.log(items);
 					}
-					setItemsList(items)
-				})
-				setItemsList(items)
+					setItemsList(items);
+				});
+				setItemsList(items);
 			} catch (error) {
-				setItemsList(false)
+				setItemsList(false);
 				console.log(error.message);
 			}
 		}
@@ -53,10 +53,12 @@ function Reservations() {
 			<h1>Reservations</h1>
 			<div className="item-list-container">
 				<div className="item-list">
-					{!itemList ? <p>No items in the bag</p> : (
-						itemList.map(item => {
+					{!itemList ? (
+						<p>No items in the bag</p>
+					) : (
+						itemList.map((item) => {
 							console.log(item);
-							return <Item key={"item" + item.product_id} details={item} />
+							return <Item key={"item" + item.product_id} details={item} />;
 						})
 					)}
 					{/* {deleted ? (
@@ -70,14 +72,13 @@ function Reservations() {
 						</div>
 					)} */}
 				</div>
+				<hr />
 			</div>
 			<div>
 				<div>
 					<h2>Reservation summary</h2>
-					<hr />
 					<h3>5 items</h3>
 					<h3>Total</h3>
-					<hr />
 					<p>
 						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
 						incidunt maiores, officia nisi molestiae illo fugit totam quasi
