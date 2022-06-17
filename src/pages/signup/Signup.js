@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { SignupForm } from "../../components/forms/Forms";
 import LogoW from "../../assets/icons/wrinkle-logo-w.svg";
 import ShopIcon from "../../assets/icons/bi_shop.svg";
+import "./signup.scss";
 
 const Signup = () => {
 	return (
-		<div className="Favourites">
+		<div className="Signup">
 			<header>
 				<Link to={"/"}>
 					<div className={"logo"}>
@@ -19,12 +20,13 @@ const Signup = () => {
 							<img src={ShopIcon} alt="Back to shop" />
 						</div>
 					</Link>
-
 				</div>
 			</header>
-			<SignupForm/>
+			<div className="signup-container">
+				<SignupForm />
+			</div>
 		</div>
 	);
-}
+};
 
 export default Signup;
