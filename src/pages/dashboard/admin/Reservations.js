@@ -12,7 +12,7 @@ function ReservationsList() {
 
 	return (
 		<div className="Dashboard all-items">
-			<h1>Admin - Reservations</h1>
+			<h1 className="title">Admin - Reservations</h1>
 			<div className="item-list-container">
 				<ul className="item-list">
 					<li>

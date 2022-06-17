@@ -18,11 +18,15 @@
 	}
 	.order-contents {
 		display: flex;
+		padding: 0.5rem 0;
 	}
 	.order-text {
 		margin-left: 1rem;
 		display: flex;
 		align-items: flex-start;
 		flex-direction: column;
+	}
+	.title {
+		margin-bottom: var(--margin);
 	}
 }
