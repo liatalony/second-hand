@@ -24,8 +24,10 @@
 			align-items: center;
 		}
 		&:hover {
-			background-color: var(--color-2);
+			background-color: transparent;
 			transition: var(--transition);
+			color: var(--color-1);
+			box-shadow: 0px 0px 0px 2px var(--color-1) inset;
 		}
 	}
 	&--secondary {
