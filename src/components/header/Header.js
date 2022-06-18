@@ -28,12 +28,14 @@ const Header = (props) => {
 				</Link>
 				<Link to={"/reservations"}>
 					<div className={"reservations"}>
-						<img src={Bag} alt="My reservations" />
+						{/* <img src={Bag} alt="My reservations" /> */}
+						<ReactSVG src={Bag} />
 					</div>
 				</Link>
 				<Link to={"/dashboard"}>
 					<div className={"profile"}>
-						<img src={Avatar} alt="My account" />
+						<ReactSVG src={Avatar} />
+						{/* <img src={Avatar} alt="My account" /> */}
 					</div>
 				</Link>
 			</div>

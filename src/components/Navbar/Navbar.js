@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { ReactSVG } from "react-svg";
 import { Link } from "react-router-dom";
 import Burger from "../../assets/icons/burger-menu.svg";
+import BurgerClose from "../../assets/icons/cross-white.svg";
 
 import "./navbar.scss";
 
@@ -14,13 +15,13 @@ const Navbar = (props) => {
 	return (
 		<div>
 			<button className="menu--burger" onClick={handleNavigation}>
-				<img src={Burger} alt="Secont hand shop name" />
+				<ReactSVG src={Burger} />
 			</button>
 			{open && (
 				<nav>
-					<button className="menu--burger" onClick={handleNavigation}>
+					<button className="menu--burger--close" onClick={handleNavigation}>
 						{/* <img src={Burger} alt="Secont hand shop name" /> */}
-						<ReactSVG src={Burger} />
+						<ReactSVG src={BurgerClose} />
 					</button>
 
 					<ul>
