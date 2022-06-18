@@ -11,6 +11,10 @@
 		@include respond(desktop) {
 			grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 		}
+		.item-none {
+			grid-column: 1 /-1;
+			text-align: center;
+		}
 	}
 }
 
@@ -22,4 +26,12 @@
 .item-details .price .status {
 	color: var(--color-warning);
 	font-weight: var(--font-weight-semibold);
+}
+
+.favourites {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	max-width: 600px;
+	margin: 0 auto;
 }

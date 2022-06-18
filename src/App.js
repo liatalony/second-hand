@@ -33,13 +33,15 @@ function App() {
 		}
 	}, []);
 
-	useEffect(()=>{
+	useEffect(() => {
 		try {
-			axios.get("/products/update").then((res)=>{console.log(res.data);})
+			axios.get("/products/update").then((res) => {
+				console.log(res.data);
+			});
 		} catch (error) {
 			console.log(error.message);
 		}
-	},[])
+	}, []);
 
 	useEffect(() => {
 		const fetchPages = async () => {
@@ -120,8 +122,7 @@ function App() {
 					<Route path={"/signup"} element={<Signup />} />
 					<Route exact path={"/*"} element={<Dashboard />} />
 				</Routes>
-				<Footer pages={pages} />
-				{/* <footer></footer> */}
+				{/* <Footer pages={pages} /> */}
 			</>
 		);
 	};
@@ -137,13 +138,9 @@ function App() {
 				<Route path={"/*"} element={<ShopPage />} />
 				<Route path={"/dashboard/*"} element={<DashboardPage />} />
 			</Routes>
+			<Footer pages={pages} />
 		</div>
 	);
 }
 
 export default App;
-
-			
-			
-			
-			
