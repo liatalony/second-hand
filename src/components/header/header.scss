@@ -14,8 +14,8 @@ header {
 	}
 	.Icons {
 		display: flex;
-		justify-content: center;
 		margin-left: auto;
+		align-items: center;
 		img,
 		svg {
 			// margin-left: var(--margin);

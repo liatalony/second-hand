@@ -4,7 +4,7 @@ import { ReactSVG } from "react-svg";
 import Navbar from "../Navbar/Navbar";
 // import LogoFull from "../../assets/icons/wrinkle-logo-full.svg";
 import LogoW from "../../assets/icons/wrinkle-logo-w.svg";
-import Heart from "../../assets/heart.svg";
+import Heart from "../../assets/icons/heart-too.svg";
 import Bag from "../../assets/icons/shopping-bag.svg";
 import Avatar from "../../assets/icons/avatar.svg";
 
