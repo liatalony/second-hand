@@ -17,10 +17,9 @@ import SingleItem from "./pages/single-item/SingleItem";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import Reservations from "./pages/reservations/Reservations";
+import axios from "./api/axios";
 
 function App() {
-	const title = "Home | Wrinkle";
-	document.title = title;
 	const [pages, setPages] = useState(null);
 
 	// console.log(pages);
@@ -33,6 +32,14 @@ function App() {
 			localStorage.setItem("wrinkle-cart", "[]");
 		}
 	}, []);
+
+	useEffect(()=>{
+		try {
+			axios.get("/products/update").then((res)=>{console.log(res.data);})
+		} catch (error) {
+			console.log(error.message);
+		}
+	},[])
 
 	useEffect(() => {
 		const fetchPages = async () => {
@@ -85,8 +92,6 @@ function App() {
 		return (
 			<>
 				<Header pages={pages} />
-				{/* {roles ? roles : "there are no roles"} */}
-				{/* <Main pages={pages} /> */}
 				<Routes>
 					<Route exact path={"/"} element={<Home />} />
 					<Route exact path={"/home"} element={<Home />} />
@@ -100,8 +105,6 @@ function App() {
 					<Route path={"/shop/:gender"} element={<Shop />} />
 					<Route path={"/shop/:gender/:subCategory"} element={<Shop />} />
 				</Routes>
-				<Footer pages={pages} />
-				{/* <footer></footer> */}
 			</>
 		);
 	};
@@ -139,3 +142,8 @@ function App() {
 }
 
 export default App;
+
+			
+			
+			
+			
