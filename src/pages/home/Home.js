@@ -3,17 +3,17 @@ import Item from "../../components/list-item/Item";
 import "./home.scss";
 import Banner from "../../assets/banner-eight.jpeg";
 import { Link } from "react-router-dom";
-// import axios from "../../api/axios";
+import axios from "../../api/axios";
 
 const Home = () => {
 	const [itemList, setItemList] = useState(false);
 
 	useEffect(()=>{
 		try {
-			// axios.get("/products/shop").then(res =>{
-			// 	console.log(res.data);
-			// 	setItemList(res.data);
-			// })
+			axios.get("/products/shop").then(res =>{
+				console.log(res.data);
+				setItemList(res.data);
+			})
 			setItemList(false);
 		} catch (error) {
 			console.log(error.message);
