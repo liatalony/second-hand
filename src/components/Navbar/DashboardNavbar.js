@@ -65,10 +65,10 @@ const Navbar = () => {
 								Logout
 							</Link>
 						</li>
-						<li>
-							<div className="flexGrow">
-								<button onClick={logout}>Sign Out</button>
-							</div>
+						<li className="flexGrow">
+							<button className="btn--sign-out" onClick={logout}>
+								Sign Out
+							</button>
 						</li>
 					</ul>
 				</nav>

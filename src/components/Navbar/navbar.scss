@@ -55,8 +55,12 @@ nav {
 			text-align: left;
 			padding: 1.2rem 0;
 			border-bottom: 1px solid white;
-			a {
+			a,
+			button {
+				padding: unset;
+				font-family: var(--font-primary);
 				color: white;
+				cursor: pointer;
 				font-weight: var(--font-weight-bold);
 				font-size: 24px;
 			}
