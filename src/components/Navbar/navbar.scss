@@ -1,9 +1,20 @@
+@import "../../sass/partials/abstracts/mixins";
+
 @keyframes animation-width {
 	from {
 		width: 0vw;
 	}
 	to {
 		width: 100vw;
+	}
+}
+
+@keyframes animation-desktop {
+	from {
+		width: 0vw;
+	}
+	to {
+		width: 30vw;
 	}
 }
 
@@ -18,6 +29,9 @@
 
 nav {
 	animation-name: animation-width;
+	@include respond(desktop) {
+		animation-name: animation-desktop;
+	}
 	animation-duration: 500ms;
 	animation-fill-mode: forwards;
 	animation-timing-function: ease;
@@ -39,7 +53,7 @@ nav {
 		li {
 			list-style: none;
 			text-align: left;
-			padding: 1em 0;
+			padding: 1.2rem 0;
 			border-bottom: 1px solid white;
 			a {
 				color: white;
@@ -49,13 +63,30 @@ nav {
 		}
 	}
 	button {
+		opacity: 0;
+		animation-name: animation-opacity;
+		animation-duration: 500ms;
+		animation-delay: 500ms;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease;
 		background-color: transparent;
 		border: none;
-		padding: 1em;
+		padding: 1rem;
+		// margin-top: 1rem;
 		svg {
-			stroke: white;
-			stroke-width: 2px;
-			// transition: var(--transition);
+			height: 40px;
+			width: 40px;
 		}
+	}
+}
+
+.menu--burger {
+	svg {
+		stroke: black;
+		stroke-width: 1px;
+	}
+	&--close {
+		stroke: white;
+		stroke-width: 3px;
 	}
 }
