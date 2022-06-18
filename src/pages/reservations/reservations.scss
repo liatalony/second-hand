@@ -1,12 +1,13 @@
 @import "../../sass/partials/abstracts/mixins";
 
 .reservations {
-	max-width: 600px;
-	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+	flex-grow: 1;
+	justify-content: space-between;
+	max-width: 600px;
+	margin: 0 auto;
 	padding: 0 var(--padding);
-	// align-items: flex-start;
 	@include respond(desktop) {
 		// display: grid;
 		align-items: center;

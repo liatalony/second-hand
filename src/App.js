@@ -100,7 +100,7 @@ function App() {
 					<Route path={"/shop/:gender"} element={<Shop />} />
 					<Route path={"/shop/:gender/:subCategory"} element={<Shop />} />
 				</Routes>
-				<Footer pages={pages} />
+
 				{/* <footer></footer> */}
 			</>
 		);
@@ -134,6 +134,7 @@ function App() {
 				<Route path={"/*"} element={<ShopPage />} />
 				<Route path={"/dashboard/*"} element={<DashboardPage />} />
 			</Routes>
+			<Footer pages={pages} />
 		</div>
 	);
 }
