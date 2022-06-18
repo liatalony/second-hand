@@ -10,6 +10,7 @@ function Reservations() {
 	const [itemList, setItemsList] = useState();
 	let reservations = JSON.parse(localStorage.getItem("wrinkle-favourites"));
 	let items = [];
+
 	// let reservation_id;
 
 	useEffect(() => {
@@ -20,13 +21,13 @@ function Reservations() {
 
 		if (reservations.length > 0) {
 			try {
-				axios.get("/products/saved/cart").then((res)=>{
-					if (res.data[0].product_id){
-						items = res.data.filter(product => {
-							return reservations.find(item => {
+				axios.get("/products/saved/cart").then((res) => {
+					if (res.data[0].product_id) {
+						items = res.data.filter((product) => {
+							return reservations.find((item) => {
 								return product.product_id === item.id;
-							})
-						})
+							});
+						});
 					}
 					setItemsList(items);
 				});
@@ -38,9 +39,9 @@ function Reservations() {
 		}
 	}, []);
 
-	const openPopup = () =>{
-		setPopup(prev => !prev);
-	}
+	const openPopup = () => {
+		setPopup((prev) => !prev);
+	};
 
 	const handleReserve = async (e) => {
 		e.preventDefault();
@@ -49,33 +50,42 @@ function Reservations() {
 			console.log(response.data);
 			// reservation_id = response.data;
 			let itemsArray = [];
-			itemList.map(item=>{
-				itemsArray.push(item.product_id)
-			})
+			itemList.map((item) => {
+				itemsArray.push(item.product_id);
+			});
 			if (response.data) {
-
-				const res = await axios.post("/products/saved/cart/reserve", {items:itemsArray, reservation_id:response.data, user_email:email}, {})
+				const res = await axios.post(
+					"/products/saved/cart/reserve",
+					{
+						items: itemsArray,
+						reservation_id: response.data,
+						user_email: email,
+					},
+					{}
+				);
 				console.log(res.data);
 				if (res.data) {
 					localStorage.setItem("wrinkle-cart", "[]");
-					setItemsList(false)
+					setItemsList(false);
 					openPopup();
 				}
 			}
 		} catch (error) {
-			setItemsList(false)
+			setItemsList(false);
 			console.log(error.message);
 		}
-	}
+	};
 
 	return (
 		<div className="reservations">
 			<h1>Reservations</h1>
 			<div className="item-list-container">
 				<div className="item-list">
-					{!itemList ? <p>No items in the bag</p> : (
-						itemList.map(item => {
-							return <Item key={"item" + item.product_id} details={item} />
+					{!itemList ? (
+						<p>No items in the bag</p>
+					) : (
+						itemList.map((item) => {
+							return <Item key={"item" + item.product_id} details={item} />;
 						})
 					)}
 				</div>
@@ -83,9 +93,7 @@ function Reservations() {
 			</div>
 			<div>
 				<div>
-					<h2>Reservation summary</h2>
-					<h3>5 items</h3>
-					<h3>Total</h3>
+					<h2>Reservation information</h2>
 					<p>
 						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
 						incidunt maiores, officia nisi molestiae illo fugit totam quasi
@@ -95,7 +103,9 @@ function Reservations() {
 				</div>
 				<div className="container--buy--desktop">
 					<div className="button">
-						<button className="btn btn--primary" onClick={openPopup}>Reserve Bag</button>
+						<button className="btn btn--primary" onClick={openPopup}>
+							Reserve Bag
+						</button>
 					</div>
 				</div>
 			</div>
@@ -106,7 +116,9 @@ function Reservations() {
 						<h1 className="price">kr. 100000</h1>
 					</div>
 					<div className="button">
-						<button className="btn btn--primary" onClick={openPopup}>Reserve Bag</button>
+						<button className="btn btn--primary" onClick={openPopup}>
+							Reserve Bag
+						</button>
 					</div>
 				</div>
 			</section>
@@ -128,8 +140,11 @@ function Reservations() {
 										setEmail(e.target.value);
 									}}
 								></input>
-							</div>				<div className="button">
-								<button className="btn btn--primary" onClick={handleReserve}>Reserve Bag</button>
+							</div>{" "}
+							<div className="button">
+								<button className="btn btn--primary" onClick={handleReserve}>
+									Reserve Bag
+								</button>
 							</div>
 						</form>
 					</div>

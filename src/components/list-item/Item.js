@@ -15,11 +15,11 @@ const Item = (props) => {
 			id: props.details.product_id,
 			name: props.details.product_headline,
 			price: props.details.product_price,
-		}
+		};
 		if (!liked) {
 			favourites.push(product);
-		}else if(liked){
-			favourites = favourites.filter(item => item.id !==product.id);
+		} else if (liked) {
+			favourites = favourites.filter((item) => item.id !== product.id);
 		}
 		localStorage.setItem("wrinkle-favourites", JSON.stringify(favourites));
 		setLiked((prev) => !prev);
@@ -31,7 +31,10 @@ const Item = (props) => {
 		}
 		favourites = JSON.parse(localStorage.getItem("wrinkle-favourites"));
 
-		if (favourites.filter(item => item.id === props.details.product_id).length > 0) {
+		if (
+			favourites.filter((item) => item.id === props.details.product_id).length >
+			0
+		) {
 			setLiked(true);
 		}
 		if (props.status) {
@@ -50,7 +53,13 @@ const Item = (props) => {
 						: "image-container image-container--inactive"
 				}
 			>
-				<Link to={!props.lead ? `/shop/product/single-product/${props.details.product_id}` : `/dashboard//items/view/single-item/${props.details.product_id}`}>
+				<Link
+					to={
+						!props.lead
+							? `/shop/product/single-product/${props.details.product_id}`
+							: `/dashboard//items/view/single-item/${props.details.product_id}`
+					}
+				>
 					<div
 						className="item-image"
 						style={{
@@ -70,7 +79,15 @@ const Item = (props) => {
 			</div>
 			<div className="item-details">
 				<h4>
-					<Link to={!props.lead ? `/shop/product/single-product/${props.details.product_id}` : `/dashboard//items/view/single-item/${props.details.product_id}`}>{props.details.product_headline}</Link>
+					<Link
+						to={
+							!props.lead
+								? `/shop/product/single-product/${props.details.product_id}`
+								: `/dashboard//items/view/single-item/${props.details.product_id}`
+						}
+					>
+						{props.details.product_headline}
+					</Link>
 				</h4>
 				<p className="price">
 					kr. {props.details.product_price}
