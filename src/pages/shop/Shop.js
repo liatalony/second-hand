@@ -1,6 +1,6 @@
 import { useState, React, useEffect } from "react";
-import Categories from "../../components/categories/Categories";
-import Filter from "../../components/filter/Filter";
+// import Categories from "../../components/categories/Categories";
+// import Filter from "../../components/filter/Filter";
 import Item from "../../components/list-item/Item";
 import "./shop.scss";
 import { Link, useParams } from "react-router-dom";
@@ -14,15 +14,24 @@ const Shop = () => {
 	document.title = title;
 	// const [open, setOpen] = useState(false);
 	const [itemsList, setItemsList] = useState(false);
-	const [openCategories, setOpenCategories] = useState(false);
-	const [openFilter, setOpenFilter] = useState(false);
+	// const [openCategories, setOpenCategories] = useState(false);
+	// const [openFilter, setOpenFilter] = useState(false);
 	useEffect(() => {
 		try {
 			setItemsList(false);
-			if(gender && !subCategory){
-				axios.get(`/products/shop/${gender}`).then(res => { setItemsList(res.data)})
-			}else if(gender && subCategory){
-				axios.get(`/products/shop/${gender}/${subCategory}`).then(res => { console.log(subCategory); if(res.data){setItemsList(res.data)}else{setItemsList(false)}})
+			if (gender && !subCategory) {
+				axios.get(`/products/shop/${gender}`).then((res) => {
+					setItemsList(res.data);
+				});
+			} else if (gender && subCategory) {
+				axios.get(`/products/shop/${gender}/${subCategory}`).then((res) => {
+					console.log(subCategory);
+					if (res.data) {
+						setItemsList(res.data);
+					} else {
+						setItemsList(false);
+					}
+				});
 			}
 			setItemsList(false);
 		} catch (error) {
@@ -32,10 +41,19 @@ const Shop = () => {
 	useEffect(() => {
 		try {
 			setItemsList(false);
-			if(gender && !subCategory){
-				axios.get(`/products/shop/${gender}`).then(res => { setItemsList(res.data)})
-			}else if(gender && subCategory){
-				axios.get(`/products/shop/${gender}/${subCategory}`).then(res => { console.log(subCategory); if(res.data){setItemsList(res.data)}else{setItemsList(false)}})
+			if (gender && !subCategory) {
+				axios.get(`/products/shop/${gender}`).then((res) => {
+					setItemsList(res.data);
+				});
+			} else if (gender && subCategory) {
+				axios.get(`/products/shop/${gender}/${subCategory}`).then((res) => {
+					console.log(subCategory);
+					if (res.data) {
+						setItemsList(res.data);
+					} else {
+						setItemsList(false);
+					}
+				});
 			}
 			setItemsList(false);
 		} catch (error) {
@@ -47,13 +65,13 @@ const Shop = () => {
 	// 	console.log(gender, subCategory);
 	// }
 
-	function handleCategories() {
-		setOpenCategories((prev) => !prev);
-	}
+	// function handleCategories() {
+	// 	setOpenCategories((prev) => !prev);
+	// }
 
-	function handleFilter() {
-		setOpenFilter((prev) => !prev);
-	}
+	// function handleFilter() {
+	// 	setOpenFilter((prev) => !prev);
+	// }
 
 	return (
 		<div className="shop">
@@ -82,19 +100,19 @@ const Shop = () => {
 						Accessories
 					</Link>
 				</div>
-				<div className="filters">
+				{/* <div className="filters">
 					<button className="btn btn--secondary" onClick={handleCategories}>
 						Categories
 					</button>
 					<button className="btn btn--secondary" onClick={handleFilter}>
 						Filter &#38; sort
 					</button>
-				</div>
-				{openCategories && (
+				</div> */}
+				{/* {openCategories && (
 					<div>
 						<Categories />
 					</div>
-				)}
+				)} */}
 				{!itemsList ? (
 					<p>There are no products at the moment</p>
 				) : (
@@ -105,11 +123,11 @@ const Shop = () => {
 					</div>
 				)}
 
-				{openFilter && (
+				{/* {openFilter && (
 					<div>
 						<Filter />
 					</div>
-				)}
+				)} */}
 			</div>
 		</div>
 	);
