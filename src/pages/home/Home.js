@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Item from "../../components/list-item/Item";
 import "./home.scss";
-import Banner from "../../assets/banner-eight.jpeg";
+import Banner from "../../assets/banner-six.jpeg";
 import { Link } from "react-router-dom";
 import axios from "../../api/axios";
 
