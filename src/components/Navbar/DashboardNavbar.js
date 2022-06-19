@@ -1,6 +1,7 @@
 import { React, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Burger from "../../assets/icons/burger-menu.svg";
+import BurgerClose from "../../assets/icons/cross-white.svg";
 import AuthContext from "../../context/AuthProvider";
 
 import "./navbar.scss";
@@ -28,7 +29,7 @@ const Navbar = () => {
 			{open && (
 				<nav>
 					<button className="menu--burger" onClick={handleNavigation}>
-						<img src={Burger} alt="Secont hand shop name" />
+						<img src={BurgerClose} alt="Secont hand shop name" />
 					</button>
 
 					<ul>
