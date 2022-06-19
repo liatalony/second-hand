@@ -3,11 +3,15 @@ import axios from "../../api/axios";
 import React, { useState, useEffect } from "react";
 import UploadImage from "../../assets/icons/image-upload.svg";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import Loading from "../../assets/loading.gif";
 // import FormData from "form-data";
 import "./forms.scss";
 
 const AddItemForm = () => {
 	const [formFields, setFormFields] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+	const navigate = useNavigate();
 	const {auth} = useAuth();
 	const [selectedFile, setSelectedFile] = useState({
 		inputId: "",
@@ -31,6 +35,7 @@ const AddItemForm = () => {
 	const [itemImage3, setItemImage3] = useState(false);
 
 	useEffect(() => {
+		setIsLoading(false);
 		try {
 			axios.get("/products/add").then((res) => {
 				setFormFields(res.data);
@@ -77,6 +82,7 @@ const AddItemForm = () => {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+		setIsLoading(true);
 		const data = new FormData();
 		data.append("user_id", auth.id);
 		data.append("item_name", itemName);
@@ -96,6 +102,9 @@ const AddItemForm = () => {
 		try {
 			const response = await axios.post("/products/add", data, {});
 			console.log(response.data);
+			if (response.data) {
+				navigate("/dashboard/my-items")
+			}
 		} catch (error) {
 			console.log(error.response);
 		}
@@ -384,7 +393,7 @@ const AddItemForm = () => {
 					</div>
 					<div className="field">
 						<button type={"submit"} className={"btn btn--primary"}>
-							Submit
+							{isLoading ? <img className="Loading-gif" src={Loading} alt="loading" /> : "Submit"}
 						</button>
 					</div>
 				</form>

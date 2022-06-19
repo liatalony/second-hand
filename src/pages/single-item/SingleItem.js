@@ -158,7 +158,7 @@ const SingleItem = () => {
 											}
 											onClick={handleReserve}
 										>
-											{isActive ? "Added" : "Add to bag"}
+											{isActive ? "Remove from bag" : "Add to bag"}
 										</button>
 									</div>
 								</div>
@@ -201,7 +201,7 @@ const SingleItem = () => {
 									}
 									onClick={handleReserve}
 								>
-									{isActive ? "Added" : "Add to bag"}
+									{isActive ? "Remove from bag" : "Add to bag"}
 								</button>
 							</div>
 						</div>

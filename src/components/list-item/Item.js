@@ -100,9 +100,11 @@ const Item = (props) => {
 					</Link>
 				</h4>
 				<p className="price">kr. {props.details.product_price}</p>
+				{props.details.status != "active" && (
 				<p>
 					<span className="item-status">{props.details.status}</span>
 				</p>
+				)}
 				<div>
 					{props.shop_status == "pending" && (
 						<div className="button-admin-container">
