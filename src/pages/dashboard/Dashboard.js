@@ -27,15 +27,9 @@ const Dashboard = () => {
 					<Route element={<RequireAuth allowedRole={2} />}>
 						<Route path={"/items"} element={<AllItems />} />
 						<Route path={"/items/view/:status"} element={<AllItems />} />
-						<Route
-							path={"/items/view/single-item/:id"}
-							element={<AllItems />}
-						/>
+						<Route path={"/items/view/single-item/:id"} element={<AllItems />}/>
 						<Route path={"/reservations"} element={<ReservationsList />} />
-						<Route
-							path={"/reservations/:id"}
-							element={<ReservationDetails />}
-						/>
+						<Route path={"/reservations/:id"} element={<ReservationDetails />}/>
 					</Route>
 				</Route>
 			</Routes>
