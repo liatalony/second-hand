@@ -22,12 +22,12 @@ const SingleItem = () => {
 			id: productDetails.product[0].product_id,
 			name: productDetails.product[0].product_headline,
 			price: productDetails.product[0].product_price,
-		}
+		};
 		console.log(product);
 		if (!reserved) {
 			reservations.push(product);
-		}else if(reserved){
-			reservations = reservations.filter(item => item.id !==product.id);
+		} else if (reserved) {
+			reservations = reservations.filter((item) => item.id !== product.id);
 		}
 		localStorage.setItem("wrinkle-cart", JSON.stringify(reservations));
 		setReserved((prev) => !prev);
@@ -39,24 +39,31 @@ const SingleItem = () => {
 		}
 		reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
 
-		if (reservations.filter(item => item.id === productDetails.product_id).length > 0) {
+		if (
+			reservations.filter((item) => item.id === productDetails.product_id)
+				.length > 0
+		) {
 			setReserved(true);
 		}
 	}, []);
 
 	useEffect(() => {
 		try {
-			axios.get(
-				`/products/single-product/${productId.id}`,
-			).then((res)=>{
-				console.log(res.data);
-				setProductDetails(res.data);
-				// setProductImages(res.data[0]);
-			}).then(()=>{
-				axios.get(`/products/single-product/${productId.id}/similar`).then(res =>{
+			axios
+				.get(`/products/single-product/${productId.id}`)
+				.then((res) => {
 					console.log(res.data);
-					setSimilar(res.data)})
-			})
+					setProductDetails(res.data);
+					// setProductImages(res.data[0]);
+				})
+				.then(() => {
+					axios
+						.get(`/products/single-product/${productId.id}/similar`)
+						.then((res) => {
+							console.log(res.data);
+							setSimilar(res.data);
+						});
+				});
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -144,9 +151,13 @@ const SingleItem = () => {
 								<h2>Similar Items</h2>
 							</div>
 							<div className={"similar-items-list"}>
-								{!similar ? <p>No similar products at the moment</p> : (
-									similar.map(item=>{
-										return <Item key={"item" + item.product_id} details={item} /> 
+								{!similar ? (
+									<p>No similar products at the moment</p>
+								) : (
+									similar.map((item) => {
+										return (
+											<Item key={"item" + item.product_id} details={item} />
+										);
 									})
 								)}
 							</div>
@@ -166,7 +177,7 @@ const SingleItem = () => {
 							<div className="button">
 								<button
 									className={
-										// isActive ? "btn btn--checkout" : 
+										// isActive ? "btn btn--checkout" :
 										"btn btn--primary"
 									}
 									// onClick={addToCart}

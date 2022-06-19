@@ -84,7 +84,7 @@ const Item = (props) => {
 						to={
 							!props.lead
 								? `/shop/product/single-product/${props.details.product_id}`
-								: `/dashboard//items/view/single-item/${props.details.product_id}`
+								: `/dashboard/items/view/single-item/${props.details.product_id}`
 						}
 					>
 						{props.details.product_headline}
@@ -92,9 +92,8 @@ const Item = (props) => {
 				</h4>
 				<p className="price">
 					kr. {props.details.product_price}
-					<span className="status"></span>
+					<span className="status"> {props.details.status}</span>
 				</p>
-				<h3>status{props.details.status}</h3>
 			</div>
 		</div>
 	);
