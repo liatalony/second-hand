@@ -7,7 +7,7 @@
 }
 
 // animation loop for cards
-@for $i from 1 through 10 {
+@for $i from 1 through 20 {
 	.Item {
 		&:nth-child(#{$i}) {
 			// Delay increases as items loop.

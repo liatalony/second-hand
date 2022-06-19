@@ -8,17 +8,20 @@ import axios from "../../api/axios";
 const Home = () => {
 	const [itemList, setItemList] = useState(false);
 
-	useEffect(()=>{
+	const title = "Wrinkle | Home";
+	document.title = title;
+
+	useEffect(() => {
 		try {
-			axios.get("/products/shop").then(res =>{
+			axios.get("/products/shop").then((res) => {
 				console.log(res.data);
 				setItemList(res.data);
-			})
+			});
 			setItemList(false);
 		} catch (error) {
 			console.log(error.message);
 		}
-	},[])
+	}, []);
 
 	return (
 		<div className="Home">
@@ -46,9 +49,11 @@ const Home = () => {
 				<div className="title">
 					<h3>New products</h3>
 				</div>
-				{!itemList ? <p>No items to show...</p> : (
+				{!itemList ? (
+					<p>No items to show...</p>
+				) : (
 					<div className="item-list">
-						{itemList.map(item=>{
+						{itemList.map((item) => {
 							return <Item key={"item" + item.product_id} details={item} />;
 						})}
 					</div>
