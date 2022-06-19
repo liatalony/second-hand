@@ -97,10 +97,10 @@ function Reservations() {
 				<div>
 					<h2>Reservation information</h2>
 					<p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
-						incidunt maiores, officia nisi molestiae illo fugit totam quasi
-						dolore, rem a architecto dolorum numquam necessitatibus tempora
-						laudantium facilis eveniet! Animi.
+						By submitting your reservation below, you agree to visit our store
+						within 24 hours to try on and pay for your items if you like them.
+						After this time your items will be unavailable for collection and
+						available to others for reservation.
 					</p>
 				</div>
 				<div className="container--buy--desktop">
