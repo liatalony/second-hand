@@ -1,6 +1,8 @@
 import { useState, useEffect, React } from "react";
 import Item from "../../components/list-item/Item";
 import axios from "../../api/axios";
+import { ReactSVG } from "react-svg";
+import BurgerClose from "../../assets/icons/cross-cancel.svg";
 import "./reservations.scss";
 
 function Reservations() {
@@ -125,7 +127,9 @@ function Reservations() {
 			{popup && (
 				<div className="popup">
 					<div className="popup-window">
-						<button onClick={openPopup}>X</button>
+						<button onClick={openPopup} className="popup-close">
+							<ReactSVG src={BurgerClose} />
+						</button>
 						<form>
 							<div className="field">
 								<label htmlFor={"email"}>Email</label>

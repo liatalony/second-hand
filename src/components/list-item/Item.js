@@ -16,6 +16,7 @@ const Item = (props) => {
 			name: props.details.product_headline,
 			price: props.details.product_price,
 		};
+		console.log(product);
 		if (!liked) {
 			favourites.push(product);
 		} else if (liked) {
@@ -91,8 +92,9 @@ const Item = (props) => {
 				</h4>
 				<p className="price">
 					kr. {props.details.product_price}
-					<span className="status"> {props.status}</span>
+					<span className="status"></span>
 				</p>
+				<h3>status{props.details.status}</h3>
 			</div>
 		</div>
 	);

@@ -76,7 +76,7 @@
 	margin-bottom: 1rem;
 }
 
-.popup{
+.popup {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -85,17 +85,30 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(0, 0, 0, 0.6);
 
-	&-window{
+	&-window {
 		background-color: white;
 		width: max-content;
 		padding: 15px;
 		border-radius: 15px;
 		margin: auto;
-	}
+		.popup-close {
+			padding: 0;
+			border: none;
+			background-color: transparent;
+			cursor: pointer;
+			svg {
+				height: 30px;
+				width: 30px;
+				&:hover {
+					opacity: 0.5;
+				}
+			}
+		}
 
-	form{
-		margin: 0;
+		form {
+			margin: 0;
+		}
 	}
 }
