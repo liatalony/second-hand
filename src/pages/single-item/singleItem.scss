@@ -63,8 +63,7 @@
 		scroll-snap-align: center;
 	}
 	@include respond(desktop) {
-		all: unset;
-		// max-width: 800px;
+		// all: unset;
 		// padding: 0 2em;
 		// margin: auto;
 		// display: grid;
