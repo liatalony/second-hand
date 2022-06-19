@@ -114,8 +114,7 @@ function Reservations() {
 			<section className="container--buy">
 				<div className="buy">
 					<div className="name-price">
-						<h1 className="title">Total</h1>
-						<h1 className="price">kr. 100000</h1>
+						<h2>Click to confirm your reservation</h2>
 					</div>
 					<div className="button">
 						<button className="btn btn--primary" onClick={openPopup}>
