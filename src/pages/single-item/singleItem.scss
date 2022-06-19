@@ -44,24 +44,30 @@
 // }
 
 .similar-items-list {
-	display: grid;
-	// gap: 0.2rem;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	display: grid;
-	max-width: 100%;
-	gap: var(--gap);
-	grid-template-columns: 0rem;
-	grid-auto-flow: column;
-	grid-auto-columns: 80vw;
-	grid-auto-rows: 1fr;
-	overflow-x: scroll;
-	padding: 1.5em 2em 1.5em 2em;
-	padding-bottom: 1.5rem;
-	scroll-behavior: smooth;
-	scroll-snap-type: x proximity;
-	& > * {
-		scroll-snap-align: center;
+	display: flex;
+	// align-items: center;
+	// justify-content: center;
+	div.Item {
+		width: 200px;
 	}
+	// display: grid;
+	// // gap: 0.2rem;
+	// grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	// display: grid;
+	// max-width: 100%;
+	// gap: var(--gap);
+	// grid-template-columns: 0rem;
+	// grid-auto-flow: column;
+	// grid-auto-columns: 80vw;
+	// grid-auto-rows: 1fr;
+	// overflow-x: scroll;
+	// padding: 1.5em 2em 1.5em 2em;
+	// padding-bottom: 1.5rem;
+	// scroll-behavior: smooth;
+	// scroll-snap-type: x proximity;
+	// & > * {
+	// 	scroll-snap-align: center;
+	// }
 	@include respond(desktop) {
 		// all: unset;
 		// padding: 0 2em;

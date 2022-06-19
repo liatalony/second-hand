@@ -156,7 +156,9 @@ const SingleItem = () => {
 								) : (
 									similar.map((item) => {
 										return (
-											<Item key={"item" + item.product_id} details={item} />
+											<Link>
+												<Item key={"item" + item.product_id} details={item} />
+											</Link>
 										);
 									})
 								)}
