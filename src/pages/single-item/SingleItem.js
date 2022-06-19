@@ -4,12 +4,14 @@ import "./singleItem.scss";
 // import Item from "../../components/list-item/Item";
 import axios from "../../api/axios";
 import { useParams } from "react-router-dom";
+import Item from "../../components/list-item/Item";
 
 const SingleItem = () => {
 	const [productDetails, setProductDetails] = useState(false);
 	// const [productImages, setProductImages] = useState(false);
 	const productId = useParams();
 	const [reserved, setReserved] = useState(false);
+	const [similar, setSimilar] = useState(false);
 	let reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
 	// const [isActive, setIsActive] = useState(false);
 
@@ -50,6 +52,10 @@ const SingleItem = () => {
 				console.log(res.data);
 				setProductDetails(res.data);
 				// setProductImages(res.data[0]);
+			}).then(()=>{
+				axios.get(`/products/single-product/${productId.id}/similar`).then(res =>{
+					console.log(res.data);
+					setSimilar(res.data)})
 			})
 		} catch (error) {
 			console.log(error.message);
@@ -138,11 +144,11 @@ const SingleItem = () => {
 								<h2>Similar Items</h2>
 							</div>
 							<div className={"similar-items-list"}>
-								{/* <Item />
-								<Item />
-								<Item />
-								<Item />
-								<Item /> */}
+								{!similar ? <p>No similar products at the moment</p> : (
+									similar.map(item=>{
+										return <Item key={"item" + item.product_id} details={item} /> 
+									})
+								)}
 							</div>
 						</div>
 					</section>
