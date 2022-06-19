@@ -99,18 +99,23 @@ const Item = (props) => {
 						{props.details.product_headline}
 					</Link>
 				</h4>
-				<p className="price">
-					kr. {props.details.product_price}
-					<span className="status"> {props.details.status}</span>
+				<p className="price">kr. {props.details.product_price}</p>
+				<p>
+					<span className="item-status">{props.details.status}</span>
 				</p>
-			</div>
-			{props.shop_status == "pending" && (
-				<div className="button">
-					<button className="btn btn--primary" onClick={handleStatus}>
-						Approve
-					</button>
+				<div>
+					{props.shop_status == "pending" && (
+						<div className="button-admin-container">
+							<button
+								className="btn btn--primary btn--admin"
+								onClick={handleStatus}
+							>
+								Approve
+							</button>
+						</div>
+					)}
 				</div>
-			)}
+			</div>
 		</div>
 	);
 };

@@ -28,6 +28,11 @@
 	font-weight: var(--font-weight-semibold);
 }
 
+.item-status {
+	color: var(--color-warning);
+	font-weight: var(--font-weight-semibold);
+}
+
 .favourites {
 	flex-grow: 1;
 }

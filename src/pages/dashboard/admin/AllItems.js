@@ -8,30 +8,34 @@ const AllItems = () => {
 	let { status } = useParams();
 	const [itemList, setItemList] = useState(false);
 	const axiosPrivate = useAxiosPrivate();
-	
-	useEffect(()=>{
+
+	useEffect(() => {
 		try {
-			axiosPrivate.get(`/products/dashboard/all-items/${status}`).then(res =>{
-				console.log(res.data);
-				setItemList(res.data);
-			})
+			axiosPrivate
+				.get(`/products/dashboard/all-items/${status}`)
+				.then((res) => {
+					console.log(res.data);
+					setItemList(res.data);
+				});
 		} catch (error) {
 			console.log(error.message);
 		}
 		setItemList(false);
-	},[])
-	useEffect(()=>{
+	}, []);
+	useEffect(() => {
 		try {
-			axiosPrivate.get(`/products/dashboard/all-items/${status}`).then(res =>{
-				console.log(res.data);
-				setItemList(res.data);
-			})
+			axiosPrivate
+				.get(`/products/dashboard/all-items/${status}`)
+				.then((res) => {
+					console.log(res.data);
+					setItemList(res.data);
+				});
 		} catch (error) {
 			console.log(error.message);
 		}
 		setItemList(false);
-	},[status])
-	
+	}, [status]);
+
 	return (
 		<div className="Dashboard all-items">
 			<h1>Admin - All Items</h1>
@@ -61,13 +65,20 @@ const AllItems = () => {
 				) : (
 					<div className="item-list">
 						{itemList.map((item) => {
-							return <Item key={"item" + item.product_id} details={item} lead={"form"} shop_status={status} />;
+							return (
+								<Item
+									key={"item" + item.product_id}
+									details={item}
+									lead={"form"}
+									shop_status={status}
+								/>
+							);
 						})}
 					</div>
 				)}
 			</div>
 		</div>
 	);
-}
+};
 
 export default AllItems;
