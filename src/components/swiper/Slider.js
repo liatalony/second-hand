@@ -46,7 +46,6 @@ const Slider = (props) => {
 		);
 	}
 
-	console.log(props);
 	return (
 		<>
 			<Swiper

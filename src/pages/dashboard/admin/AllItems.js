@@ -61,7 +61,7 @@ const AllItems = () => {
 				) : (
 					<div className="item-list">
 						{itemList.map((item) => {
-							return <Item key={"item" + item.product_id} details={item} lead={"form"} />;
+							return <Item key={"item" + item.product_id} details={item} lead={"form"} shop_status={status} />;
 						})}
 					</div>
 				)}

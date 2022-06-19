@@ -3,6 +3,7 @@ import Heart from "../../assets/heart.svg";
 import { ReactSVG } from "react-svg";
 import "./item.scss";
 import { Link } from "react-router-dom";
+import { axiosPrivate } from "../../api/axios";
 
 const Item = (props) => {
 	const [liked, setLiked] = useState(false);
@@ -43,6 +44,12 @@ const Item = (props) => {
 	}, []);
 
 	if (!props.details) return <h2>Loading</h2>;
+
+	const handleStatus = () => {
+		axiosPrivate.get(`/products/dashboard/items/approve/${props.details.product_id}`).then(res=>{
+			console.log(res.data);
+		})
+	}
 
 	return (
 		<div className="Item" data-testid="item">
@@ -94,6 +101,10 @@ const Item = (props) => {
 					<span className="status"> {props.status}</span>
 				</p>
 			</div>
+			{props.shop_status == "pending" && (
+				<div className="button">
+					<button className="btn btn--primary" onClick={handleStatus}>Approve</button>
+				</div>			)}
 		</div>
 	);
 };
