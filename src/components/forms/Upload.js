@@ -317,6 +317,7 @@ const AddItemForm = () => {
 					<div className="image-uploads">
 						<div className="field">
 							<label htmlFor="image1">
+								{" "}
 								<div
 									className="uploaded-image"
 									style={{
