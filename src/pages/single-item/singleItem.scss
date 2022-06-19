@@ -39,18 +39,23 @@
 }
 
 .similar-items-list {
-	// display: flex;
-	// flex-wrap: nowrap;
-	// width: 100%;
+	display: flex;
+	flex-wrap: nowrap;
+	width: 100%;
 	overflow-x: auto;
-	display: grid;
-	gap: var(--gap);
-	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	// display: grid;
+	// gap: var(--gap);
+	// grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 	margin: 0 auto;
-	// .Item {
-	// 	margin: 15px;
-	// 	width: 100%;
-	// }
+	div.Item {
+		margin: 0 5px;
+		min-width: 150px;
+		@include respond(desktop) {
+			min-width: 10px;
+			width: 200px;
+
+		}
+	}
 	@include respond(desktop) {
 		display: flex;
 		div.Item {
