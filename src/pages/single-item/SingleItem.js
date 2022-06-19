@@ -22,7 +22,7 @@ const SingleItem = () => {
 			id: productDetails.product[0].product_id,
 			name: productDetails.product[0].product_headline,
 			price: productDetails.product[0].product_price,
-		}
+		};
 		if (!reserved) {
 			reservations.push(product);
 		} else if (reserved) {
@@ -35,51 +35,59 @@ const SingleItem = () => {
 
 	useEffect(() => {
 		try {
-			axios.get(
-				`/products/single-product/${productId.id}`,
-			).then((res)=>{
-				setProductDetails(res.data);
-				if (!localStorage.getItem("wrinkle-cart")) {
-					localStorage.setItem("wrinkle-cart", "[]");
-				}
-				reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
-				let product_id =  res.data.product[0].product_id;
-		
-				if (reservations.filter(item => item.id == product_id).length > 0) {
-					setReserved(true);
-					setIsActive(true);
-				}
-				// setProductImages(res.data[0]);
-			}).then(()=>{
-				axios.get(`/products/single-product/${productId.id}/similar`).then(res =>{
-					setSimilar(res.data)})
-			})
+			axios
+				.get(`/products/single-product/${productId.id}`)
+				.then((res) => {
+					setProductDetails(res.data);
+					if (!localStorage.getItem("wrinkle-cart")) {
+						localStorage.setItem("wrinkle-cart", "[]");
+					}
+					reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
+					let product_id = res.data.product[0].product_id;
+
+					if (reservations.filter((item) => item.id == product_id).length > 0) {
+						setReserved(true);
+						setIsActive(true);
+					}
+					// setProductImages(res.data[0]);
+				})
+				.then(() => {
+					axios
+						.get(`/products/single-product/${productId.id}/similar`)
+						.then((res) => {
+							setSimilar(res.data);
+						});
+				});
 		} catch (error) {
 			console.log(error.message);
 		}
 	}, []);
 
 	useEffect(() => {
-		setProductDetails(false)
-		setIsActive(false)
-		setReserved(false)
+		setProductDetails(false);
+		setIsActive(false);
+		setReserved(false);
 		try {
-			axios.get(
-				`/products/single-product/${productId.id}`,
-			).then((res)=>{
-				setProductDetails(res.data);
-				reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
-				let product_id =  res.data.product[0].product_id;
-		
-				if (reservations.filter(item => item.id == product_id).length > 0) {
-					setReserved(true);
-					setIsActive(true);
-				}
-				// setProductImages(res.data[0]);
-			}).then(()=>{
-				axios.get(`/products/single-product/${productId.id}/similar`).then(res =>{
-					setSimilar(res.data)})
-			})
+			axios
+				.get(`/products/single-product/${productId.id}`)
+				.then((res) => {
+					setProductDetails(res.data);
+					reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
+					let product_id = res.data.product[0].product_id;
+
+					if (reservations.filter((item) => item.id == product_id).length > 0) {
+						setReserved(true);
+						setIsActive(true);
+					}
+					// setProductImages(res.data[0]);
+				})
+				.then(() => {
+					axios
+						.get(`/products/single-product/${productId.id}/similar`)
+						.then((res) => {
+							setSimilar(res.data);
+						});
+				});
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -146,14 +154,11 @@ const SingleItem = () => {
 									<div className="button">
 										<button
 											className={
-												isActive ? "btn btn--checkout" :
-													"btn btn--primary"
+												isActive ? "btn btn--checkout" : "btn btn--primary"
 											}
 											onClick={handleReserve}
 										>
-											{isActive ? "Added" :
-												"Add to bag"
-											}
+											{isActive ? "Added" : "Add to bag"}
 										</button>
 									</div>
 								</div>
@@ -162,7 +167,7 @@ const SingleItem = () => {
 					</div>
 					<section className="container--similar-items">
 						<div className="similar-items">
-							<div className="title">
+							<div className="similar-items-title">
 								<h2>Similar Items</h2>
 							</div>
 							<div className={"similar-items-list"}>
@@ -192,14 +197,11 @@ const SingleItem = () => {
 							<div className="button">
 								<button
 									className={
-										isActive ? "btn btn--checkout" : 
-											"btn btn--primary"
+										isActive ? "btn btn--checkout" : "btn btn--primary"
 									}
 									onClick={handleReserve}
 								>
-									{isActive ? "Added" : 
-										"Add to bag"
-									} 
+									{isActive ? "Added" : "Add to bag"}
 								</button>
 							</div>
 						</div>
