@@ -2,12 +2,13 @@
 import axios from "../../api/axios";
 import React, { useState, useEffect } from "react";
 import UploadImage from "../../assets/icons/image-upload.svg";
+import useAuth from "../../hooks/useAuth";
 // import FormData from "form-data";
 import "./forms.scss";
 
 const AddItemForm = () => {
 	const [formFields, setFormFields] = useState(false);
-
+	const {auth} = useAuth();
 	const [selectedFile, setSelectedFile] = useState({
 		inputId: "",
 		inputFile: false,
@@ -77,6 +78,7 @@ const AddItemForm = () => {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const data = new FormData();
+		data.append("user_id", auth.id);
 		data.append("item_name", itemName);
 		data.append("item_desc", itemDesc);
 		data.append("item_gender", itemCategory);

@@ -30,8 +30,9 @@ const LoginForm = () => {
 
 			const accessToken = response.data.accessToken;
 			const role = response.data.role;
+			const id = response.data.id
 			console.log(response.data);
-			setAuth({ email, pass, role, accessToken });
+			setAuth({ email, pass, role, accessToken, id });
 			navigate(from, { replace: true });
 		} catch (error) {
 			console.log(error.message);
