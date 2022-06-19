@@ -47,10 +47,12 @@ const Item = (props) => {
 	if (!props.details) return <h2>Loading</h2>;
 
 	const handleStatus = () => {
-		axiosPrivate.get(`/products/dashboard/items/approve/${props.details.product_id}`).then(res=>{
-			console.log(res.data);
-		})
-	}
+		axiosPrivate
+			.get(`/products/dashboard/items/approve/${props.details.product_id}`)
+			.then((res) => {
+				console.log(res.data);
+			});
+	};
 
 	return (
 		<div className="Item" data-testid="item">
@@ -65,7 +67,7 @@ const Item = (props) => {
 					to={
 						!props.lead
 							? `/shop/product/single-product/${props.details.product_id}`
-							: `/dashboard//items/view/single-item/${props.details.product_id}`
+							: `/dashboard/items/view/single-item/${props.details.product_id}`
 					}
 				>
 					<div
@@ -104,8 +106,11 @@ const Item = (props) => {
 			</div>
 			{props.shop_status == "pending" && (
 				<div className="button">
-					<button className="btn btn--primary" onClick={handleStatus}>Approve</button>
-				</div>			)}
+					<button className="btn btn--primary" onClick={handleStatus}>
+						Approve
+					</button>
+				</div>
+			)}
 		</div>
 	);
 };
