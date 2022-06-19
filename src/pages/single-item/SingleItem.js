@@ -13,7 +13,7 @@ const SingleItem = () => {
 	const [reserved, setReserved] = useState(false);
 	const [similar, setSimilar] = useState(false);
 	let reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
-	// const [isActive, setIsActive] = useState(false);
+	const [isActive, setIsActive] = useState(false);
 
 	function handleReserve(e) {
 		e.preventDefault();
@@ -22,8 +22,7 @@ const SingleItem = () => {
 			id: productDetails.product[0].product_id,
 			name: productDetails.product[0].product_headline,
 			price: productDetails.product[0].product_price,
-		};
-		console.log(product);
+		}
 		if (!reserved) {
 			reservations.push(product);
 		} else if (reserved) {
@@ -31,43 +30,60 @@ const SingleItem = () => {
 		}
 		localStorage.setItem("wrinkle-cart", JSON.stringify(reservations));
 		setReserved((prev) => !prev);
+		setIsActive(!isActive);
 	}
 
 	useEffect(() => {
-		if (!localStorage.getItem("wrinkle-cart")) {
-			localStorage.setItem("wrinkle-cart", "[]");
-		}
-		reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
-
-		if (
-			reservations.filter((item) => item.id === productDetails.product_id)
-				.length > 0
-		) {
-			setReserved(true);
-		}
-	}, []);
-
-	useEffect(() => {
 		try {
-			axios
-				.get(`/products/single-product/${productId.id}`)
-				.then((res) => {
-					console.log(res.data);
-					setProductDetails(res.data);
-					// setProductImages(res.data[0]);
-				})
-				.then(() => {
-					axios
-						.get(`/products/single-product/${productId.id}/similar`)
-						.then((res) => {
-							console.log(res.data);
-							setSimilar(res.data);
-						});
-				});
+			axios.get(
+				`/products/single-product/${productId.id}`,
+			).then((res)=>{
+				setProductDetails(res.data);
+				if (!localStorage.getItem("wrinkle-cart")) {
+					localStorage.setItem("wrinkle-cart", "[]");
+				}
+				reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
+				let product_id =  res.data.product[0].product_id;
+		
+				if (reservations.filter(item => item.id == product_id).length > 0) {
+					setReserved(true);
+					setIsActive(true);
+				}
+				// setProductImages(res.data[0]);
+			}).then(()=>{
+				axios.get(`/products/single-product/${productId.id}/similar`).then(res =>{
+					setSimilar(res.data)})
+			})
 		} catch (error) {
 			console.log(error.message);
 		}
 	}, []);
+
+	useEffect(() => {
+		setProductDetails(false)
+		setIsActive(false)
+		setReserved(false)
+		try {
+			axios.get(
+				`/products/single-product/${productId.id}`,
+			).then((res)=>{
+				setProductDetails(res.data);
+				reservations = JSON.parse(localStorage.getItem("wrinkle-cart"));
+				let product_id =  res.data.product[0].product_id;
+		
+				if (reservations.filter(item => item.id == product_id).length > 0) {
+					setReserved(true);
+					setIsActive(true);
+				}
+				// setProductImages(res.data[0]);
+			}).then(()=>{
+				axios.get(`/products/single-product/${productId.id}/similar`).then(res =>{
+					setSimilar(res.data)})
+			})
+		} catch (error) {
+			console.log(error.message);
+		}
+	}, [productId]);
 
 	// function addToCart() {
 	// 	setIsActive(!isActive);
@@ -130,15 +146,14 @@ const SingleItem = () => {
 									<div className="button">
 										<button
 											className={
-												// isActive ? "btn btn--checkout" :
-												"btn btn--primary"
+												isActive ? "btn btn--checkout" :
+													"btn btn--primary"
 											}
-											// onClick={addToCart}
 											onClick={handleReserve}
 										>
-											{/* {isActive ? "Added" : */}
-											Add to bag
-											{/* } */}
+											{isActive ? "Added" :
+												"Add to bag"
+											}
 										</button>
 									</div>
 								</div>
@@ -177,15 +192,14 @@ const SingleItem = () => {
 							<div className="button">
 								<button
 									className={
-										// isActive ? "btn btn--checkout" :
-										"btn btn--primary"
+										isActive ? "btn btn--checkout" : 
+											"btn btn--primary"
 									}
-									// onClick={addToCart}
 									onClick={handleReserve}
 								>
-									{/* {isActive ? "Added" :  */}
-									Add to bag
-									{/* } */}
+									{isActive ? "Added" : 
+										"Add to bag"
+									} 
 								</button>
 							</div>
 						</div>
